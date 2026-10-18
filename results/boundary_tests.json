@@ -1,0 +1,12 @@
+{
+ "test_id": "T17_information_boundary_mutation",
+ "unseen_mutation_identical": true,
+ "on_route_mutation_diverged": true,
+ "base_steps": 15,
+ "base_outcome": "success",
+ "unseen_steps": 15,
+ "unseen_outcome": "success",
+ "on_route_steps": 15,
+ "on_route_outcome": "success",
+ "status": "passed"
+}

@@ -1,0 +1,57 @@
+{
+ "experiment": "weight_ablation_E23",
+ "summary": {
+  "V0_base": {
+   "n": 15,
+   "success": 0.0,
+   "collision": 0.0,
+   "no_path": 0.0,
+   "rejected": 0.0,
+   "safe_stop": 1.0,
+   "timeout": 0.0,
+   "any_collision": 0.0,
+   "recovery": null,
+   "n_with_discovery": 0,
+   "mean_steps_success": null
+  },
+  "V1_wu_zero": {
+   "n": 15,
+   "success": 0.0,
+   "collision": 0.0,
+   "no_path": 0.0,
+   "rejected": 0.0,
+   "safe_stop": 1.0,
+   "timeout": 0.0,
+   "any_collision": 0.0,
+   "recovery": null,
+   "n_with_discovery": 0,
+   "mean_steps_success": null
+  },
+  "V2_wr_zero": {
+   "n": 15,
+   "success": 0.0,
+   "collision": 0.0,
+   "no_path": 0.0,
+   "rejected": 0.0,
+   "safe_stop": 1.0,
+   "timeout": 0.0,
+   "any_collision": 0.0,
+   "recovery": null,
+   "n_with_discovery": 0,
+   "mean_steps_success": null
+  },
+  "V4_no_rejection": {
+   "n": 15,
+   "success": 0.0,
+   "collision": 0.0,
+   "no_path": 0.0,
+   "rejected": 0.0,
+   "safe_stop": 1.0,
+   "timeout": 0.0,
+   "any_collision": 0.0,
+   "recovery": null,
+   "n_with_discovery": 0,
+   "mean_steps_success": null
+  }
+ }
+}

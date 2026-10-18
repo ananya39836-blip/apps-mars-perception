@@ -1,0 +1,155 @@
+{
+ "experiment_id": "E13_closed_loop_baseline",
+ "seeds_used": [
+  5220,
+  5221,
+  5222,
+  5223,
+  5224,
+  5225,
+  5226,
+  5227,
+  5228,
+  5229,
+  5230,
+  5231,
+  5232,
+  5233,
+  5234,
+  5235,
+  5236,
+  5237,
+  5238,
+  5239
+ ],
+ "n_scenes": 20,
+ "systems_summary": {
+  "F": {
+   "n_episodes": 20,
+   "success_rate": 0.0,
+   "collision_rate": 0.0,
+   "collision_ci_95": [
+    0.0,
+    0.0
+   ],
+   "wilson_interval": [
+    0.0,
+    0.16113012549493322
+   ],
+   "rule_of_three_bound": 0.15,
+   "no_path_rate": 1.0,
+   "safe_stop_rate": 0.0,
+   "recovery_rate": null
+  },
+  "O": {
+   "n_episodes": 20,
+   "success_rate": 0.9,
+   "collision_rate": 0.0,
+   "collision_ci_95": [
+    0.0,
+    0.0
+   ],
+   "wilson_interval": [
+    0.0,
+    0.16113012549493322
+   ],
+   "rule_of_three_bound": 0.15,
+   "no_path_rate": 0.1,
+   "safe_stop_rate": 0.0,
+   "recovery_rate": null
+  },
+  "K0": {
+   "n_episodes": 20,
+   "success_rate": 0.55,
+   "collision_rate": 0.35,
+   "collision_ci_95": [
+    0.15,
+    0.55
+   ],
+   "wilson_interval": [
+    0.18118954786794464,
+    0.5671494897805354
+   ],
+   "rule_of_three_bound": null,
+   "no_path_rate": 0.05,
+   "safe_stop_rate": 0.05,
+   "recovery_rate": null
+  },
+  "K1": {
+   "n_episodes": 20,
+   "success_rate": 0.8,
+   "collision_rate": 0.0,
+   "collision_ci_95": [
+    0.0,
+    0.0
+   ],
+   "wilson_interval": [
+    0.0,
+    0.16113012549493322
+   ],
+   "rule_of_three_bound": 0.15,
+   "no_path_rate": 0.0,
+   "safe_stop_rate": 0.2,
+   "recovery_rate": 0.8
+  },
+  "A": {
+   "n_episodes": 20,
+   "success_rate": 0.7,
+   "collision_rate": 0.0,
+   "collision_ci_95": [
+    0.0,
+    0.0
+   ],
+   "wilson_interval": [
+    0.0,
+    0.16113012549493322
+   ],
+   "rule_of_three_bound": 0.15,
+   "no_path_rate": 0.0,
+   "safe_stop_rate": 0.3,
+   "recovery_rate": 0.7
+  },
+  "B": {
+   "n_episodes": 20,
+   "success_rate": 0.6,
+   "collision_rate": 0.4,
+   "collision_ci_95": [
+    0.2,
+    0.6
+   ],
+   "wilson_interval": [
+    0.21880396741419272,
+    0.613422057684794
+   ],
+   "rule_of_three_bound": null,
+   "no_path_rate": 0.0,
+   "safe_stop_rate": 0.0,
+   "recovery_rate": 0.6
+  },
+  "C": {
+   "n_episodes": 20,
+   "success_rate": 0.0,
+   "collision_rate": 0.0,
+   "collision_ci_95": [
+    0.0,
+    0.0
+   ],
+   "wilson_interval": [
+    0.0,
+    0.16113012549493322
+   ],
+   "rule_of_three_bound": 0.15,
+   "no_path_rate": 0.0,
+   "safe_stop_rate": 1.0,
+   "recovery_rate": null
+  }
+ },
+ "paired_B_minus_C": {
+  "mean": 0.4,
+  "lo": 0.2,
+  "hi": 0.6,
+  "a_greater": 0.4,
+  "a_less": 0.0,
+  "tied": 0.6
+ }
+}

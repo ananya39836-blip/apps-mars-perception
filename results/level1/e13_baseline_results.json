@@ -1,0 +1,85 @@
+{
+ "experiment_id": "E13_closed_loop_baseline",
+ "difficulty": "D1",
+ "n_scenes": 15,
+ "summary": {
+  "F": {
+   "n": 15,
+   "success": 0.0,
+   "collision": 0.0,
+   "no_path": 1.0,
+   "rejected": 0.0,
+   "safe_stop": 0.0,
+   "timeout": 0.0,
+   "any_collision": 0.0,
+   "recovery": null,
+   "n_with_discovery": 0,
+   "mean_steps_success": null
+  },
+  "O": {
+   "n": 15,
+   "success": 0.9333333333333333,
+   "collision": 0.0,
+   "no_path": 0.06666666666666667,
+   "rejected": 0.0,
+   "safe_stop": 0.0,
+   "timeout": 0.0,
+   "any_collision": 0.0,
+   "recovery": null,
+   "n_with_discovery": 0,
+   "mean_steps_success": 95.57142857142857
+  },
+  "K0": {
+   "n": 15,
+   "success": 0.8,
+   "collision": 0.2,
+   "no_path": 0.0,
+   "rejected": 0.0,
+   "safe_stop": 0.0,
+   "timeout": 0.0,
+   "any_collision": 0.2,
+   "recovery": null,
+   "n_with_discovery": 0,
+   "mean_steps_success": 95.66666666666667
+  },
+  "K1": {
+   "n": 15,
+   "success": 0.9333333333333333,
+   "collision": 0.0,
+   "no_path": 0.0,
+   "rejected": 0.0,
+   "safe_stop": 0.06666666666666667,
+   "timeout": 0.0,
+   "any_collision": 0.0,
+   "recovery": 0.9333333333333333,
+   "n_with_discovery": 15,
+   "mean_steps_success": 96.78571428571429
+  },
+  "B": {
+   "n": 15,
+   "success": 0.6,
+   "collision": 0.3333333333333333,
+   "no_path": 0.0,
+   "rejected": 0.0,
+   "safe_stop": 0.06666666666666667,
+   "timeout": 0.0,
+   "any_collision": 0.3333333333333333,
+   "recovery": 0.6,
+   "n_with_discovery": 15,
+   "mean_steps_success": 95.55555555555556
+  },
+  "C": {
+   "n": 15,
+   "success": 0.0,
+   "collision": 0.0,
+   "no_path": 0.0,
+   "rejected": 0.0,
+   "safe_stop": 1.0,
+   "timeout": 0.0,
+   "any_collision": 0.0,
+   "recovery": null,
+   "n_with_discovery": 0,
+   "mean_steps_success": null
+  }
+ }
+}

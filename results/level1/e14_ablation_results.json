@@ -1,0 +1,97 @@
+{
+ "experiment_id": "E14_ablation_program",
+ "n_scenes": 15,
+ "summary": {
+  "V0_base_C": {
+   "n": 15,
+   "success": 0.0,
+   "collision": 0.0,
+   "no_path": 0.0,
+   "rejected": 0.0,
+   "safe_stop": 1.0,
+   "timeout": 0.0,
+   "any_collision": 0.0,
+   "recovery": null,
+   "n_with_discovery": 0,
+   "mean_steps_success": null
+  },
+  "V1_wu_zero": {
+   "n": 15,
+   "success": 0.0,
+   "collision": 0.0,
+   "no_path": 0.0,
+   "rejected": 0.0,
+   "safe_stop": 1.0,
+   "timeout": 0.0,
+   "any_collision": 0.0,
+   "recovery": null,
+   "n_with_discovery": 0,
+   "mean_steps_success": null
+  },
+  "V2_wr_zero": {
+   "n": 15,
+   "success": 0.0,
+   "collision": 0.0,
+   "no_path": 0.0,
+   "rejected": 0.0,
+   "safe_stop": 1.0,
+   "timeout": 0.0,
+   "any_collision": 0.0,
+   "recovery": null,
+   "n_with_discovery": 0,
+   "mean_steps_success": null
+  },
+  "V3_no_u_block": {
+   "n": 15,
+   "success": 0.0,
+   "collision": 0.0,
+   "no_path": 0.0,
+   "rejected": 0.0,
+   "safe_stop": 1.0,
+   "timeout": 0.0,
+   "any_collision": 0.0,
+   "recovery": null,
+   "n_with_discovery": 0,
+   "mean_steps_success": null
+  },
+  "V4_no_rejection": {
+   "n": 15,
+   "success": 0.0,
+   "collision": 0.0,
+   "no_path": 0.0,
+   "rejected": 0.0,
+   "safe_stop": 1.0,
+   "timeout": 0.0,
+   "any_collision": 0.0,
+   "recovery": null,
+   "n_with_discovery": 0,
+   "mean_steps_success": null
+  },
+  "V5_no_footprint": {
+   "n": 15,
+   "success": 0.0,
+   "collision": 0.0,
+   "no_path": 0.0,
+   "rejected": 0.0,
+   "safe_stop": 1.0,
+   "timeout": 0.0,
+   "any_collision": 0.0,
+   "recovery": null,
+   "n_with_discovery": 0,
+   "mean_steps_success": null
+  },
+  "V6_latest_fusion": {
+   "n": 15,
+   "success": 0.0,
+   "collision": 0.0,
+   "no_path": 0.0,
+   "rejected": 0.0,
+   "safe_stop": 1.0,
+   "timeout": 0.0,
+   "any_collision": 0.0,
+   "recovery": null,
+   "n_with_discovery": 0,
+   "mean_steps_success": null
+  }
+ }
+}

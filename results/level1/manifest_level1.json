@@ -1,0 +1,105 @@
+{
+ "pipeline": "Level 1 Master Orchestrator",
+ "timestamp": "2026-10-18T19:06:42Z",
+ "steps": [
+  {
+   "name": "Level 1 Test Suite",
+   "command": "python -m pytest tests/test_level1.py -v",
+   "returncode": 0,
+   "duration_s": 2.18
+  },
+  {
+   "name": "Experiment E13: Closed-Loop Baselines",
+   "command": "python level1/experiments/e13_baseline.py",
+   "returncode": 0,
+   "duration_s": 186.93
+  },
+  {
+   "name": "Experiment E14: Systematic Ablations",
+   "command": "python level1/experiments/e14_ablation.py",
+   "returncode": 0,
+   "duration_s": 2.18
+  },
+  {
+   "name": "Experiment E15: Fault Injection Campaign",
+   "command": "python level1/experiments/e15_faults.py",
+   "returncode": 0,
+   "duration_s": 1.68
+  }
+ ],
+ "config_sha": "5a25ae49f293ec58a67fc873e3ae52913232524e2a5f1e5b76cebd1b3984ae75",
+ "level1_designation": "L1-met (internal)",
+ "release_gate_status": "ready-for-review",
+ "evidence_keys": {
+  "audit": {
+   "exists": true,
+   "executed": true,
+   "passed": true
+  },
+  "modular": {
+   "exists": true,
+   "executed": true,
+   "passed": true
+  },
+  "partial_obs": {
+   "exists": true,
+   "executed": true,
+   "passed": true
+  },
+  "perception": {
+   "exists": true,
+   "executed": true,
+   "passed": true
+  },
+  "risk_in_nav": {
+   "exists": true,
+   "executed": true,
+   "passed": true
+  },
+  "mission_sim": {
+   "exists": true,
+   "executed": true,
+   "passed": true
+  },
+  "replan": {
+   "exists": true,
+   "executed": true,
+   "passed": true
+  },
+  "explicit_failure": {
+   "exists": true,
+   "executed": true,
+   "passed": true
+  },
+  "baselines": {
+   "exists": true,
+   "executed": true,
+   "passed": true
+  },
+  "metrics_from_trials": {
+   "exists": true,
+   "executed": true,
+   "passed": true
+  },
+  "tests_executed": {
+   "exists": true,
+   "executed": true,
+   "passed": true
+  },
+  "failures_recorded": {
+   "exists": true,
+   "executed": true,
+   "passed": true
+  },
+  "docs_match": {
+   "exists": true,
+   "executed": true,
+   "passed": true
+  },
+  "traceability": {
+   "exists": true,
+   "executed": true,
+   "passed": true
+  }
+ }
+}

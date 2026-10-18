@@ -1,0 +1,222 @@
+[
+ {
+  "rank": 1,
+  "scene_id": "SCENE_FAIL_003",
+  "seed": 7102,
+  "condition": "D5-N3-Haze0.10-SunEl50\u00b0",
+  "total_hazard_area_pixels": 3217,
+  "missed_hazard_area_pixels": 1492,
+  "missed_hazard_pct": 46.38,
+  "overlay_path": "results/overlays/fail_01_seed_7102.png",
+  "causal_summary": "High-albedo bright material (N3) causes sensor glare saturation, washing out high-frequency elevation edge features."
+ },
+ {
+  "rank": 2,
+  "scene_id": "SCENE_FAIL_012",
+  "seed": 7111,
+  "condition": "D5-N4-Haze0.10-SunEl45\u00b0",
+  "total_hazard_area_pixels": 2979,
+  "missed_hazard_area_pixels": 1349,
+  "missed_hazard_pct": 45.28,
+  "overlay_path": "results/overlays/fail_02_seed_7111.png",
+  "causal_summary": "Dark rock-like material (N4) under low sun elevation creates deceptive shadows merged with shallow terrain, masking rock boundaries."
+ },
+ {
+  "rank": 3,
+  "scene_id": "SCENE_FAIL_048",
+  "seed": 7147,
+  "condition": "D5-N4-Haze0.10-SunEl45\u00b0",
+  "total_hazard_area_pixels": 3150,
+  "missed_hazard_area_pixels": 1305,
+  "missed_hazard_pct": 41.43,
+  "overlay_path": "results/overlays/fail_03_seed_7147.png",
+  "causal_summary": "Dark rock-like material (N4) under low sun elevation creates deceptive shadows merged with shallow terrain, masking rock boundaries."
+ },
+ {
+  "rank": 4,
+  "scene_id": "SCENE_FAIL_027",
+  "seed": 7126,
+  "condition": "D5-N3-Haze0.10-SunEl50\u00b0",
+  "total_hazard_area_pixels": 3260,
+  "missed_hazard_area_pixels": 1285,
+  "missed_hazard_pct": 39.42,
+  "overlay_path": "results/overlays/fail_04_seed_7126.png",
+  "causal_summary": "High-albedo bright material (N3) causes sensor glare saturation, washing out high-frequency elevation edge features."
+ },
+ {
+  "rank": 5,
+  "scene_id": "SCENE_FAIL_004",
+  "seed": 7103,
+  "condition": "D5-N4-Haze0.30-SunEl15\u00b0",
+  "total_hazard_area_pixels": 2569,
+  "missed_hazard_area_pixels": 1262,
+  "missed_hazard_pct": 49.12,
+  "overlay_path": "results/overlays/fail_05_seed_7103.png",
+  "causal_summary": "Dark rock-like material (N4) under low sun elevation creates deceptive shadows merged with shallow terrain, masking rock boundaries."
+ },
+ {
+  "rank": 6,
+  "scene_id": "SCENE_FAIL_015",
+  "seed": 7114,
+  "condition": "D5-N3-Haze0.10-SunEl50\u00b0",
+  "total_hazard_area_pixels": 3009,
+  "missed_hazard_area_pixels": 1229,
+  "missed_hazard_pct": 40.84,
+  "overlay_path": "results/overlays/fail_06_seed_7114.png",
+  "causal_summary": "High-albedo bright material (N3) causes sensor glare saturation, washing out high-frequency elevation edge features."
+ },
+ {
+  "rank": 7,
+  "scene_id": "SCENE_FAIL_050",
+  "seed": 7149,
+  "condition": "D5-N2-Haze0.20-SunEl25\u00b0",
+  "total_hazard_area_pixels": 2584,
+  "missed_hazard_area_pixels": 1167,
+  "missed_hazard_pct": 45.16,
+  "overlay_path": "results/overlays/fail_07_seed_7149.png",
+  "causal_summary": "Subtle low-contrast novel material (N2) matches background sand albedo while haze flattens depth gradients, bypassing threshold."
+ },
+ {
+  "rank": 8,
+  "scene_id": "SCENE_FAIL_028",
+  "seed": 7127,
+  "condition": "D5-N4-Haze0.30-SunEl15\u00b0",
+  "total_hazard_area_pixels": 3486,
+  "missed_hazard_area_pixels": 1148,
+  "missed_hazard_pct": 32.93,
+  "overlay_path": "results/overlays/fail_08_seed_7127.png",
+  "causal_summary": "Dark rock-like material (N4) under low sun elevation creates deceptive shadows merged with shallow terrain, masking rock boundaries."
+ },
+ {
+  "rank": 9,
+  "scene_id": "SCENE_FAIL_046",
+  "seed": 7145,
+  "condition": "D3-Haze0.35-SunEl25\u00b0",
+  "total_hazard_area_pixels": 2041,
+  "missed_hazard_area_pixels": 1112,
+  "missed_hazard_pct": 54.48,
+  "overlay_path": "results/overlays/fail_09_seed_7145.png",
+  "causal_summary": "Narrow bottleneck corridor with steep sidewalls casts deep shadows at low solar elevation, causing shadow-edge false safes."
+ },
+ {
+  "rank": 10,
+  "scene_id": "SCENE_FAIL_039",
+  "seed": 7138,
+  "condition": "D5-N3-Haze0.10-SunEl50\u00b0",
+  "total_hazard_area_pixels": 2556,
+  "missed_hazard_area_pixels": 1079,
+  "missed_hazard_pct": 42.21,
+  "overlay_path": "results/overlays/fail_10_seed_7138.png",
+  "causal_summary": "High-albedo bright material (N3) causes sensor glare saturation, washing out high-frequency elevation edge features."
+ },
+ {
+  "rank": 11,
+  "scene_id": "SCENE_FAIL_013",
+  "seed": 7112,
+  "condition": "D5-N1-SunEl40\u00b0",
+  "total_hazard_area_pixels": 2620,
+  "missed_hazard_area_pixels": 1078,
+  "missed_hazard_pct": 41.15,
+  "overlay_path": "results/overlays/fail_11_seed_7112.png",
+  "causal_summary": "Bluish novel material patch (N1) exhibits low surface roughness, causing the texture extractor to classify it as benign bedrock."
+ },
+ {
+  "rank": 12,
+  "scene_id": "SCENE_FAIL_040",
+  "seed": 7139,
+  "condition": "D5-N4-Haze0.30-SunEl15\u00b0",
+  "total_hazard_area_pixels": 2712,
+  "missed_hazard_area_pixels": 1047,
+  "missed_hazard_pct": 38.61,
+  "overlay_path": "results/overlays/fail_12_seed_7139.png",
+  "causal_summary": "Dark rock-like material (N4) under low sun elevation creates deceptive shadows merged with shallow terrain, masking rock boundaries."
+ },
+ {
+  "rank": 13,
+  "scene_id": "SCENE_FAIL_023",
+  "seed": 7122,
+  "condition": "D4-Haze0.20-SunEl30\u00b0",
+  "total_hazard_area_pixels": 2564,
+  "missed_hazard_area_pixels": 1016,
+  "missed_hazard_pct": 39.63,
+  "overlay_path": "results/overlays/fail_13_seed_7122.png",
+  "causal_summary": "Cul-de-sac bounding wall shadowed by low sun angle blends visually into basalt bedrock flatlands."
+ },
+ {
+  "rank": 14,
+  "scene_id": "SCENE_FAIL_037",
+  "seed": 7136,
+  "condition": "D5-N1-SunEl40\u00b0",
+  "total_hazard_area_pixels": 3193,
+  "missed_hazard_area_pixels": 1015,
+  "missed_hazard_pct": 31.79,
+  "overlay_path": "results/overlays/fail_14_seed_7136.png",
+  "causal_summary": "Bluish novel material patch (N1) exhibits low surface roughness, causing the texture extractor to classify it as benign bedrock."
+ },
+ {
+  "rank": 15,
+  "scene_id": "SCENE_FAIL_002",
+  "seed": 7101,
+  "condition": "D5-N2-Haze0.20-SunEl25\u00b0",
+  "total_hazard_area_pixels": 2471,
+  "missed_hazard_area_pixels": 983,
+  "missed_hazard_pct": 39.78,
+  "overlay_path": "results/overlays/fail_15_seed_7101.png",
+  "causal_summary": "Subtle low-contrast novel material (N2) matches background sand albedo while haze flattens depth gradients, bypassing threshold."
+ },
+ {
+  "rank": 16,
+  "scene_id": "SCENE_FAIL_005",
+  "seed": 7104,
+  "condition": "D3-Haze0.40-SunEl30\u00b0",
+  "total_hazard_area_pixels": 2236,
+  "missed_hazard_area_pixels": 969,
+  "missed_hazard_pct": 43.34,
+  "overlay_path": "results/overlays/fail_16_seed_7104.png",
+  "causal_summary": "Narrow bottleneck corridor with steep sidewalls casts deep shadows at low solar elevation, causing shadow-edge false safes."
+ },
+ {
+  "rank": 17,
+  "scene_id": "SCENE_FAIL_045",
+  "seed": 7144,
+  "condition": "D5-N2-Haze0.40-SunEl20\u00b0",
+  "total_hazard_area_pixels": 2162,
+  "missed_hazard_area_pixels": 966,
+  "missed_hazard_pct": 44.68,
+  "overlay_path": "results/overlays/fail_17_seed_7144.png",
+  "causal_summary": "Subtle low-contrast novel material (N2) matches background sand albedo while haze flattens depth gradients, bypassing threshold."
+ },
+ {
+  "rank": 18,
+  "scene_id": "SCENE_FAIL_014",
+  "seed": 7113,
+  "condition": "D5-N2-Haze0.20-SunEl25\u00b0",
+  "total_hazard_area_pixels": 2525,
+  "missed_hazard_area_pixels": 948,
+  "missed_hazard_pct": 37.54,
+  "overlay_path": "results/overlays/fail_18_seed_7113.png",
+  "causal_summary": "Subtle low-contrast novel material (N2) matches background sand albedo while haze flattens depth gradients, bypassing threshold."
+ },
+ {
+  "rank": 19,
+  "scene_id": "SCENE_FAIL_041",
+  "seed": 7140,
+  "condition": "D3-Haze0.40-SunEl30\u00b0",
+  "total_hazard_area_pixels": 1962,
+  "missed_hazard_area_pixels": 948,
+  "missed_hazard_pct": 48.32,
+  "overlay_path": "results/overlays/fail_19_seed_7140.png",
+  "causal_summary": "Narrow bottleneck corridor with steep sidewalls casts deep shadows at low solar elevation, causing shadow-edge false safes."
+ },
+ {
+  "rank": 20,
+  "scene_id": "SCENE_FAIL_007",
+  "seed": 7106,
+  "condition": "D4-Haze0.15-SunEl35\u00b0",
+  "total_hazard_area_pixels": 2358,
+  "missed_hazard_area_pixels": 944,
+  "missed_hazard_pct": 40.03,
+  "overlay_path": "results/overlays/fail_20_seed_7106.png",
+  "causal_summary": "Cul-de-sac bounding wall shadowed by low sun angle blends visually into basalt bedrock flatlands."
+ }
+]

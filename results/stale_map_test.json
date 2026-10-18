@@ -1,0 +1,9 @@
+{
+ "test": "stale_map_recovery",
+ "outcome": "success",
+ "steps": 15,
+ "discoveries": 2,
+ "replan_triggered": true,
+ "collided": false,
+ "status": "passed"
+}

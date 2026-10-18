@@ -1,0 +1,7 @@
+{
+ "wall_outcome": "no_path",
+ "open_outcome": "success",
+ "safe_stop_outcome": "safe_stop",
+ "taxonomy_verified": true,
+ "passed": true
+}

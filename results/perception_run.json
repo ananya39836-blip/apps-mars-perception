@@ -1,0 +1,11 @@
+{
+ "status": "ok",
+ "feature_version": "v2.0",
+ "features_shape": [
+  9216,
+  16
+ ],
+ "valid_pixel_fraction": 1.0,
+ "num_classes": 4,
+ "pipeline_verified": true
+}

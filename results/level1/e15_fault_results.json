@@ -1,0 +1,58 @@
+{
+ "experiment_id": "E15_fault_injection_campaign",
+ "n_scenes": 15,
+ "summary": {
+  "nominal_clean": {
+   "n": 15,
+   "success": 0.0,
+   "collision": 0.0,
+   "no_path": 0.0,
+   "rejected": 0.0,
+   "safe_stop": 1.0,
+   "timeout": 0.0,
+   "any_collision": 0.0,
+   "recovery": null,
+   "n_with_discovery": 0,
+   "mean_steps_success": null
+  },
+  "sensor_outage_steps_8_to_14": {
+   "n": 15,
+   "success": 0.0,
+   "collision": 0.0,
+   "no_path": 0.0,
+   "rejected": 0.0,
+   "safe_stop": 1.0,
+   "timeout": 0.0,
+   "any_collision": 0.0,
+   "recovery": null,
+   "n_with_discovery": 0,
+   "mean_steps_success": null
+  },
+  "pose_noise_sigma_1": {
+   "n": 15,
+   "success": 0.0,
+   "collision": 0.0,
+   "no_path": 0.0,
+   "rejected": 0.0,
+   "safe_stop": 1.0,
+   "timeout": 0.0,
+   "any_collision": 0.0,
+   "recovery": null,
+   "n_with_discovery": 0,
+   "mean_steps_success": null
+  },
+  "pose_noise_sigma_2": {
+   "n": 15,
+   "success": 0.0,
+   "collision": 0.0,
+   "no_path": 0.0,
+   "rejected": 0.0,
+   "safe_stop": 1.0,
+   "timeout": 0.0,
+   "any_collision": 0.0,
+   "recovery": null,
+   "n_with_discovery": 0,
+   "mean_steps_success": null
+  }
+ }
+}

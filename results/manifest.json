@@ -1,34 +1,20 @@
 {
- "mode": "full",
- "timestamp": "2026-10-18T11:29:12Z",
- "steps": [
-  {
-   "name": "Train APPS-0.1 and Run Evaluation",
-   "command": "python apps01.py 250",
-   "returncode": 0,
-   "duration_s": 64.11
-  },
-  {
-   "name": "Run Part 2 Follow-up Experiments",
-   "command": "python experiments.py",
-   "returncode": 0,
-   "duration_s": 89.86
-  },
-  {
-   "name": "Run Planner Selection (Task 2 & 22)",
-   "command": "python experiments/select_planner.py",
-   "returncode": 0,
-   "duration_s": 36.31
-  },
-  {
-   "name": "Run Full Pytest Test Suite",
-   "command": "python -m pytest tests/test_all.py -v",
-   "returncode": 0,
-   "duration_s": 13.3
-  }
- ],
- "config_sha": "5a25ae49f293ec58a67fc873e3ae52913232524e2a5f1e5b76cebd1b3984ae75",
- "model_sha256": "9fa835efa8bf73110e3f200d44bf3eb286230ea6aeaecb63c11ecaa28c1b9f84",
- "evaluation_results_sha256": "d89b2d1b5a9069a3b59ceb678da07cb005d90520e15aface23e21365de6f8c5c",
- "experiments_results_sha256": "59481302eddcef998c803277ee5c66fcdc50796a3ab21aaf622f045b49a1c9b6"
+ "pipeline_version": "1.0-level1",
+ "timestamp": "2026-10-18T20:02:34Z",
+ "checksums": {
+  "docs/INITIAL_TECHNICAL_AUDIT.md": "86649ed7e5add0edfe02f4f431744ad51f8879a62c79e3921d2b9a24bf2c22de",
+  "docs/README_CLAIMS.md": "a565b196b9f4d1554fad8a62944066473a99de2265bd558fce14e2182f8f688a",
+  "docs/SAFETY_AND_FAILURE_ANALYSIS.md": "296d5cc2428de5e633db37747d8d5e8aa38ab2179f95d81bac232e251874ad6a",
+  "docs/FAILURE_REVIEW.md": "0634d338355ec23828216959cb67aab97bdaa6d44b5de764ae3092947b209899",
+  "docs/TRACEABILITY.md": "8216c5133af4283fe7ece3e185c69a69ce47494e6097ea760789faefa2d4139a",
+  "results/boundary_tests.json": "1026db9e3a8b2c80fb31981b0a5a27a4f0c331f8c1015abce1a63d48e9f31310",
+  "results/weight_ablation_E23.json": "bcf0c340631db0310b87f34d9a7109322ec9cebcaa4bf7275d1ba8c675a6073c",
+  "results/mission_traces.json": "d3d11cd105d2452ad5834aca70467767d95126f2fe80954904140d9c6876404f",
+  "results/stale_map_test.json": "8da9aafc2fd72e04a60638a8c2bd512b380180319bcde3e143ee169bce38961b",
+  "results/outcome_tests.json": "44ff0b6aedbfb8080596c0c97e23f65c85b13c666e1709ffc2c36a914c79bb05",
+  "results/perception_run.json": "0b3c0b938518d148f15d41944055cd3763e35f0984e3c8851a0a30ee7b9cb4e8",
+  "results/E13_results.json": "04d4b7905cfd3800014e1a9d6a1494ff1b5f4b50681bda8609c91637d3e01513",
+  "results/failure_review.json": "435e9667b5f0a0e42e5f95f02447a613c772f31e657e8ec0b263fd42d5ca9750",
+  "results/test_execution.log": "4c33f63cf89a42c95cec418a5121c5eb1515b23ec2f8f817bc46d8ee472cda9f"
+ }
 }
