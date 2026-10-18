@@ -1,0 +1,34 @@
+{
+ "mode": "full",
+ "timestamp": "2026-10-18T11:29:12Z",
+ "steps": [
+  {
+   "name": "Train APPS-0.1 and Run Evaluation",
+   "command": "python apps01.py 250",
+   "returncode": 0,
+   "duration_s": 64.11
+  },
+  {
+   "name": "Run Part 2 Follow-up Experiments",
+   "command": "python experiments.py",
+   "returncode": 0,
+   "duration_s": 89.86
+  },
+  {
+   "name": "Run Planner Selection (Task 2 & 22)",
+   "command": "python experiments/select_planner.py",
+   "returncode": 0,
+   "duration_s": 36.31
+  },
+  {
+   "name": "Run Full Pytest Test Suite",
+   "command": "python -m pytest tests/test_all.py -v",
+   "returncode": 0,
+   "duration_s": 13.3
+  }
+ ],
+ "config_sha": "5a25ae49f293ec58a67fc873e3ae52913232524e2a5f1e5b76cebd1b3984ae75",
+ "model_sha256": "9fa835efa8bf73110e3f200d44bf3eb286230ea6aeaecb63c11ecaa28c1b9f84",
+ "evaluation_results_sha256": "d89b2d1b5a9069a3b59ceb678da07cb005d90520e15aface23e21365de6f8c5c",
+ "experiments_results_sha256": "59481302eddcef998c803277ee5c66fcdc50796a3ab21aaf622f045b49a1c9b6"
+}

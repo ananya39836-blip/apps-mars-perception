@@ -1,0 +1,86 @@
+{
+ "in_distribution": {
+  "false_safe_rate": {
+   "A_classical": 0.02961871026676359,
+   "B_standard_ml": 0.09511040198966964,
+   "C_APPS_uncertainty": 0.016848898730972266
+  },
+  "unsafe_area": {
+   "A_classical": 0.49529079861111114,
+   "B_standard_ml": 0.16535192418981481,
+   "C_APPS_uncertainty": 0.2928656684027777
+  },
+  "navigation": {
+   "A_classical": {
+    "success": 0.0,
+    "collision": 0.016666666666666666,
+    "no_path": 0.9833333333333333,
+    "mean_len": null,
+    "n": 60
+   },
+   "B_standard_ml": {
+    "success": 0.8,
+    "collision": 0.1,
+    "no_path": 0.1,
+    "mean_len": 16.0,
+    "n": 60
+   },
+   "C_APPS_uncertainty": {
+    "success": 0.5833333333333334,
+    "collision": 0.0,
+    "no_path": 0.4166666666666667,
+    "mean_len": 16.02857142857143,
+    "n": 60
+   }
+  },
+  "segmentation": {
+   "pixel_acc": 0.923582175925926,
+   "mIoU": 0.8227442333681734
+  },
+  "ECE": 0.02075433630177282,
+  "uncertainty_AUROC_for_errors": 0.8963411732686845
+ },
+ "novel_terrain_OOD": {
+  "false_safe_rate": {
+   "A_classical": 0.15985535007156,
+   "B_standard_ml": 0.1544595447866729,
+   "C_APPS_uncertainty": 0.016256215990165284
+  },
+  "unsafe_area": {
+   "A_classical": 0.5022894965277778,
+   "B_standard_ml": 0.20319372106481481,
+   "C_APPS_uncertainty": 0.3389992042824073
+  },
+  "navigation": {
+   "A_classical": {
+    "success": 0.03333333333333333,
+    "collision": 0.0,
+    "no_path": 0.9666666666666667,
+    "mean_len": 16.5,
+    "n": 60
+   },
+   "B_standard_ml": {
+    "success": 0.6666666666666666,
+    "collision": 0.2,
+    "no_path": 0.13333333333333333,
+    "mean_len": 16.05,
+    "n": 60
+   },
+   "C_APPS_uncertainty": {
+    "success": 0.3,
+    "collision": 0.0,
+    "no_path": 0.7,
+    "mean_len": 16.61111111111111,
+    "n": 60
+   }
+  },
+  "segmentation": {
+   "pixel_acc": 0.924752321667908,
+   "mIoU": 0.7099024039105762
+  },
+  "ECE": 0.020860692465598067,
+  "uncertainty_AUROC_for_errors": 0.8978997486943462,
+  "uncertainty_AUROC_novel_terrain_entropy": 0.7964490771132575,
+  "uncertainty_AUROC_novel_terrain_disagreement": 0.8727367971129996
+ }
+}

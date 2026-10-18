@@ -1,0 +1,8 @@
+name: hypothetical_vehicle_v1 # not any real rover
+footprint_radius_cells: 1
+max_safe_slope: 0.35 # generator gradient units, no physical meaning
+costly_slope_frac: 0.7
+block_p: 0.30
+costly_p: 0.10
+unknown_unc: 0.35
+note: placeholder values; replace by team decision and log it

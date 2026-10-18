@@ -1,0 +1,186 @@
+{
+ "date": "2026-10-18",
+ "rule": "Choose the block fraction with the lowest no-path rate such that validation collision rate is 0 under the strict truth setting. Ties: lower false-safe, then larger bf.",
+ "seeds": {
+  "val_nominal": 500,
+  "val_novel": 501
+ },
+ "perception": {
+  "thr": 0.15,
+  "ut": 0.35,
+  "et": 0.05
+ },
+ "grid": [
+  {
+   "cell": 4,
+   "bf": 0.05,
+   "success": 0.0875,
+   "collision": 0.0,
+   "no_path": 0.9125,
+   "n": 80,
+   "skipped": 0
+  },
+  {
+   "cell": 4,
+   "bf": 0.12,
+   "success": 0.25,
+   "collision": 0.0625,
+   "no_path": 0.6875,
+   "n": 80,
+   "skipped": 0
+  },
+  {
+   "cell": 4,
+   "bf": 0.18,
+   "success": 0.35,
+   "collision": 0.175,
+   "no_path": 0.475,
+   "n": 80,
+   "skipped": 0
+  },
+  {
+   "cell": 4,
+   "bf": 0.25,
+   "success": 0.2875,
+   "collision": 0.4125,
+   "no_path": 0.3,
+   "n": 80,
+   "skipped": 0
+  },
+  {
+   "cell": 4,
+   "bf": 0.35,
+   "success": 0.3,
+   "collision": 0.4875,
+   "no_path": 0.2125,
+   "n": 80,
+   "skipped": 0
+  },
+  {
+   "cell": 4,
+   "bf": 0.5,
+   "success": 0.2375,
+   "collision": 0.725,
+   "no_path": 0.0375,
+   "n": 80,
+   "skipped": 0
+  },
+  {
+   "cell": 6,
+   "bf": 0.05,
+   "success": 0.05,
+   "collision": 0.0,
+   "no_path": 0.95,
+   "n": 80,
+   "skipped": 0
+  },
+  {
+   "cell": 6,
+   "bf": 0.12,
+   "success": 0.1625,
+   "collision": 0.175,
+   "no_path": 0.6625,
+   "n": 80,
+   "skipped": 0
+  },
+  {
+   "cell": 6,
+   "bf": 0.18,
+   "success": 0.1875,
+   "collision": 0.275,
+   "no_path": 0.5375,
+   "n": 80,
+   "skipped": 0
+  },
+  {
+   "cell": 6,
+   "bf": 0.25,
+   "success": 0.1375,
+   "collision": 0.475,
+   "no_path": 0.3875,
+   "n": 80,
+   "skipped": 0
+  },
+  {
+   "cell": 6,
+   "bf": 0.35,
+   "success": 0.075,
+   "collision": 0.7,
+   "no_path": 0.225,
+   "n": 80,
+   "skipped": 0
+  },
+  {
+   "cell": 6,
+   "bf": 0.5,
+   "success": 0.1125,
+   "collision": 0.8375,
+   "no_path": 0.05,
+   "n": 80,
+   "skipped": 0
+  },
+  {
+   "cell": 8,
+   "bf": 0.05,
+   "success": 0.05,
+   "collision": 0.0375,
+   "no_path": 0.9125,
+   "n": 80,
+   "skipped": 0
+  },
+  {
+   "cell": 8,
+   "bf": 0.12,
+   "success": 0.1125,
+   "collision": 0.1375,
+   "no_path": 0.75,
+   "n": 80,
+   "skipped": 0
+  },
+  {
+   "cell": 8,
+   "bf": 0.18,
+   "success": 0.15,
+   "collision": 0.25,
+   "no_path": 0.6,
+   "n": 80,
+   "skipped": 0
+  },
+  {
+   "cell": 8,
+   "bf": 0.25,
+   "success": 0.1,
+   "collision": 0.475,
+   "no_path": 0.425,
+   "n": 80,
+   "skipped": 0
+  },
+  {
+   "cell": 8,
+   "bf": 0.35,
+   "success": 0.1125,
+   "collision": 0.6,
+   "no_path": 0.2875,
+   "n": 80,
+   "skipped": 0
+  },
+  {
+   "cell": 8,
+   "bf": 0.5,
+   "success": 0.05,
+   "collision": 0.85,
+   "no_path": 0.1,
+   "n": 80,
+   "skipped": 0
+  }
+ ],
+ "selected": {
+  "cell": 4,
+  "bf": 0.05,
+  "success": 0.0875,
+  "collision": 0.0,
+  "no_path": 0.9125,
+  "n": 80,
+  "skipped": 0
+ }
+}

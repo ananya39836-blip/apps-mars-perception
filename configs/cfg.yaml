@@ -1,0 +1,19 @@
+version: "cfg-0.1"
+seeds:
+  train: 1
+  val_nominal: 500
+  val_novel: 501
+  test_nominal: 600
+  test_novel: 601
+perception:
+  hazard_threshold: 0.15
+  entropy_threshold: 0.35
+  disagreement_threshold: 0.05
+planner:
+  cell_size: 6
+  block_fraction: 0.12
+  truth_block_fraction: 0.0
+evaluation:
+  n_scenes_per_condition: 60
+  bootstrap_resamples: 1000
+  scenes_without_hazard: report

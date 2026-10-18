@@ -1,0 +1,339 @@
+[
+ {
+  "scene_id": "synthetic_000",
+  "image_size": [
+   96,
+   96
+  ],
+  "objects": [
+   {
+    "type": "rock",
+    "location_px": [
+     59,
+     21
+    ],
+    "area_px": 229,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.3010947679231543
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     8,
+     21
+    ],
+    "area_px": 55,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.10101342369358095
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     17,
+     45
+    ],
+    "area_px": 42,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.16339778676065544
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     73,
+     48
+    ],
+    "area_px": 21,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.11225471951523652
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     8,
+     61
+    ],
+    "area_px": 39,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.1969384806358186
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     79,
+     73
+    ],
+    "area_px": 28,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.07591114429427784
+   }
+  ],
+  "terrain_fraction": {
+   "bedrock": 0.5047743055555556,
+   "sand": 0.3537326388888889,
+   "rock": 0.04676649305555555,
+   "steep_slope": 0.0947265625
+  },
+  "uncertain_fraction": 0.14539930555555555,
+  "unsafe_fraction": 0.2388237847222222,
+  "terrain_assessment": {
+   "status": "image_and_noisy_depth_only",
+   "map_available": true,
+   "calibrated_on": "synthetic_data_only"
+  },
+  "scientific_targets": [],
+  "navigation_ready": false,
+  "limitations": [
+   "trained on synthetic terrain only; no Mars performance claimed",
+   "cannot determine mineral composition",
+   "depth is simulated noisy stereo"
+  ]
+ },
+ {
+  "scene_id": "synthetic_001",
+  "image_size": [
+   96,
+   96
+  ],
+  "objects": [
+   {
+    "type": "rock",
+    "location_px": [
+     51,
+     19
+    ],
+    "area_px": 46,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.27394907492516746
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     35,
+     24
+    ],
+    "area_px": 19,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.14653521234725372
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     42,
+     27
+    ],
+    "area_px": 21,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.3471572504286276
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     43,
+     48
+    ],
+    "area_px": 388,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.3956052618427814
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     63,
+     53
+    ],
+    "area_px": 45,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.16447563431782103
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     79,
+     58
+    ],
+    "area_px": 76,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.6302020728422176
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     49,
+     65
+    ],
+    "area_px": 12,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.10040744296638603
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     86,
+     67
+    ],
+    "area_px": 28,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.4141766440712887
+   }
+  ],
+  "terrain_fraction": {
+   "bedrock": 0.4849175347222222,
+   "sand": 0.3790147569444444,
+   "rock": 0.0751953125,
+   "steep_slope": 0.060872395833333336
+  },
+  "uncertain_fraction": 0.24305555555555555,
+  "unsafe_fraction": 0.3097873263888889,
+  "terrain_assessment": {
+   "status": "image_and_noisy_depth_only",
+   "map_available": true,
+   "calibrated_on": "synthetic_data_only"
+  },
+  "scientific_targets": [],
+  "navigation_ready": false,
+  "limitations": [
+   "trained on synthetic terrain only; no Mars performance claimed",
+   "cannot determine mineral composition",
+   "depth is simulated noisy stereo"
+  ]
+ },
+ {
+  "scene_id": "synthetic_002",
+  "image_size": [
+   96,
+   96
+  ],
+  "objects": [
+   {
+    "type": "rock",
+    "location_px": [
+     38,
+     6
+    ],
+    "area_px": 45,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.11077586831320452
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     85,
+     7
+    ],
+    "area_px": 37,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.14783140691562596
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     19,
+     27
+    ],
+    "area_px": 57,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.1156303480299926
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     33,
+     26
+    ],
+    "area_px": 29,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.06299999702786024
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     15,
+     34
+    ],
+    "area_px": 86,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.13943462705371842
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     27,
+     35
+    ],
+    "area_px": 58,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.10433473245635583
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     65,
+     32
+    ],
+    "area_px": 33,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.10267334070629039
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     88,
+     34
+    ],
+    "area_px": 30,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.06800994084887453
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     56,
+     57
+    ],
+    "area_px": 515,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.3152470603530422
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     74,
+     74
+    ],
+    "area_px": 262,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.2659084448975017
+   },
+   {
+    "type": "rock",
+    "location_px": [
+     37,
+     88
+    ],
+    "area_px": 22,
+    "obstacle_candidate": true,
+    "mean_uncertainty": 0.09575968884631526
+   }
+  ],
+  "terrain_fraction": {
+   "bedrock": 0.4583333333333333,
+   "sand": 0.3193359375,
+   "rock": 0.1283637152777778,
+   "steep_slope": 0.0939670138888889
+  },
+  "uncertain_fraction": 0.1750217013888889,
+  "unsafe_fraction": 0.3273654513888889,
+  "terrain_assessment": {
+   "status": "image_and_noisy_depth_only",
+   "map_available": true,
+   "calibrated_on": "synthetic_data_only"
+  },
+  "scientific_targets": [],
+  "navigation_ready": false,
+  "limitations": [
+   "trained on synthetic terrain only; no Mars performance claimed",
+   "cannot determine mineral composition",
+   "depth is simulated noisy stereo"
+  ]
+ }
+]

@@ -1,0 +1,391 @@
+{
+ "date": "2026-10-18",
+ "rule": "Per condition, strict truth. Constraint: zero collisions in BOTH conditions and cell-level false-safe not above the most conservative candidate. Objective: minimise the larger no-path rate. Tie: smaller block fraction, then smaller cell. Fallback: select nothing.",
+ "perception": {
+  "thr": 0.15,
+  "ut": 0.35,
+  "et": 0.05
+ },
+ "grid": [
+  {
+   "cell": 4,
+   "bf": 0.05,
+   "nominal": {
+    "success": 0.1,
+    "collision": 0.0,
+    "no_path": 0.9,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.0010359627053426078
+   },
+   "novel": {
+    "success": 0.075,
+    "collision": 0.0,
+    "no_path": 0.925,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.0008309591642924976
+   }
+  },
+  {
+   "cell": 4,
+   "bf": 0.12,
+   "nominal": {
+    "success": 0.3,
+    "collision": 0.1,
+    "no_path": 0.6,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.021163238123427557
+   },
+   "novel": {
+    "success": 0.2,
+    "collision": 0.025,
+    "no_path": 0.775,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.015194681861348529
+   }
+  },
+  {
+   "cell": 4,
+   "bf": 0.18,
+   "nominal": {
+    "success": 0.45,
+    "collision": 0.225,
+    "no_path": 0.325,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.05150214592274678
+   },
+   "novel": {
+    "success": 0.25,
+    "collision": 0.125,
+    "no_path": 0.625,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.03727445394112061
+   }
+  },
+  {
+   "cell": 4,
+   "bf": 0.25,
+   "nominal": {
+    "success": 0.375,
+    "collision": 0.45,
+    "no_path": 0.175,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.13719106112179963
+   },
+   "novel": {
+    "success": 0.2,
+    "collision": 0.375,
+    "no_path": 0.425,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.10802469135802469
+   }
+  },
+  {
+   "cell": 4,
+   "bf": 0.35,
+   "nominal": {
+    "success": 0.35,
+    "collision": 0.575,
+    "no_path": 0.075,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.18469735089536776
+   },
+   "novel": {
+    "success": 0.25,
+    "collision": 0.4,
+    "no_path": 0.35,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.14802943969610635
+   }
+  },
+  {
+   "cell": 4,
+   "bf": 0.5,
+   "nominal": {
+    "success": 0.3,
+    "collision": 0.7,
+    "no_path": 0.0,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.3359479058753885
+   },
+   "novel": {
+    "success": 0.175,
+    "collision": 0.75,
+    "no_path": 0.075,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.2801519468186135
+   }
+  },
+  {
+   "cell": 6,
+   "bf": 0.05,
+   "nominal": {
+    "success": 0.05,
+    "collision": 0.0,
+    "no_path": 0.95,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.008664627930682976
+   },
+   "novel": {
+    "success": 0.05,
+    "collision": 0.0,
+    "no_path": 0.95,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.005418292154312961
+   }
+  },
+  {
+   "cell": 6,
+   "bf": 0.12,
+   "nominal": {
+    "success": 0.175,
+    "collision": 0.25,
+    "no_path": 0.575,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.06600407747196738
+   },
+   "novel": {
+    "success": 0.15,
+    "collision": 0.1,
+    "no_path": 0.75,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.04247941048981361
+   }
+  },
+  {
+   "cell": 6,
+   "bf": 0.18,
+   "nominal": {
+    "success": 0.225,
+    "collision": 0.4,
+    "no_path": 0.375,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.11773700305810397
+   },
+   "novel": {
+    "success": 0.15,
+    "collision": 0.15,
+    "no_path": 0.7,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.08322496749024708
+   }
+  },
+  {
+   "cell": 6,
+   "bf": 0.25,
+   "nominal": {
+    "success": 0.175,
+    "collision": 0.55,
+    "no_path": 0.275,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.20922528032619775
+   },
+   "novel": {
+    "success": 0.1,
+    "collision": 0.4,
+    "no_path": 0.5,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.15886432596445602
+   }
+  },
+  {
+   "cell": 6,
+   "bf": 0.35,
+   "nominal": {
+    "success": 0.1,
+    "collision": 0.775,
+    "no_path": 0.125,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.29510703363914376
+   },
+   "novel": {
+    "success": 0.05,
+    "collision": 0.625,
+    "no_path": 0.325,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.23797139141742524
+   }
+  },
+  {
+   "cell": 6,
+   "bf": 0.5,
+   "nominal": {
+    "success": 0.125,
+    "collision": 0.875,
+    "no_path": 0.0,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.46075433231396534
+   },
+   "novel": {
+    "success": 0.1,
+    "collision": 0.8,
+    "no_path": 0.1,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.3814477676636324
+   }
+  },
+  {
+   "cell": 8,
+   "bf": 0.05,
+   "nominal": {
+    "success": 0.025,
+    "collision": 0.075,
+    "no_path": 0.9,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.018229166666666668
+   },
+   "novel": {
+    "success": 0.075,
+    "collision": 0.0,
+    "no_path": 0.925,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.014216478190630048
+   }
+  },
+  {
+   "cell": 8,
+   "bf": 0.12,
+   "nominal": {
+    "success": 0.125,
+    "collision": 0.2,
+    "no_path": 0.675,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.07328869047619048
+   },
+   "novel": {
+    "success": 0.1,
+    "collision": 0.075,
+    "no_path": 0.825,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.06009693053311793
+   }
+  },
+  {
+   "cell": 8,
+   "bf": 0.18,
+   "nominal": {
+    "success": 0.175,
+    "collision": 0.3,
+    "no_path": 0.525,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.15029761904761904
+   },
+   "novel": {
+    "success": 0.125,
+    "collision": 0.2,
+    "no_path": 0.675,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.12859450726979
+   }
+  },
+  {
+   "cell": 8,
+   "bf": 0.25,
+   "nominal": {
+    "success": 0.125,
+    "collision": 0.6,
+    "no_path": 0.275,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.23995535714285715
+   },
+   "novel": {
+    "success": 0.075,
+    "collision": 0.35,
+    "no_path": 0.575,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.20323101777059774
+   }
+  },
+  {
+   "cell": 8,
+   "bf": 0.35,
+   "nominal": {
+    "success": 0.125,
+    "collision": 0.7,
+    "no_path": 0.175,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.3645833333333333
+   },
+   "novel": {
+    "success": 0.1,
+    "collision": 0.5,
+    "no_path": 0.4,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.3072697899838449
+   }
+  },
+  {
+   "cell": 8,
+   "bf": 0.5,
+   "nominal": {
+    "success": 0.075,
+    "collision": 0.875,
+    "no_path": 0.05,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.5665922619047619
+   },
+   "novel": {
+    "success": 0.025,
+    "collision": 0.825,
+    "no_path": 0.15,
+    "n": 40,
+    "skipped": 0,
+    "cell_false_safe": 0.474313408723748
+   }
+  }
+ ],
+ "selected": {
+  "cell": 4,
+  "bf": 0.05,
+  "nominal": {
+   "success": 0.1,
+   "collision": 0.0,
+   "no_path": 0.9,
+   "n": 40,
+   "skipped": 0,
+   "cell_false_safe": 0.0010359627053426078
+  },
+  "novel": {
+   "success": 0.075,
+   "collision": 0.0,
+   "no_path": 0.925,
+   "n": 40,
+   "skipped": 0,
+   "cell_false_safe": 0.0008309591642924976
+  }
+ }
+}
