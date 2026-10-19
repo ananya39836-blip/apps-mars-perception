@@ -1,0 +1,49 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run All Tests (pytest)",
+            "type": "shell",
+            "command": "py -m pytest tests/test_level1.py tests/test_all.py -v",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Run Level 1 Evidence Assessment",
+            "type": "shell",
+            "command": "py tools/assess_level1.py",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Run Master Level 1 Pipeline",
+            "type": "shell",
+            "command": "py experiments/run_level1.py",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Launch Streamlit Demo (app_l1.py)",
+            "type": "shell",
+            "command": "py -m streamlit run app_l1.py",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        }
+    ]
+}
