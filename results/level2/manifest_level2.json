@@ -1,0 +1,89 @@
+{
+  "pipeline": "run_level2",
+  "mode": "full",
+  "timestamp": "2026-10-19T12:03:25Z",
+  "total_duration_s": 48.41,
+  "all_passed": true,
+  "steps": [
+    {
+      "name": "Step 1: Level 1 Milestone Backward Regression Audit",
+      "command": "python tools/assess_level1.py",
+      "returncode": 0,
+      "duration_s": 1.95,
+      "passed": true
+    },
+    {
+      "name": "Step 2: Real-Data Screening, Provenance & Transfer Suite",
+      "command": "python tools/run_level2_data_prep.py",
+      "returncode": 0,
+      "duration_s": 0.81,
+      "passed": true
+    },
+    {
+      "name": "Step 3: Interface Schema, Lock Scan & Traceability Verification",
+      "command": "python tools/run_level2_assurance.py",
+      "returncode": 0,
+      "duration_s": 1.9,
+      "passed": true
+    },
+    {
+      "name": "Step 4: Experiment E30 Latency Budgeting & Timing Harness",
+      "command": "python level2/experiments/e30_latency.py",
+      "returncode": 0,
+      "duration_s": 2.5,
+      "passed": true
+    },
+    {
+      "name": "Step 5: Experiment E31 Temporal Fusion with Drift & Frozen Frames",
+      "command": "python level2/experiments/e31_fusion.py",
+      "returncode": 0,
+      "duration_s": 1.84,
+      "passed": true
+    },
+    {
+      "name": "Step 6: Experiment E28 3D Kinodynamic Benchmark (Systems A, B, C)",
+      "command": "python level2/experiments/e28_benchmark.py",
+      "returncode": 0,
+      "duration_s": 36.65,
+      "passed": true
+    },
+    {
+      "name": "Step 7: Level 2 Automated Unit & Integration Test Suite",
+      "command": "python -m pytest tests/test_level2.py -q",
+      "returncode": 0,
+      "duration_s": 2.41,
+      "passed": true
+    },
+    {
+      "name": "Step 8: Master Level 2 Evidence Assessment Engine",
+      "command": "python tools/assess_level2.py",
+      "returncode": 0,
+      "duration_s": 0.34,
+      "passed": true
+    }
+  ],
+  "checksums": {
+    "docs/LEVEL2_TRACEABILITY.md": "ded648e356186624d27767148fcaa5d0dfe37d231671b0b4ac3a307a4b246fc4",
+    "docs/SYSTEM_ARCHITECTURE.md": "f9ec5d3c0ec4f0e588002d6c6f0984459b60578f4f9d5eddf231ec33562d0ebc",
+    "docs/MATHEMATICAL_MODEL.md": "e7d08cdd3f4f4862345f3e2090c4c8359d79b99e0b0d9c5c8ffe42c3ecfc0711",
+    "docs/LEVEL2_VALIDATION_REPORT.md": "fb4b70e8c786dfbf63c34adcb31692e6924d214e0505e044fee2724fe33ca77f",
+    "docs/DATA_CARDS.md": "f5d2bd67fda75c37b600eb2d03810cde7ae1661872b5ed43270fdedc1c861aa4",
+    "docs/LICENCE_RECORD.md": "296f1d80bb6a1f82fba7c8c3b6cfa613ff2ae636b3840026b711ec81e768a0ae",
+    "results/level2/data_provenance.json": "02c5d34d156a3ca2d75dcbd97c4b6c0574c16dc48619697a661a6ef45221d512",
+    "results/level2/licence_ok.json": "f9f4d352835295f040ff011ebfd4a70fa8635d9681b219c1cf049668e34c1e99",
+    "results/level2/label_audit.json": "c16420f33797e70037b451595f68c3c7499032860f758ab73b84a3df740a3d0b",
+    "results/level2/taxonomy_map.json": "e0e8aabdf50f1aa4ae85b3477d13ee5daed6ae855adde50b02a4876e6b5ea22f",
+    "results/level2/split_record.json": "01d6734b720411d30306cee6fad637cc782b77cacbec8cf427fc76f487998b05",
+    "results/level2/domain_gap.json": "3bead01a4db4c78dba7030e7be849d904c560c2ba0c4602fac4750c3be015593",
+    "results/level2/depth_validity_report.json": "b4149bb61f558aa3201dd33c4f1890272c6890980f3182ee0a0861a7637e3c0f",
+    "results/level2/calibration_report.json": "0e7bff54e4f71cb37c1e4ddac32a990072754dc4aaf32fceaa54f5dfe222b585",
+    "results/level2/e24_transfer_results.json": "c2d0c97853253611f9485e98ffbdc2fa07f86f62610e70748c473a431c3e9b94",
+    "results/level2/interface_test.json": "d252ad86b2d655e45156579699dbf122b9738fccac2eb6231c42f5db872e8087",
+    "results/level2/latency_report.json": "3dfade83a1b94a796718ed4001003220c444aa1ae438a5c65c7cce98764e28af",
+    "results/level2/e31_fusion_results.json": "6d292d74788e29e205d9d486e006fb8b6cf1ea7227a14518acff928c3cd8167e",
+    "results/level2/e28_kinematics_results.json": "8e5d0cd25bf6908943214a6e1030589a57a1f897875bc2562b93be4ce64327f7",
+    "results/level2/l1_regression.json": "4c3adbd244de6e8085b2e3602f0561a43888e477e60f215373f6861d586f9a21"
+  },
+  "release_gate_status": "ready-for-review",
+  "unpassed_checks": []
+}

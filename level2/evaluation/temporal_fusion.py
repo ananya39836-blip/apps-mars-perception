@@ -11,6 +11,7 @@ class TemporalMapFusion:
     def __init__(self, shape: tuple = (96, 96), clearing_count_thresh: int = 4):
         self.H, self.W = shape
         self.hazard_belief = np.zeros(shape, dtype=np.float32)
+        self.uncertainty_belief = np.ones(shape, dtype=np.float32)
         self.seen_mask = np.zeros(shape, dtype=bool)
         self.obs_count = np.zeros(shape, dtype=int)
         self.hazard_count = np.zeros(shape, dtype=int)
@@ -34,12 +35,21 @@ class TemporalMapFusion:
         return frozen
 
     def update(self, new_hazard: np.ndarray, observed_mask: np.ndarray,
-               fuse_mode: str = "union", pose_sigma_cells: float = 0.0) -> dict:
+               fuse_mode: str = "union", pose_sigma_cells: float = 0.0,
+               new_uncertainty: np.ndarray = None) -> dict:
         """Fuse new observation into accumulated temporal internal map.
         Union default with sigma spread: each hazard flag is dilated by pose sigma.
         """
+        if new_uncertainty is not None:
+            self.uncertainty_belief = np.where(
+                observed_mask,
+                np.minimum(self.uncertainty_belief, new_uncertainty),
+                self.uncertainty_belief
+            )
+            
         # Apply pose uncertainty spread mask
         eff_haz = new_hazard.copy()
+
         if pose_sigma_cells > 0.5:
             radius = int(round(pose_sigma_cells))
             struct = np.ones((2 * radius + 1, 2 * radius + 1), dtype=bool)

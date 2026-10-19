@@ -4,7 +4,7 @@
   "systems": {
     "System_A": {
       "n_episodes": 15,
-      "success_rate": 0.0,
+      "success_rate": 0.0667,
       "hazard_rate": 0.0,
       "hazard_ci_95": [
         0.0,
@@ -17,11 +17,11 @@
         0.2039
       ],
       "rule_of_three_bound": 0.2,
-      "no_path_rate": 1.0
+      "no_path_rate": 0.6
     },
     "System_B": {
       "n_episodes": 15,
-      "success_rate": 0.0,
+      "success_rate": 0.0667,
       "hazard_rate": 0.0,
       "hazard_ci_95": [
         0.0,
@@ -34,11 +34,11 @@
         0.2039
       ],
       "rule_of_three_bound": 0.2,
-      "no_path_rate": 1.0
+      "no_path_rate": 0.6
     },
     "System_C": {
       "n_episodes": 15,
-      "success_rate": 0.0,
+      "success_rate": 0.0667,
       "hazard_rate": 0.0,
       "hazard_ci_95": [
         0.0,
@@ -51,7 +51,7 @@
         0.2039
       ],
       "rule_of_three_bound": 0.2,
-      "no_path_rate": 1.0
+      "no_path_rate": 0.7333
     }
   },
   "paired_B_minus_C": {

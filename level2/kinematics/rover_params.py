@@ -18,7 +18,7 @@ class RoverParams:
     
     # Kinematic drive limits
     v_max: float = 0.50              # Maximum forward speed (m/s)
-    k_max: float = 1.00              # Maximum curvature (1/m, minimum turn radius = 1.0 m)
+    k_max: float = 1.50              # Maximum curvature (1/m, minimum turn radius = 0.67 m)
     a_max: float = 0.25              # Maximum linear acceleration (m/s^2)
     omega_max: float = 0.50          # Maximum yaw rate (rad/s)
     

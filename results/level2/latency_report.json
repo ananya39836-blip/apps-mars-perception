@@ -3,50 +3,50 @@
   "host_environment": "development machine, not onboard",
   "stages": {
     "sensor_model": {
-      "median_ms": 32.18,
-      "p95_ms": 38.42,
+      "median_ms": 20.1,
+      "p95_ms": 23.55,
       "budget_ms": 5.0,
       "within_budget": false,
       "calls": 25
     },
     "perception": {
       "median_ms": 0.3,
-      "p95_ms": 0.86,
+      "p95_ms": 0.4,
       "budget_ms": 80.0,
       "within_budget": true,
       "calls": 25
     },
     "traversability_mapper": {
-      "median_ms": 4.25,
-      "p95_ms": 5.73,
+      "median_ms": 3.19,
+      "p95_ms": 5.51,
       "budget_ms": 10.0,
       "within_budget": true,
       "calls": 25
     },
     "primitive_planner": {
-      "median_ms": 0.57,
+      "median_ms": 0.52,
       "p95_ms": 0.84,
       "budget_ms": 15.0,
       "within_budget": true,
       "calls": 25
     },
     "kinematic_step": {
-      "median_ms": 0.1,
-      "p95_ms": 0.17,
+      "median_ms": 0.08,
+      "p95_ms": 0.13,
       "budget_ms": 2.0,
       "within_budget": true,
       "calls": 25
     },
     "monitors_and_interface": {
-      "median_ms": 0.68,
-      "p95_ms": 1.09,
+      "median_ms": 0.65,
+      "p95_ms": 1.06,
       "budget_ms": 5.0,
       "within_budget": true,
       "calls": 25
     },
     "total_loop_step": {
-      "median_ms": 38.62,
-      "p95_ms": 44.53,
+      "median_ms": 25.21,
+      "p95_ms": 29.92,
       "budget_ms": 120.0,
       "within_budget": true,
       "calls": 25

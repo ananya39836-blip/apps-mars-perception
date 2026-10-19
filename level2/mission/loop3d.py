@@ -110,7 +110,8 @@ def run_mission_3d(simulator: Simulator3D, cfg: dict, rng,
         fuse_res = fusion.update(
             new_hazard=haz_local, observed_mask=seen_local,
             fuse_mode=cfg.get("fuse_mode", "union"),
-            pose_sigma_cells=pose_sigma / cell_size
+            pose_sigma_cells=pose_sigma / cell_size,
+            new_uncertainty=unc_local
         )
         if fuse_res["newly_unsafe_count"] > 0:
             discovered_count += 1
@@ -119,7 +120,7 @@ def run_mission_3d(simulator: Simulator3D, cfg: dict, rng,
         trav = build_traversability_25d(
             elevation=simulator._terrain.elevation,
             hazard_risk=fusion.hazard_belief,
-            uncertainty=unc_local,
+            uncertainty=fusion.uncertainty_belief,
             seen=fusion.seen_mask,
             cell_size_m=cell_size,
             w=cfg.get("w"),
@@ -138,7 +139,7 @@ def run_mission_3d(simulator: Simulator3D, cfg: dict, rng,
             p_budget=cfg.get("p_budget", 0.50),
             cell_size_m=cell_size,
             k_max=params.k_max,
-            prim_length_m=params.v_max * dt * 2.0,
+            prim_length_m=1.50,
             body_length=params.body_length,
             body_width=params.body_width
         )

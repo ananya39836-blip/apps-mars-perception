@@ -10,7 +10,7 @@ class Camera3D:
     """Forward-facing perspective camera with intrinsic and extrinsic projection."""
     
     def __init__(self, width: int = 64, height: int = 64,
-                 fov_deg: float = 75.0, mount_height_m: float = 1.0,
+                 fov_deg: float = 90.0, mount_height_m: float = 1.0,
                  pitch_down_deg: float = 15.0, baseline_m: float = 0.20,
                  z_min: float = 0.4, z_max: float = 16.0):
         self.width = width
@@ -130,7 +130,7 @@ class Camera3D:
         in_sector = (d <= self.z_max) & (heading_diff <= half_fov)
         
         # Vehicle body footprint is always observed and free
-        body_radius_cells = 3
+        body_radius_cells = 6
         curr_gx = int(round(rover_x_m / cell_size_m))
         curr_gy = int(round(rover_y_m / cell_size_m))
         dist_body = np.hypot(xx - curr_gx, yy - curr_gy)
@@ -149,6 +149,40 @@ class Camera3D:
         believed_haz[seen_mask & terrain.hazard] = 0.90
         believed_haz[at_body] = 0.0
         
+        return believed_haz, seen_mask, uncertainty
+
+    def reproject_to_local_grid(self, depth_map: np.ndarray, hazard_pred: np.ndarray,
+                                rover_x_m: float, rover_y_m: float, rover_yaw_rad: float,
+                                rover_z_m: float = 0.0, grid_size: int = 96,
+                                cell_size_m: float = 0.25) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
+        """Reprojects depth & hazard predictions back to vehicle/world local grid."""
+        yy, xx = np.mgrid[:grid_size, :grid_size]
+        cell_x_m = xx * cell_size_m
+        cell_y_m = yy * cell_size_m
+        dx = cell_x_m - rover_x_m
+        dy = cell_y_m - rover_y_m
+        d = np.hypot(dx, dy)
+        ang = np.arctan2(dy, dx)
+        heading_diff = np.abs((ang - rover_yaw_rad + math.pi) % (2 * math.pi) - math.pi)
+        half_fov = math.radians(self.fov_deg) / 2.0
+        in_sector = (d <= self.z_max) & (heading_diff <= half_fov)
+
+        body_radius_cells = 6
+        curr_gx = int(round(rover_x_m / cell_size_m))
+        curr_gy = int(round(rover_y_m / cell_size_m))
+        dist_body = np.hypot(xx - curr_gx, yy - curr_gy)
+        at_body = dist_body <= body_radius_cells
+
+        seen_mask = in_sector | at_body
+        rel_range = np.clip(d / self.z_max, 0.0, 1.0)
+        uncertainty = np.where(seen_mask, 0.10 + 0.85 * (rel_range**2), 1.0).astype(np.float32)
+        uncertainty[at_body] = 0.10
+
+        believed_haz = np.zeros((grid_size, grid_size), dtype=np.float32)
+        if hazard_pred is not None and np.any(hazard_pred > 0.3):
+            believed_haz[in_sector] = float(np.mean(hazard_pred[hazard_pred > 0.3]))
+        believed_haz[at_body] = 0.0
+
         return believed_haz, seen_mask, uncertainty
 
 
