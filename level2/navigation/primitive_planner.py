@@ -81,16 +81,22 @@ def plan_primitive(pose: Tuple[float, float, float], goal_x_m: float, goal_y_m: 
                    cell_size_m: float = 0.25, k_max: float = 1.00,
                    prim_length_m: float = 1.50, body_length: float = 1.20,
                    body_width: float = 0.90, w_progress: float = 2.0,
-                   w_heading: float = 0.50) -> dict:
+                   w_heading: float = 0.50, params=None) -> dict:
     """Evaluate candidate kinodynamic primitives and select the optimal collision-free arc.
     
     Returns:
-        dict(status, selected_primitive, score, swept_cells, p_proxy)
+        dict(status, selected_primitive, score, swept_cells, p_proxy, k_cmd, clearance_ok)
         status vocabulary: 'ok' | 'no_primitive' | 'rejected_budget' | 'invalid_input'
     """
     x, y, th = pose
     if not (math.isfinite(x) and math.isfinite(y) and math.isfinite(th)):
-        return dict(status="invalid_input", primitive=None, score=None, swept_cells=[], p_proxy=None)
+        return dict(status="invalid_input", primitive=None, k_cmd=0.0, score=None,
+                    swept_cells=[], p_proxy=None, clearance_ok=False)
+
+    if params is not None:
+        k_max = getattr(params, "k_max", k_max)
+        body_length = getattr(params, "body_length", body_length)
+        body_width = getattr(params, "body_width", body_width)
         
     H, W = cost_map.shape
     primitives = generate_primitives(k_max=k_max, length_m=prim_length_m, n_primitives=7)
@@ -158,15 +164,18 @@ def plan_primitive(pose: Tuple[float, float, float], goal_x_m: float, goal_y_m: 
         })
         
     if not candidates:
-        return dict(status="no_primitive", primitive=None, score=None, swept_cells=[], p_proxy=None)
+        return dict(status="no_primitive", primitive=None, k_cmd=0.0, score=None,
+                    swept_cells=[], p_proxy=None, clearance_ok=False)
         
     # Pick lowest score primitive (tie-break by index)
     best = min(candidates, key=lambda c: (c["score"], c["primitive"]["index"]))
     return dict(
         status="ok",
         primitive=best["primitive"],
+        k_cmd=best["primitive"]["curvature"],
         score=best["score"],
         swept_cells=best["swept"],
         p_proxy=best["p_proxy"],
-        end_pose=best["end_pose"]
+        end_pose=best["end_pose"],
+        clearance_ok=True
     )

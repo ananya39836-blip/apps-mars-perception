@@ -119,9 +119,13 @@ with tab1:
         cost_display = np.clip(trav["cost_map"] / 10.0, 0.0, 1.0)
         st.image(cost_display, caption="Traversability Cost Map (Brighter = Higher Cost/Hazard)", use_container_width=True)
         
-        st.markdown(f"**Selected Primitive Curvature $\kappa$**: `{plan['k_cmd']:.2f} m⁻¹`")
-        st.markdown(f"**Trajectory Clearance**: `{'PASS' if plan['clearance_ok'] else 'BLOCKED'}`")
-        st.markdown(f"**Catastrophic Proxy Probability $p_{{proxy}}$**: `{plan['p_proxy']:.4f}`")
+        k_val = plan.get("k_cmd", 0.0)
+        clear_ok = plan.get("clearance_ok", False)
+        p_val = plan.get("p_proxy")
+        p_str = f"{p_val:.4f}" if p_val is not None else "N/A"
+        st.markdown(f"**Selected Primitive Curvature $\\kappa$**: `{k_val:.2f} m⁻¹`")
+        st.markdown(f"**Trajectory Clearance**: `{'PASS' if clear_ok else 'BLOCKED'}`")
+        st.markdown(f"**Catastrophic Proxy Probability $p_{{proxy}}$**: `{p_str}`")
 
 # -----------------------------------------------------------------------------
 # TAB 2: Real Martian Image Transfer (E24)
