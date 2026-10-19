@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "slip_divergence_caught": true,
+  "camera_stall_caught": true,
+  "negative_obstacle_stopped": true,
+  "safe_stopping_arc_verified": true
+}

@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "host_caption": "Measured on development host; scaled to RAD750 (133 MHz) and HPSC (4-core ARM)",
+  "stages": {
+    "terramechanics_step_ms": {
+      "measured_host_ms": 0.12,
+      "hpsc_est_ms": 1.8,
+      "budget_ms": 10.0,
+      "pass": true
+    },
+    "sensor_features_ms": {
+      "measured_host_ms": 1.45,
+      "hpsc_est_ms": 18.5,
+      "budget_ms": 40.0,
+      "pass": true
+    },
+    "factor_graph_opt_ms": {
+      "measured_host_ms": 2.1,
+      "hpsc_est_ms": 24.0,
+      "budget_ms": 50.0,
+      "pass": true
+    },
+    "state_lattice_plan_ms": {
+      "measured_host_ms": 0.85,
+      "hpsc_est_ms": 12.0,
+      "budget_ms": 25.0,
+      "pass": true
+    },
+    "total_loop_ms": {
+      "measured_host_ms": 4.52,
+      "hpsc_est_ms": 56.3,
+      "budget_ms": 120.0,
+      "pass": true
+    }
+  }
+}

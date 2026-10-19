@@ -1,0 +1,64 @@
+{
+  "pipeline": "run_level3",
+  "mode": "full",
+  "timestamp": "2026-10-19T16:08:10Z",
+  "total_duration_s": 21.37,
+  "all_passed": true,
+  "steps": [
+    {
+      "name": "Step 1: Level 1 Milestone Backward Regression Audit",
+      "command": "python tools/assess_level1.py",
+      "returncode": 0,
+      "duration_s": 2.02,
+      "passed": true
+    },
+    {
+      "name": "Step 2: Level 2 Milestone Backward Regression Audit",
+      "command": "python tools/assess_level2.py",
+      "returncode": 0,
+      "duration_s": 0.4,
+      "passed": true
+    },
+    {
+      "name": "Step 3: Level 3 Evidence Generation Pipeline",
+      "command": "python tools/run_level3_evidence.py",
+      "returncode": 0,
+      "duration_s": 0.85,
+      "passed": true
+    },
+    {
+      "name": "Step 4: Level 3 Automated Kinodynamic & Terramechanics Tests",
+      "command": "python -m pytest tests/test_level3.py -q",
+      "returncode": 0,
+      "duration_s": 3.31,
+      "passed": true
+    },
+    {
+      "name": "Step 5: Full Regression & Integration Test Suite (59 Tests)",
+      "command": "python -m pytest tests/ -q",
+      "returncode": 0,
+      "duration_s": 14.37,
+      "passed": true
+    },
+    {
+      "name": "Step 6: Master Level 3 Evidence Assessment Engine",
+      "command": "python tools/assess_level3.py",
+      "returncode": 0,
+      "duration_s": 0.41,
+      "passed": true
+    }
+  ],
+  "checksums": {
+    "docs/LEVEL3_TRACEABILITY.md": "2a22240298510c5f91f303a941e3d49c87591a40202f61016457a96460da5966",
+    "docs/LEVEL3_VALIDATION_REPORT.md": "4fc9d35e5603a195178f031a8ff8b338483d9f77738fe2d4e18f2573c62e9c00",
+    "results/level3/drawbar_results.json": "8e1cfd0d88c8f404aa7870e800d2952c25c830c34b01165e01f967ed2aea88eb",
+    "results/level3/boundary_test_l3.json": "2c5e071e4bdb01d41cf8c1f69d297ec659eef17f23ca2f2ffa661fb0632af3cb",
+    "results/level3/interface_test_l3.json": "59ec74560366b0943ff7d034c77930ecad5929585a4867acdb86cb553dc5e0b4",
+    "results/level3/hpsc_timing_budget.json": "8879014c94646f868f507cdb078bfe5fd75c185cffb6d5c12fc16b8f54482de5",
+    "results/level3/fdir_results.json": "deb32b48de1a7434d795d135d2a6545c09d812199e8994af6fe5a95d02cb1de0",
+    "results/level3/l2_regression.json": "9bfdc24925568c6602eb9f17add57574a4f818b6e8547f276e20a81df0faed4b",
+    "results/level2/l1_regression.json": "4c3adbd244de6e8085b2e3602f0561a43888e477e60f215373f6861d586f9a21"
+  },
+  "release_gate_status": "ready-for-review",
+  "unpassed_checks": []
+}

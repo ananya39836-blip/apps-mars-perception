@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "unseen_mutation_identical": true,
+  "onroute_mutation_diverged": true,
+  "zero_shared_memory": true
+}

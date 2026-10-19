@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "lock_violation_caught": true,
+  "forbidden_truth_keys_rejected": true,
+  "sequence_monotone": true
+}
