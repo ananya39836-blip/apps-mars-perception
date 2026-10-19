@@ -1,0 +1,52 @@
+{
+  "version": "2.0",
+  "mappings": [
+    {
+      "real_class": "soil",
+      "publisher_def": "Consolidated sand/soil",
+      "apps_class": "free",
+      "type": "one-to-one",
+      "reviewer": "R1"
+    },
+    {
+      "real_class": "bedrock",
+      "publisher_def": "Exposed smooth rock outcrops",
+      "apps_class": "free",
+      "type": "one-to-one",
+      "reviewer": "R2"
+    },
+    {
+      "real_class": "sand_ripple",
+      "publisher_def": "Soft aeolian dune bedforms",
+      "apps_class": "unknown",
+      "type": "hazard-by-rule",
+      "reviewer": "R1"
+    },
+    {
+      "real_class": "big_rock",
+      "publisher_def": "Boulders > 0.20m exceeding chassis clearance",
+      "apps_class": "hazard",
+      "type": "one-to-one",
+      "reviewer": "R1"
+    },
+    {
+      "real_class": "sky",
+      "publisher_def": "Non-terrain background atmosphere",
+      "apps_class": "unmapped",
+      "type": "unmapped",
+      "reviewer": "R2"
+    },
+    {
+      "real_class": "rover_part",
+      "publisher_def": "Sunshade, robotic arm, or mast in frame",
+      "apps_class": "unmapped",
+      "type": "unmapped",
+      "reviewer": "R1"
+    }
+  ],
+  "total_classes": 6,
+  "unmapped_count": 2,
+  "unmapped_share": 0.33,
+  "silent_drops": 0,
+  "status": "passed"
+}

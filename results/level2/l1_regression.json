@@ -1,0 +1,7 @@
+{
+  "task": "l1_regression",
+  "l1_label": "L1-met (internal)",
+  "all_l1_keys_passed": true,
+  "unexplained_differences": 0,
+  "status": "passed"
+}

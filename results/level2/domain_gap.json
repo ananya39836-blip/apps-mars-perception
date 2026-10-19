@@ -1,0 +1,36 @@
+{
+  "task": "domain_gap_measurement",
+  "statistics": {
+    "intensity_gradient_std_diff": {
+      "synthetic_vs_synthetic": 0.04,
+      "real_vs_real": 0.06,
+      "synthetic_vs_real": 0.42,
+      "ratio": 8.4,
+      "ci_95": [
+        0.38,
+        0.46
+      ]
+    },
+    "brightness_histogram_distance": {
+      "synthetic_vs_synthetic": 0.03,
+      "real_vs_real": 0.05,
+      "synthetic_vs_real": 0.12,
+      "ratio": 3.0,
+      "ci_95": [
+        0.09,
+        0.15
+      ]
+    },
+    "feature_space_mahalanobis": {
+      "synthetic_vs_synthetic": 1.1,
+      "real_vs_real": 1.35,
+      "synthetic_vs_real": 1.82,
+      "ratio": 1.48,
+      "ci_95": [
+        1.65,
+        1.98
+      ]
+    }
+  },
+  "status": "passed"
+}

@@ -1,0 +1,13 @@
+{
+  "task": "label_audit",
+  "audited_units": 1200,
+  "hazard_boundary_disagreements": 96,
+  "disagreement_rate": 0.08,
+  "ci_95": [
+    0.066,
+    0.0967
+  ],
+  "cohens_kappa": 0.824,
+  "status": "passed",
+  "note": "Label noise floor measured across human annotator pairs."
+}

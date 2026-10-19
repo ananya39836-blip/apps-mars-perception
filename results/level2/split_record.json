@@ -1,0 +1,23 @@
+{
+  "dataset": "AI4MARS_Curiosity_MSL",
+  "grouping_key": "rover_sol_site",
+  "groups_count": 84,
+  "splits": {
+    "fit": {
+      "groups": 16,
+      "images": 320
+    },
+    "validation": {
+      "groups": 16,
+      "images": 320
+    },
+    "test": {
+      "groups": 52,
+      "images": 1040
+    }
+  },
+  "group_overlap_count": 0,
+  "near_duplicates_cross_split": 0,
+  "test_range_read_count": 1,
+  "status": "passed"
+}

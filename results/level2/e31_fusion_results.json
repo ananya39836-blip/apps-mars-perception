@@ -1,0 +1,8 @@
+{
+  "experiment": "E31_temporal_fusion_drift",
+  "union_retains_hazard_on_late_miss": true,
+  "latest_erases_hazard_on_late_miss": true,
+  "frozen_frame_monitor_operational": true,
+  "clearing_rule_active": true,
+  "status": "passed"
+}

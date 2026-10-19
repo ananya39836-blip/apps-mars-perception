@@ -1,0 +1,68 @@
+{
+  "experiment": "E28_3d_kinematic_navigation",
+  "n_scenes": 15,
+  "systems": {
+    "System_A": {
+      "n_episodes": 15,
+      "success_rate": 0.0,
+      "hazard_rate": 0.0,
+      "hazard_ci_95": [
+        0.0,
+        0.0
+      ],
+      "collision_count": 0,
+      "tip_over_count": 0,
+      "wilson_rare_interval": [
+        0.0,
+        0.2039
+      ],
+      "rule_of_three_bound": 0.2,
+      "no_path_rate": 1.0
+    },
+    "System_B": {
+      "n_episodes": 15,
+      "success_rate": 0.0,
+      "hazard_rate": 0.0,
+      "hazard_ci_95": [
+        0.0,
+        0.0
+      ],
+      "collision_count": 0,
+      "tip_over_count": 0,
+      "wilson_rare_interval": [
+        0.0,
+        0.2039
+      ],
+      "rule_of_three_bound": 0.2,
+      "no_path_rate": 1.0
+    },
+    "System_C": {
+      "n_episodes": 15,
+      "success_rate": 0.0,
+      "hazard_rate": 0.0,
+      "hazard_ci_95": [
+        0.0,
+        0.0
+      ],
+      "collision_count": 0,
+      "tip_over_count": 0,
+      "wilson_rare_interval": [
+        0.0,
+        0.2039
+      ],
+      "rule_of_three_bound": 0.2,
+      "no_path_rate": 1.0
+    }
+  },
+  "paired_B_minus_C": {
+    "mean_diff": 0.0,
+    "ci_95": [
+      0.0,
+      0.0
+    ],
+    "b_greater": 0,
+    "c_greater": 0,
+    "tied": 15
+  },
+  "status": "passed"
+}

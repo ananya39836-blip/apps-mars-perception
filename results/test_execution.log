@@ -1,11 +1,11 @@
 APPS Level 1 Pipeline Execution Log
-Timestamp: 2026-10-18T20:02:34Z
-Mode: smoke
-Total Duration: 263.35s
+Timestamp: 2026-10-19T08:13:13Z
+Mode: full
+Total Duration: 285.55s
 All Steps Passed: True
- - Phase 1: Repository Audit & README Claims: ReturnCode=0 (0.71s)
- - Phase 1: Mechanical Information Boundary Mutation Test: ReturnCode=0 (1.18s)
- - Phase 2: Uncertainty-Aware Cost Map & Mission Loop (E23/Watchdogs): ReturnCode=0 (1.74s)
- - Phase 3: E13 Baseline Benchmark & Statistical Discipline: ReturnCode=0 (249.24s)
- - Phase 4: Worst-Case Failure Analysis (20 Scenes): ReturnCode=0 (1.97s)
- - Phase 5: Automated Unit & Integration Test Suite: ReturnCode=0 (8.52s)
+ - Phase 1: Repository Audit & README Claims: ReturnCode=0 (0.65s)
+ - Phase 1: Mechanical Information Boundary Mutation Test: ReturnCode=0 (1.13s)
+ - Phase 2: Uncertainty-Aware Cost Map & Mission Loop (E23/Watchdogs): ReturnCode=0 (1.79s)
+ - Phase 3: E13 Baseline Benchmark & Statistical Discipline: ReturnCode=0 (270.24s)
+ - Phase 4: Worst-Case Failure Analysis (20 Scenes): ReturnCode=0 (2.21s)
+ - Phase 5: Automated Unit & Integration Test Suite: ReturnCode=0 (9.53s)

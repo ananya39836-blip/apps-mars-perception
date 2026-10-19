@@ -1,0 +1,24 @@
+{
+  "camera_baseline_m": 0.2,
+  "focal_length_px": 60.0,
+  "range_bands": {
+    "near_0_to_5m": {
+      "total_cells": 10000,
+      "valid_cells": 9850,
+      "valid_fraction": 0.985
+    },
+    "mid_5_to_10m": {
+      "total_cells": 10000,
+      "valid_cells": 8920,
+      "valid_fraction": 0.892
+    },
+    "far_10_to_16m": {
+      "total_cells": 10000,
+      "valid_cells": 6430,
+      "valid_fraction": 0.643
+    }
+  },
+  "overall_valid_fraction": 0.84,
+  "unvalidated_beyond_16m": true,
+  "status": "passed"
+}

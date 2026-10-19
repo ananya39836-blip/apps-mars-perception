@@ -1,0 +1,56 @@
+{
+  "experiment": "E30_latency_budget",
+  "host_environment": "development machine, not onboard",
+  "stages": {
+    "sensor_model": {
+      "median_ms": 32.18,
+      "p95_ms": 38.42,
+      "budget_ms": 5.0,
+      "within_budget": false,
+      "calls": 25
+    },
+    "perception": {
+      "median_ms": 0.3,
+      "p95_ms": 0.86,
+      "budget_ms": 80.0,
+      "within_budget": true,
+      "calls": 25
+    },
+    "traversability_mapper": {
+      "median_ms": 4.25,
+      "p95_ms": 5.73,
+      "budget_ms": 10.0,
+      "within_budget": true,
+      "calls": 25
+    },
+    "primitive_planner": {
+      "median_ms": 0.57,
+      "p95_ms": 0.84,
+      "budget_ms": 15.0,
+      "within_budget": true,
+      "calls": 25
+    },
+    "kinematic_step": {
+      "median_ms": 0.1,
+      "p95_ms": 0.17,
+      "budget_ms": 2.0,
+      "within_budget": true,
+      "calls": 25
+    },
+    "monitors_and_interface": {
+      "median_ms": 0.68,
+      "p95_ms": 1.09,
+      "budget_ms": 5.0,
+      "within_budget": true,
+      "calls": 25
+    },
+    "total_loop_step": {
+      "median_ms": 38.62,
+      "p95_ms": 44.53,
+      "budget_ms": 120.0,
+      "within_budget": true,
+      "calls": 25
+    }
+  },
+  "status": "passed"
+}

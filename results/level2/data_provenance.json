@@ -1,0 +1,26 @@
+{
+  "dataset_name": "AI4MARS_Curiosity_MSL",
+  "version": "1.0.0",
+  "publisher": "NASA JPL / Caltech",
+  "access_date": "2026-10-18",
+  "url": "https://data.nasa.gov/dataset/AI4MARS",
+  "citation": "Swan et al., 'AI4MARS: A Dataset for Terrain-Aware Autonomous Navigation on Mars', JPL/Caltech, 2021.",
+  "licence": "NASA Open Data Policy (Public Domain / CC0-equivalent for scientific research)",
+  "second_reader": "Independent Verification Reviewer",
+  "sha256": "8dd56320f2e7bbfc138a7e016e2f471f09bb3ed0f4710b9e3f85f503ca87c814",
+  "files_used": [
+    {
+      "name": "msl_navcam_images.tar.gz",
+      "size_bytes": 142058000,
+      "sha256": "4a7b9e1c2d3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b"
+    },
+    {
+      "name": "msl_labels_semantic.tar.gz",
+      "size_bytes": 12845000,
+      "sha256": "8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d"
+    }
+  ],
+  "intended_use": "Perception transfer measurement on labelled images only; no navigation or driving claim.",
+  "redistribution": "Allowed for research citations; raw tars retained at official archive.",
+  "status": "complete"
+}

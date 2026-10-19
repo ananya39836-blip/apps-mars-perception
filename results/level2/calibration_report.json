@@ -1,0 +1,23 @@
+{
+  "regime_1_pure_transfer": {
+    "ece_hazard": 0.142,
+    "ece_hazard_ci": [
+      0.118,
+      0.165
+    ],
+    "brier_score": 0.115,
+    "false_safe_rate": 0.082
+  },
+  "regime_2_temperature_refit": {
+    "fitted_temperature": 1.45,
+    "ece_hazard": 0.068,
+    "ece_hazard_ci": [
+      0.052,
+      0.085
+    ],
+    "brier_score": 0.081,
+    "false_safe_rate": 0.079
+  },
+  "improvement_noted": true,
+  "status": "passed"
+}

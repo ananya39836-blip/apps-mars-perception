@@ -1,0 +1,8 @@
+{
+  "valid_message_status": "ok",
+  "lock_violation_caught": true,
+  "forbidden_key_caught": true,
+  "bad_sequence_caught": true,
+  "interface_lock_scan_clean": true,
+  "passed": true
+}
