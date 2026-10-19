@@ -14,7 +14,9 @@ class SafeStoppingTrajectoryGenerator:
     """Computes certified emergency stopping profiles and ICS boundary validation."""
 
     def __init__(self, max_decel_m_s2: float = 0.25, max_yaw_rate_rad_s: float = 0.50,
-                 r_chassis_m: float = 0.55):
+                 r_chassis_m: float = 0.55, max_deceleration_m_s2: float = None):
+        if max_deceleration_m_s2 is not None:
+            max_decel_m_s2 = max_deceleration_m_s2
         self.max_decel = float(max_decel_m_s2)
         self.max_w = float(max_yaw_rate_rad_s)
         self.r_chassis = float(r_chassis_m)
@@ -63,3 +65,34 @@ class SafeStoppingTrajectoryGenerator:
             "stopping_time_s": float(t_stop),
             "stopping_pts": stop_pts
         }
+
+    def compute_stopping_trajectory(self, initial_velocity_m_s: float = 0.15, dt_s: float = 0.1) -> Dict:
+        """Compute velocity vs time deceleration stopping trajectory to full rest."""
+        v0 = max(0.0, float(initial_velocity_m_s))
+        a = max(0.01, self.max_decel)
+        t_stop = v0 / a
+        d_stop = 0.5 * v0 * t_stop
+        
+        times = []
+        vels = []
+        cur_t = 0.0
+        while cur_t <= t_stop + 1e-4:
+            v_curr = max(0.0, v0 - a * cur_t)
+            times.append(round(cur_t, 2))
+            vels.append(round(v_curr, 4))
+            cur_t += dt_s
+
+        if not times or times[-1] < t_stop:
+            times.append(round(t_stop, 2))
+            vels.append(0.0)
+
+        return {
+            "stopping_distance_m": float(d_stop),
+            "time_to_rest_s": float(t_stop),
+            "time_s": times,
+            "velocity_m_s": vels
+        }
+
+
+# Alias for compatibility
+CertifiedStoppingProfile = SafeStoppingTrajectoryGenerator

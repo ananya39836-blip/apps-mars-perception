@@ -111,3 +111,38 @@ class RockerBogieSuspension:
             "bogie_right_deg": float(math.degrees(bogie_r_rad)),
             "wheel_normal_loads_N": wheel_loads
         }
+
+    def forward_kinematics(self, rocker_pitch_left: float, rocker_pitch_right: float) -> Dict:
+        """Forward kinematic decoupling of differential pitch averaging bar."""
+        diff_pitch = 0.5 * (rocker_pitch_left - rocker_pitch_right)
+        avg_pitch = 0.5 * (rocker_pitch_left + rocker_pitch_right)
+        return {
+            "diff_pitch_rad": float(diff_pitch),
+            "avg_pitch_rad": float(avg_pitch),
+            "rocker_left_rad": float(rocker_pitch_left),
+            "rocker_right_rad": float(rocker_pitch_right)
+        }
+
+    def compute_wheel_normal_loads(self, total_normal_load_N: float = 686.35,
+                                   pitch_rad: float = 0.0,
+                                   roll_rad: float = 0.0) -> Dict[str, float]:
+        """Compute normal ground contact forces equalized across 6 wheels under terrain inclination."""
+        nom = float(total_normal_load_N) / 6.0
+        pitch_bias = math.sin(pitch_rad) * (total_normal_load_N * 0.08)
+        roll_bias = math.sin(roll_rad) * (total_normal_load_N * 0.08)
+
+        loads = {
+            "fl": float(max(5.0, nom - pitch_bias + roll_bias)),
+            "fr": float(max(5.0, nom - pitch_bias - roll_bias)),
+            "ml": float(max(5.0, nom + roll_bias)),
+            "mr": float(max(5.0, nom - roll_bias)),
+            "rl": float(max(5.0, nom + pitch_bias + roll_bias)),
+            "rr": float(max(5.0, nom + pitch_bias - roll_bias)),
+            "FL": float(max(5.0, nom - pitch_bias + roll_bias)),
+            "FR": float(max(5.0, nom - pitch_bias - roll_bias)),
+            "ML": float(max(5.0, nom + roll_bias)),
+            "MR": float(max(5.0, nom - roll_bias)),
+            "RL": float(max(5.0, nom + pitch_bias + roll_bias)),
+            "RR": float(max(5.0, nom + pitch_bias - roll_bias)),
+        }
+        return loads

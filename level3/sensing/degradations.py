@@ -97,3 +97,41 @@ class NegativeObstacleSentinel:
             "negative_obstacles_found": n_detected,
             "hazard_mask": neg_hazard_mask
         }
+
+    def inspect_scan(self, step_drop_m: float) -> Dict:
+        """Inspect a single obstacle drop measurement against threshold."""
+        val = float(step_drop_m)
+        is_hazard = (val >= self.drop_thresh)
+        return {
+            "negative_hazard_detected": is_hazard,
+            "step_drop_m": val,
+            "threshold_m": self.drop_thresh
+        }
+
+
+class EnvironmentalDegradationModel:
+    """Atmospheric dust optical depth extinction and solar flare glare simulator."""
+
+    def __init__(self):
+        pass
+
+    def apply_degradations(self, tau_dust: float = 0.80, sun_angle_deg: float = 25.0,
+                           true_intensity: float = 1.0) -> Dict[str, float]:
+        """Compute optical transmission factor, veiling glare ratio, and effective SNR."""
+        tau = max(0.0, float(tau_dust))
+        transmission = float(math.exp(-tau))
+        
+        # Glare ratio increases as sun angle approaches boresight (0 deg)
+        ang_rad = math.radians(max(0.0, float(sun_angle_deg)))
+        glare_ratio = float(max(0.0, min(1.0, math.exp(-ang_rad**2 / (2.0 * 0.40**2)) * 0.85)))
+        
+        # Noise floor combines ambient dust scatter and lens glare
+        noise_floor = 0.02 + 0.15 * (1.0 - transmission) + 0.35 * glare_ratio
+        signal = float(true_intensity) * transmission
+        snr_db = float(10.0 * math.log10(max(1e-4, signal / max(1e-4, noise_floor))))
+
+        return {
+            "optical_transmission": transmission,
+            "solar_glare_ratio": glare_ratio,
+            "effective_snr_db": snr_db
+        }

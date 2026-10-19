@@ -10,19 +10,84 @@ from typing import Dict, List, Tuple
 import numpy as np
 
 
+class RigidBodyState(np.ndarray):
+    """12-element state vector with property accessors for x, y, z, roll, pitch, yaw."""
+    def __new__(cls, input_array=None):
+        if input_array is None:
+            input_array = np.zeros(12, dtype=np.float64)
+        return np.asarray(input_array).view(cls)
+
+    @property
+    def x(self): return self[0]
+    @x.setter
+    def x(self, v): self[0] = v
+
+    @property
+    def y(self): return self[1]
+    @y.setter
+    def y(self, v): self[1] = v
+
+    @property
+    def z(self): return self[2]
+    @z.setter
+    def z(self, v): self[2] = v
+
+    @property
+    def roll(self): return self[3]
+    @roll.setter
+    def roll(self, v): self[3] = v
+
+    @property
+    def pitch(self): return self[4]
+    @pitch.setter
+    def pitch(self, v): self[4] = v
+
+    @property
+    def yaw(self): return self[5]
+    @yaw.setter
+    def yaw(self, v): self[5] = v
+
+
+class FASMResult(float):
+    """Float result for FASM margin that also supports dict-like key lookups."""
+    def __new__(cls, val, tip_angle=0.0):
+        obj = super().__new__(cls, val)
+        obj.tip_angle_margin_rad = tip_angle
+        obj.fasm_metric_N_rad = val
+        return obj
+
+    def __getitem__(self, key):
+        if key in ("tip_angle_margin_rad", "tip_margin", "angle_margin"):
+            return self.tip_angle_margin_rad
+        if key in ("fasm_metric_N_rad", "fasm"):
+            return self.fasm_metric_N_rad
+        raise KeyError(key)
+
+    def get(self, key, default=None):
+        try:
+            return self[key]
+        except KeyError:
+            return default
+
+
 class RigidBody6DOF:
     """6-DOF Rigid-Body Dynamics simulator with Newton-Euler equations and Force-Angle Stability Margin."""
     
     def __init__(self, mass_kg: float = 185.0,
                  inertia_diag: Tuple[float, float, float] = (24.5, 32.8, 41.2),
-                 gravity_m_s2: float = 3.71):
+                 gravity_m_s2: float = 3.71,
+                 mass: float = None, gravity: float = None):
+        if mass is not None:
+            mass_kg = mass
+        if gravity is not None:
+            gravity_m_s2 = gravity
         self.mass = float(mass_kg)
         self.inertia = np.diag(inertia_diag)
         self.inertia_inv = np.linalg.inv(self.inertia)
         self.g = float(gravity_m_s2)
         
         # State vector: [x, y, z, roll, pitch, yaw, vx, vy, vz, wx, wy, wz]
-        self.state = np.zeros(12, dtype=np.float64)
+        self.state = RigidBodyState()
         self.state[2] = 0.50 # initial nominal height
 
     def set_pose(self, x: float, y: float, z: float, roll: float, pitch: float, yaw: float):
@@ -94,18 +159,31 @@ class RigidBody6DOF:
             "is_tipover": is_tipover
         }
 
-    def compute_fasm(self, contact_points: List[Tuple[float, float, float]], f_net: np.ndarray) -> float:
+    def compute_fasm(self, contact_points: List[Tuple[float, float, float]] = None,
+                     f_net: np.ndarray = None, wheel_contacts: Dict = None):
         """Force-Angle Stability Margin (FASM) from Chapter 229.2.
         FASM = min_i ( theta_tip_i * ||F_net|| ).
         """
+        if contact_points is None:
+            contact_points = [
+                (0.60, 0.45, 0.0),   # Front Left
+                (0.00, 0.45, 0.0),   # Mid Left
+                (-0.60, 0.45, 0.0),  # Rear Left
+                (-0.60, -0.45, 0.0), # Rear Right
+                (0.00, -0.45, 0.0),  # Mid Right
+                (0.60, -0.45, 0.0)   # Front Right
+            ]
+        if f_net is None:
+            f_net = np.array([0.0, 0.0, -self.mass * self.g], dtype=np.float64)
+
         f_norm = float(np.linalg.norm(f_net))
         if f_norm < 1e-3:
-            return 50.0
+            return FASMResult(50.0, tip_angle=0.45)
 
         # Downward force vector
-        h_cm = max(0.10, self.state[2])
+        h_cm = max(0.10, float(self.state[2]))
         # Center of pressure on ground plane: x_cop = -F_x / |F_z| * h_cm
-        fz = abs(f_net[2]) if abs(f_net[2]) > 1e-2 else 185.0 * self.g
+        fz = abs(f_net[2]) if abs(f_net[2]) > 1e-2 else self.mass * self.g
         cop_x = (f_net[0] / fz) * h_cm
         cop_y = (f_net[1] / fz) * h_cm
 
@@ -133,4 +211,4 @@ class RigidBody6DOF:
         # Tip angle theta ~ arctan(dist / h_cm)
         theta_tip = math.atan2(min_d, h_cm)
         margin = theta_tip * f_norm
-        return float(max(0.0, margin))
+        return FASMResult(max(0.0, margin), tip_angle=theta_tip)

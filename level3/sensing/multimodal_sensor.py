@@ -58,7 +58,12 @@ class FlashLiDAR3D:
 
     def __init__(self, hfov_deg: float = 70.0, vfov_deg: float = 40.0,
                  channels_h: int = 64, channels_v: int = 32,
-                 max_range_m: float = 18.0, range_noise_m: float = 0.02):
+                 max_range_m: float = 18.0, range_noise_m: float = 0.02,
+                 h_res: int = None, v_res: int = None):
+        if h_res is not None:
+            channels_h = h_res
+        if v_res is not None:
+            channels_v = v_res
         self.hfov = math.radians(hfov_deg)
         self.vfov = math.radians(vfov_deg)
         self.ch_h = channels_h
@@ -112,3 +117,33 @@ class FlashLiDAR3D:
         if not points:
             return np.zeros((0, 4), dtype=np.float32)
         return np.array(points, dtype=np.float32)
+
+    def simulate_point_cloud(self, num_boulders: int = 8, seed: int = 42) -> Dict:
+        """Simulate realistic 3D point cloud with ground elevation and spherical boulders."""
+        rng = np.random.default_rng(seed)
+        points = []
+        # Surface ground points
+        xs = np.linspace(1.0, min(self.max_range, 12.0), 20)
+        ys = np.linspace(-3.5, 3.5, 20)
+        for x in xs:
+            for y in ys:
+                z = float(0.04 * math.sin(x * 0.8) * math.cos(y * 0.8) + rng.normal(0, self.range_noise))
+                points.append([float(x), float(y), z])
+
+        # Boulder obstacle points
+        for _ in range(num_boulders):
+            bx = float(rng.uniform(2.5, min(self.max_range * 0.8, 9.0)))
+            by = float(rng.uniform(-2.5, 2.5))
+            br = float(rng.uniform(0.20, 0.50))
+            for th in np.linspace(0, 2 * math.pi, 10):
+                for ph in np.linspace(0, math.pi / 2, 5):
+                    px = bx + br * math.cos(ph) * math.cos(th)
+                    py = by + br * math.cos(ph) * math.sin(th)
+                    pz = br * math.sin(ph)
+                    points.append([float(px), float(py), float(pz)])
+
+        return {
+            "points": points,
+            "num_points": len(points),
+            "max_range_m": self.max_range
+        }

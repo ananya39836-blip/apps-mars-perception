@@ -1,57 +1,57 @@
 {
   "pipeline": "run_level3",
   "mode": "full",
-  "timestamp": "2026-10-19T16:08:10Z",
-  "total_duration_s": 21.37,
+  "timestamp": "2026-10-19T17:27:18Z",
+  "total_duration_s": 19.24,
   "all_passed": true,
   "steps": [
     {
       "name": "Step 1: Level 1 Milestone Backward Regression Audit",
       "command": "python tools/assess_level1.py",
       "returncode": 0,
-      "duration_s": 2.02,
+      "duration_s": 2.01,
       "passed": true
     },
     {
       "name": "Step 2: Level 2 Milestone Backward Regression Audit",
       "command": "python tools/assess_level2.py",
       "returncode": 0,
-      "duration_s": 0.4,
+      "duration_s": 0.39,
       "passed": true
     },
     {
       "name": "Step 3: Level 3 Evidence Generation Pipeline",
       "command": "python tools/run_level3_evidence.py",
       "returncode": 0,
-      "duration_s": 0.85,
+      "duration_s": 0.84,
       "passed": true
     },
     {
       "name": "Step 4: Level 3 Automated Kinodynamic & Terramechanics Tests",
       "command": "python -m pytest tests/test_level3.py -q",
       "returncode": 0,
-      "duration_s": 3.31,
+      "duration_s": 3.45,
       "passed": true
     },
     {
       "name": "Step 5: Full Regression & Integration Test Suite (59 Tests)",
       "command": "python -m pytest tests/ -q",
       "returncode": 0,
-      "duration_s": 14.37,
+      "duration_s": 12.16,
       "passed": true
     },
     {
       "name": "Step 6: Master Level 3 Evidence Assessment Engine",
       "command": "python tools/assess_level3.py",
       "returncode": 0,
-      "duration_s": 0.41,
+      "duration_s": 0.39,
       "passed": true
     }
   ],
   "checksums": {
     "docs/LEVEL3_TRACEABILITY.md": "2a22240298510c5f91f303a941e3d49c87591a40202f61016457a96460da5966",
     "docs/LEVEL3_VALIDATION_REPORT.md": "4fc9d35e5603a195178f031a8ff8b338483d9f77738fe2d4e18f2573c62e9c00",
-    "results/level3/drawbar_results.json": "8e1cfd0d88c8f404aa7870e800d2952c25c830c34b01165e01f967ed2aea88eb",
+    "results/level3/drawbar_results.json": "3d4fb48870f1ca7c14fc5d319d65d296eaac83aee86bf63e5a64f30e681c9345",
     "results/level3/boundary_test_l3.json": "2c5e071e4bdb01d41cf8c1f69d297ec659eef17f23ca2f2ffa661fb0632af3cb",
     "results/level3/interface_test_l3.json": "59ec74560366b0943ff7d034c77930ecad5929585a4867acdb86cb553dc5e0b4",
     "results/level3/hpsc_timing_budget.json": "8879014c94646f868f507cdb078bfe5fd75c185cffb6d5c12fc16b8f54482de5",

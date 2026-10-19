@@ -22,6 +22,24 @@ class SoilParameters(NamedTuple):
     shear_modulus_Kw_m: float      # Janosi shear deformation modulus K_w (m)
     density_kg_m3: float           # Bulk soil density (kg/m^3)
 
+    @property
+    def kc(self): return self.k_c
+
+    @property
+    def kphi(self): return self.k_phi
+
+    @property
+    def n(self): return self.exponent_n
+
+    @property
+    def c(self): return self.cohesion_c_kPa * 1000.0
+
+    @property
+    def phi_deg(self): return self.friction_angle_phi_deg
+
+    @property
+    def K(self): return self.shear_modulus_Kw_m
+
 
 # Standard Planetary Regolith Presets from Chapter 224.2
 REGOLITH_PRESETS = {
@@ -46,6 +64,10 @@ REGOLITH_PRESETS = {
         density_kg_m3=2600.0
     )
 }
+# Backward compatibility aliases
+REGOLITH_PRESETS["medium_sand"] = REGOLITH_PRESETS["compact_regolith"]
+REGOLITH_PRESETS["soft_drift_sand"] = REGOLITH_PRESETS["drift_sand"]
+
 
 
 class TerramechanicsModel:
@@ -112,6 +134,7 @@ class TerramechanicsModel:
             "compaction_resistance_N": float(r_c),
             "bulldozing_resistance_N": float(r_b),
             "thrust_force_N": float(f_thrust),
+            "gross_thrust_N": float(f_thrust),
             "drawbar_pull_N": float(drawbar_pull),
             "is_entrapped": is_entrapped
         }

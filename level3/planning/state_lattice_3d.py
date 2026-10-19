@@ -158,3 +158,77 @@ class StateLatticePlanner3D:
             "trajectory": best["trajectory"],
             "clearance_ok": True
         }
+
+    def generate_arc_primitives(self, v_cmd: float = 0.10,
+                                 curvatures: List[float] = None,
+                                 horizon_s: float = 5.0) -> List[Dict]:
+        """Generate arc primitive trajectory candidates for interactive planning."""
+        if curvatures is None:
+            curvatures = list(self.curvatures)
+        
+        prims = []
+        for idx, k in enumerate(curvatures):
+            s_max = float(v_cmd * horizon_s)
+            steps = np.linspace(0.0, s_max, 15)
+            pts = []
+            for s in steps:
+                if abs(k) < 1e-6:
+                    x = s
+                    y = 0.0
+                else:
+                    x = math.sin(k * s) / k
+                    y = (1.0 - math.cos(k * s)) / k
+                pts.append((float(x), float(y)))
+            prims.append({
+                "index": idx,
+                "curvature": float(k),
+                "pts": pts,
+                "length_m": s_max
+            })
+        return prims
+
+    def select_best_trajectory(self, candidates: List[Dict], esdf_grid: np.ndarray,
+                               goal_x: float, goal_y: float) -> Dict:
+        """Score candidate trajectories against ESDF clearance field and select optimal arc."""
+        H, W = esdf_grid.shape
+        best_cand = None
+        best_cost = float("inf")
+        min_clear = float("inf")
+        all_clear = True
+
+        for c in candidates:
+            pts = c["pts"]
+            end_x, end_y = pts[-1]
+            dist_to_goal = math.hypot(goal_x - end_x, goal_y - end_y)
+            
+            c_min_dist = float("inf")
+            for px, py in pts:
+                gx = int(round(px / self.res))
+                gy = int(round(py / self.res))
+                if 0 <= gx < W and 0 <= gy < H:
+                    d = esdf_grid[gy, gx]
+                else:
+                    d = 5.0
+                if d < c_min_dist:
+                    c_min_dist = d
+
+            cost = dist_to_goal - 0.5 * min(c_min_dist, 2.0)
+            if cost < best_cost:
+                best_cost = cost
+                best_cand = c
+                min_clear = c_min_dist
+
+        if min_clear < self.r_chassis:
+            all_clear = False
+
+        k_best = best_cand["curvature"] if best_cand else 0.0
+        return {
+            "best_curvature": k_best,
+            "min_clearance_m": float(min_clear) if min_clear != float("inf") else 2.5,
+            "clearance_ok": all_clear,
+            "best_candidate": best_cand
+        }
+
+
+# Alias for compatibility
+KinodynamicStateLattice3D = StateLatticePlanner3D

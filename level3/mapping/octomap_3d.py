@@ -17,7 +17,14 @@ class VoxelMap3D:
     """3D multi-resolution voxel occupancy grid with Euclidean Signed Distance Field."""
 
     def __init__(self, size_x_m: float = 24.0, size_y_m: float = 24.0,
-                 size_z_m: float = 4.0, resolution_m: float = 0.25):
+                 size_z_m: float = 4.0, resolution_m: float = 0.25,
+                 x_size_m: float = None, y_size_m: float = None, z_size_m: float = None):
+        if x_size_m is not None:
+            size_x_m = x_size_m
+        if y_size_m is not None:
+            size_y_m = y_size_m
+        if z_size_m is not None:
+            size_z_m = z_size_m
         self.res = float(resolution_m)
         self.dim_x = int(round(size_x_m / self.res))
         self.dim_y = int(round(size_y_m / self.res))
@@ -86,3 +93,25 @@ class VoxelMap3D:
             "uncertainty_map": unc_slice,
             "seen_mask": seen_slice
         }
+
+    def insert_point(self, pt: Tuple[float, float, float], is_occupied: bool = True):
+        """Insert a single 3D point into the voxel grid."""
+        gx, gy, gz = self.world_to_grid(pt[0], pt[1], pt[2])
+        if 0 <= gx < self.dim_x and 0 <= gy < self.dim_y and 0 <= gz < self.dim_z:
+            delta = self.l_occ if is_occupied else self.l_free
+            self.log_odds[gz, gy, gx] = np.clip(self.log_odds[gz, gy, gx] + delta, self.l_min, self.l_max)
+            self.observed[gz, gy, gx] = True
+            self.uncertainty[gz, gy, gx] = 0.05
+
+    def compute_esdf_2d(self, height_m: float = 0.50) -> np.ndarray:
+        """Convenience method returning the 2D ESDF distance matrix."""
+        res = self.compute_esdf_2d_slice(height_m=height_m)
+        return res["esdf_distance_m"]
+
+    def get_occupied_voxel_count(self) -> int:
+        """Count voxels whose log-odds exceeds obstacle threshold."""
+        return int(np.sum(self.log_odds > 0.5))
+
+
+# Alias for backward and forward compatibility
+OctoMap3D = VoxelMap3D
