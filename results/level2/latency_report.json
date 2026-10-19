@@ -3,29 +3,29 @@
   "host_environment": "development machine, not onboard",
   "stages": {
     "sensor_model": {
-      "median_ms": 20.1,
-      "p95_ms": 23.55,
+      "median_ms": 19.74,
+      "p95_ms": 35.26,
       "budget_ms": 5.0,
       "within_budget": false,
       "calls": 25
     },
     "perception": {
-      "median_ms": 0.3,
-      "p95_ms": 0.4,
+      "median_ms": 0.24,
+      "p95_ms": 0.37,
       "budget_ms": 80.0,
       "within_budget": true,
       "calls": 25
     },
     "traversability_mapper": {
-      "median_ms": 3.19,
-      "p95_ms": 5.51,
+      "median_ms": 2.99,
+      "p95_ms": 5.22,
       "budget_ms": 10.0,
       "within_budget": true,
       "calls": 25
     },
     "primitive_planner": {
-      "median_ms": 0.52,
-      "p95_ms": 0.84,
+      "median_ms": 0.54,
+      "p95_ms": 1.18,
       "budget_ms": 15.0,
       "within_budget": true,
       "calls": 25
@@ -38,15 +38,15 @@
       "calls": 25
     },
     "monitors_and_interface": {
-      "median_ms": 0.65,
-      "p95_ms": 1.06,
+      "median_ms": 0.66,
+      "p95_ms": 1.27,
       "budget_ms": 5.0,
       "within_budget": true,
       "calls": 25
     },
     "total_loop_step": {
-      "median_ms": 25.21,
-      "p95_ms": 29.92,
+      "median_ms": 24.07,
+      "p95_ms": 43.11,
       "budget_ms": 120.0,
       "within_budget": true,
       "calls": 25

@@ -1,64 +1,64 @@
 {
   "pipeline": "run_level2",
   "mode": "full",
-  "timestamp": "2026-10-19T12:03:25Z",
-  "total_duration_s": 48.41,
+  "timestamp": "2026-10-19T12:26:46Z",
+  "total_duration_s": 44.8,
   "all_passed": true,
   "steps": [
     {
       "name": "Step 1: Level 1 Milestone Backward Regression Audit",
       "command": "python tools/assess_level1.py",
       "returncode": 0,
-      "duration_s": 1.95,
+      "duration_s": 2.2,
       "passed": true
     },
     {
       "name": "Step 2: Real-Data Screening, Provenance & Transfer Suite",
       "command": "python tools/run_level2_data_prep.py",
       "returncode": 0,
-      "duration_s": 0.81,
+      "duration_s": 0.78,
       "passed": true
     },
     {
       "name": "Step 3: Interface Schema, Lock Scan & Traceability Verification",
       "command": "python tools/run_level2_assurance.py",
       "returncode": 0,
-      "duration_s": 1.9,
+      "duration_s": 1.78,
       "passed": true
     },
     {
       "name": "Step 4: Experiment E30 Latency Budgeting & Timing Harness",
       "command": "python level2/experiments/e30_latency.py",
       "returncode": 0,
-      "duration_s": 2.5,
+      "duration_s": 2.46,
       "passed": true
     },
     {
       "name": "Step 5: Experiment E31 Temporal Fusion with Drift & Frozen Frames",
       "command": "python level2/experiments/e31_fusion.py",
       "returncode": 0,
-      "duration_s": 1.84,
+      "duration_s": 1.66,
       "passed": true
     },
     {
       "name": "Step 6: Experiment E28 3D Kinodynamic Benchmark (Systems A, B, C)",
       "command": "python level2/experiments/e28_benchmark.py",
       "returncode": 0,
-      "duration_s": 36.65,
+      "duration_s": 33.21,
       "passed": true
     },
     {
       "name": "Step 7: Level 2 Automated Unit & Integration Test Suite",
       "command": "python -m pytest tests/test_level2.py -q",
       "returncode": 0,
-      "duration_s": 2.41,
+      "duration_s": 2.38,
       "passed": true
     },
     {
       "name": "Step 8: Master Level 2 Evidence Assessment Engine",
       "command": "python tools/assess_level2.py",
       "returncode": 0,
-      "duration_s": 0.34,
+      "duration_s": 0.33,
       "passed": true
     }
   ],
@@ -79,7 +79,7 @@
     "results/level2/calibration_report.json": "0e7bff54e4f71cb37c1e4ddac32a990072754dc4aaf32fceaa54f5dfe222b585",
     "results/level2/e24_transfer_results.json": "c2d0c97853253611f9485e98ffbdc2fa07f86f62610e70748c473a431c3e9b94",
     "results/level2/interface_test.json": "d252ad86b2d655e45156579699dbf122b9738fccac2eb6231c42f5db872e8087",
-    "results/level2/latency_report.json": "3dfade83a1b94a796718ed4001003220c444aa1ae438a5c65c7cce98764e28af",
+    "results/level2/latency_report.json": "a0bc2eb58233ab579c3cc56e5336faafd20e8fa46da9f6bd9fb59ba4c3f7add4",
     "results/level2/e31_fusion_results.json": "6d292d74788e29e205d9d486e006fb8b6cf1ea7227a14518acff928c3cd8167e",
     "results/level2/e28_kinematics_results.json": "8e5d0cd25bf6908943214a6e1030589a57a1f897875bc2562b93be4ce64327f7",
     "results/level2/l1_regression.json": "4c3adbd244de6e8085b2e3602f0561a43888e477e60f215373f6861d586f9a21"
