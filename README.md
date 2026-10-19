@@ -1,4 +1,4 @@
-# apps_leve2_3D_Prototype: Automated Planetary Perception System (APPS) — Level 2 & Level 3 Kinodynamic Prototype
+# apps_level2_3_3D_Prototype: Automated Planetary Perception System (APPS) — Level 2 & Level 3 Kinodynamic Prototype
 
 > **Scientific Integrity & Academic Research Disclaimer**:  
 > This repository contains the Level 2 and Level 3 research prototype of the **Automated Planetary Perception System (APPS)**.  
@@ -14,16 +14,16 @@
 ![apps_level2_proto Demo Overview](docs/images/demo_overview.png)
 
 ### 🚀 Streamlit Cloud Deployment
-- **Live Streamlit App**: [Launch apps_level2_proto on Streamlit Cloud](https://share.streamlit.io/) (configured for repository `ananya39836-blip/apps_level2_3D_Prototype`)
+- **Live Streamlit App**: [Launch on Streamlit Cloud](https://share.streamlit.io/) (configured for repository `ananya39836-blip/apps_level2_3_3D_Prototype` or `ananya39836-blip/apps_level2_3D_Prototype`)
 - **Main App Files**:
-  - `apps_level2_proto.py`: Level 2 3D continuous terrain, solar ray-tracing, perspective camera, and real Mars transfer.
-  - `apps_level3_proto.py`: Level 3 6-DOF multibody dynamics, rocker-bogie passive suspension, Bekker-Wong soil traction curves, and 3D Flash LiDAR point cloud viewer.
+  - `apps_level3_proto.py`: Level 2 & Level 3 6-DOF multibody dynamics, rocker-bogie passive suspension, Bekker-Wong soil traction curves, and 3D Flash LiDAR point cloud viewer.
+  - `apps_level2_proto.py`: Level 2 & Level 3 3D continuous terrain, solar ray-tracing, perspective camera, and real Mars transfer.
 
 ---
 
 ## 1. Executive Summary & Capabilities
 
-`apps_leve2_3D_Prototype` advances autonomous planetary perception from 2D discrete cell grids to **continuous 3D DEM terrain, pinhole perspective camera projection, vehicle kinodynamics, 6-DOF multibody dynamics, and Bekker-Wong terramechanics**.
+`apps_level2_3_3D_Prototype` advances autonomous planetary perception from 2D discrete cell grids to **continuous 3D DEM terrain, pinhole perspective camera projection, vehicle kinodynamics, 6-DOF multibody dynamics, and Bekker-Wong terramechanics**.
 
 ```mermaid
 flowchart TD
@@ -228,7 +228,7 @@ python -m pytest tests -v
 ## 7. Repository Structure
 
 ```text
-apps_leve2_3D_Prototype/
+apps_level2_3_3D_Prototype/
 ├── apps_level3_proto.py          # Interactive Level 3 6-DOF & Terramechanics Streamlit App
 ├── apps_level2_proto.py          # Interactive Level 2 3D DEM & Camera Streamlit App
 ├── app_l1.py                     # Level 1 2D baseline demonstration application

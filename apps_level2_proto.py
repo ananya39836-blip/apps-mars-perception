@@ -24,7 +24,7 @@ from level2.kinematics.rover_params import RoverParams
 from level2.evaluation.temporal_fusion import TemporalMapFusion
 
 st.set_page_config(
-    page_title="apps_level2_proto: 3D Kinodynamic Perception Demo",
+    page_title="apps_level2_3_proto: Level 2 & 3 Kinodynamic Perception Demo",
     page_icon="🪐",
     layout="wide"
 )
@@ -36,7 +36,7 @@ st.error(
     "`navigation_ready` is permanently held `False` under `PROTOTYPE_LOCK = True`."
 )
 
-st.title("🪐 apps_level2_proto: 3D Kinodynamic Perception & Navigation Demo")
+st.title("🪐 apps_level2_3_proto: Level 2 & 3 Kinodynamic Perception & Navigation Demo")
 st.markdown(
     "**Milestone Designation**: `L2-met (internal)` & `L3-met (internal)` | "
     "**Release Gate**: `ready-for-review` | **Operational Lock**: `PROTOTYPE_LOCK = True`"

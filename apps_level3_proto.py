@@ -34,7 +34,7 @@ except ImportError:
     HAS_PLOTLY = False
 
 st.set_page_config(
-    page_title="apps_level3_proto: 6-DOF Kinodynamic & Terramechanics Demo",
+    page_title="apps_level2_3_proto: Level 2 & 3 Kinodynamics & Terramechanics Demo",
     page_icon="🪐",
     layout="wide"
 )
@@ -47,7 +47,7 @@ st.error(
     "`navigation_ready` is permanently held `False` under compile-time `PROTOTYPE_LOCK = True`."
 )
 
-st.title("🪐 apps_level3_proto: Level 3 6-DOF Kinodynamics, Terramechanics & Active Perception")
+st.title("🪐 apps_level2_3_proto: Level 2 & Level 3 Kinodynamics, Terramechanics & Active Perception")
 st.markdown(
     "**Milestone Designation**: `L3-met (internal)` (Appendix CT Mechanical Engine) | "
     "**Release Gate**: `ready-for-review` | **Operational Lock**: `PROTOTYPE_LOCK = True` | "
