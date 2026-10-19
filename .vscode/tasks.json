@@ -2,9 +2,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Run All Tests (pytest)",
+            "label": "Run All Tests (pytest 46/46)",
             "type": "shell",
-            "command": "py -m pytest tests/test_level1.py tests/test_all.py -v",
+            "command": "py -m pytest tests -v",
             "group": {
                 "kind": "test",
                 "isDefault": true
@@ -15,13 +15,40 @@
             }
         },
         {
-            "label": "Run Level 1 Evidence Assessment",
+            "label": "Run Level 2 Evidence Assessment (Appendix CR)",
             "type": "shell",
-            "command": "py tools/assess_level1.py",
+            "command": "py tools/assess_level2.py",
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Run Master Level 2 Pipeline (Full Verification)",
+            "type": "shell",
+            "command": "py experiments/run_level2.py",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Run Master Level 2 Pipeline (Smoke Mode)",
+            "type": "shell",
+            "command": "py experiments/run_level2.py --smoke",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Run Level 1 Evidence Assessment (Appendix AO/BX)",
+            "type": "shell",
+            "command": "py tools/assess_level1.py",
             "presentation": {
                 "reveal": "always",
                 "panel": "new"
@@ -37,7 +64,16 @@
             }
         },
         {
-            "label": "Launch Streamlit Demo (app_l1.py)",
+            "label": "Launch Interactive Streamlit Demo (Level 2: app_l2.py)",
+            "type": "shell",
+            "command": "py -m streamlit run app_l2.py",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Launch Interactive Streamlit Demo (Level 1: app_l1.py)",
             "type": "shell",
             "command": "py -m streamlit run app_l1.py",
             "presentation": {

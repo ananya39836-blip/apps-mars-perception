@@ -2,6 +2,48 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Run Level 2 Evidence Assessment (Appendix CR)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/tools/assess_level2.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Run Master Level 2 Pipeline (Full Verification)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/experiments/run_level2.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Run Master Level 2 Pipeline (Smoke Mode)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/experiments/run_level2.py",
+            "args": ["--smoke"],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Run Interactive Streamlit Demo (Level 2: app_l2.py)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "streamlit",
+            "args": ["run", "app_l2.py"],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Run Level 1 Evidence Assessment (Appendix AO/BX)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/tools/assess_level1.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        },
+        {
             "name": "Run Master Level 1 Pipeline",
             "type": "debugpy",
             "request": "launch",
@@ -10,24 +52,7 @@
             "cwd": "${workspaceFolder}"
         },
         {
-            "name": "Run Master Pipeline (Smoke Mode)",
-            "type": "debugpy",
-            "request": "launch",
-            "program": "${workspaceFolder}/experiments/run_level1.py",
-            "args": ["--smoke"],
-            "console": "integratedTerminal",
-            "cwd": "${workspaceFolder}"
-        },
-        {
-            "name": "Run Level 1 Evidence Assessment",
-            "type": "debugpy",
-            "request": "launch",
-            "program": "${workspaceFolder}/tools/assess_level1.py",
-            "console": "integratedTerminal",
-            "cwd": "${workspaceFolder}"
-        },
-        {
-            "name": "Run Interactive Streamlit Demo (app_l1.py)",
+            "name": "Run Interactive Streamlit Demo (Level 1: app_l1.py)",
             "type": "debugpy",
             "request": "launch",
             "module": "streamlit",
@@ -36,11 +61,11 @@
             "cwd": "${workspaceFolder}"
         },
         {
-            "name": "Run Pytest Suite",
+            "name": "Run Pytest Suite (All 46 Tests)",
             "type": "debugpy",
             "request": "launch",
             "module": "pytest",
-            "args": ["tests/test_level1.py", "tests/test_all.py", "-v"],
+            "args": ["tests", "-v"],
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}"
         }
