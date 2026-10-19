@@ -27,11 +27,11 @@
             "cwd": "${workspaceFolder}"
         },
         {
-            "name": "Run Interactive Streamlit Demo (Level 2: app_l2.py)",
+            "name": "Run Interactive Streamlit Demo (apps_level2_proto.py)",
             "type": "debugpy",
             "request": "launch",
             "module": "streamlit",
-            "args": ["run", "app_l2.py"],
+            "args": ["run", "apps_level2_proto.py"],
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}"
         },

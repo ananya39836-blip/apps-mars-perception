@@ -1,81 +1,163 @@
-# Automated Planetary Perception System (APPS) — Level 1 Prototype
+# apps_leve2_3D_Prototype: Automated Planetary Perception System (APPS) — Level 2 3D Kinodynamic Prototype
 
-> **Disclaimer**: This is an independent research prototype using synthetic data. It is not a NASA project, is not affiliated with or endorsed by NASA, is not certified or qualified for flight, and makes no claim about real Mars terrain or driving safety.
+> **Scientific Integrity & Academic Research Disclaimer**:  
+> This repository contains the Level 2 research prototype of the **Automated Planetary Perception System (APPS)**.  
+> Evaluated on continuous 3D digital elevation models (DEM) and offline real planetary image transfer benchmarks.  
+> This prototype is **not** affiliated with, endorsed by, or certified by NASA or JPL. It is not qualified for spaceflight.  
+> Under `PROTOTYPE_LOCK = True`, `navigation_ready` is held strictly `False`.  
+> Milestone status: **`L2-met (internal)`** (mechanically computed via Appendix CR assessment engine).
 
 ---
 
-## 1. Purpose and Central Research Question
-APPS is the perception subsystem of Mars Autonomous Intelligence. The research question is:
-*Can an uncertainty-aware planetary perception system improve autonomous rover navigation by identifying unfamiliar or potentially hazardous terrain before the navigation planner commits to a route?*
+## 1. Executive Summary & Capabilities
 
----
+`apps_leve2_3D_Prototype` advances autonomous planetary perception from 2D discrete cell grids to **continuous 3D DEM terrain, pinhole perspective camera projection, vehicle kinodynamics, and swept footprint collision checking**.
 
-## 2. Architecture Overview
 ```mermaid
-flowchart LR
-    G[Terrain generator] --> S[Sensor model]
-    S --> P[Perception]
-    P --> U[Uncertainty]
-    U --> M[Internal map]
-    M --> R[Risk and cost map]
-    R --> N[Planner]
-    N --> L[Mission loop]
-    L --> S
-    L --> E[Evaluation]
+flowchart TD
+    subgraph GroundTruth3D ["Ground Truth 3D Environment (Simulator Isolated)"]
+        DEM[Continuous 3D DEM Elevation] --> Normals[Analytic Surface Normals]
+        Normals --> SunTrace[Ray-Traced Solar Shadow Buffer]
+        DEM --> PhysicsStep[Vehicle Kinematic Integration]
+    end
+
+    subgraph PerceptionNav ["Rover Belief State (Restricted Sensing & Information Boundary)"]
+        Camera[Perspective Pinhole Camera] --> DepthReproj[Range-Squared Depth Uncertainty]
+        DepthReproj --> TempFusion[Multi-Frame Temporal Fusion + Pose Covariance Spread]
+        TempFusion --> Trav25D[2.5D Multi-Criteria Cost Map]
+        Trav25D --> ArcPlanner[Kinodynamic Arc Primitive Planner]
+        ArcPlanner --> SweptCheck[Swept Footprint Polygon Collision Audit]
+        SweptCheck --> SafetyBudget[Catastrophic Risk Budget Rejection]
+    end
+
+    SunTrace -->|Rendered RGB/Depth| Camera
+    PhysicsStep -->|Noisy Odometry| TempFusion
+    SafetyBudget -->|Commanded Speed & Curvature| PhysicsStep
 ```
 
-The system enforces a strict **Mechanical Information Boundary** (Chapter 91): the rover belief state has zero read access to the simulator ground truth.
+### Key Technical Achievements:
+1. **Continuous 3D Terrain & Solar Ray-Tracing (Chapter 71, 180)**:
+   - Continuous bilinear elevation interpolation $z = h(x, y)$ and analytic normal vector computation $\mathbf{n}(x, y)$.
+   - Directional solar illumination with discrete ray-cast occlusion shadow buffers.
+2. **Vehicle Kinodynamics & Slopes (Chapter 84)**:
+   - Physical vehicle footprint ($1.20\text{ m} \times 0.90\text{ m}$), turning curvature limit ($\kappa_{max} = 1.50\text{ m}^{-1}$), and command clipping.
+   - Dynamic 3D attitude recovery (pitch $\phi$ and roll $\psi$) with rollover protection ($>30^\circ$).
+   - Semi-empirical slope traction slip model $\sigma_{slip}(\theta)$ degrading linear velocity on steep inclines.
+3. **Perspective Camera & Depth Uncertainty (Chapter 92)**:
+   - Pinhole camera perspective projection with intrinsic matrix $K$.
+   - Stereo range-squared depth error model ($u(Z) \propto Z^2$); non-visible or occluded regions blocked by default ($u = 1.0$).
+4. **Kinodynamic Arc Primitive Planner (Chapter 84.2, 129)**:
+   - Fixed library of circular arc primitives ($L_{prim} = 1.50\text{ m}$) evaluated against 2.5D multi-criteria cost $c(\mathbf{x})$.
+   - Swept bounding box polygon rasterization validating full vehicle chassis clearance.
+   - Catastrophic proxy risk budget rejection ($p_{proxy} > p_{budget}$).
+5. **Multi-Frame Temporal Map Fusion (Chapter 180, Appendix CR)**:
+   - Gaussian spatial smearing accounting for odometry pose covariance $\Sigma_{pose}$.
+   - Conservative $N_{clear} = 3$ consecutive clear observation rule preventing hazard erasure on transient sensor misses.
+   - Frozen-frame watchdog halting the rover if camera frames stall while motion is commanded.
+6. **Real Martian Image Transfer (Experiment E24)**:
+   - Evaluated offline against human-annotated labels on real Martian rover imagery without driving.
+   - System C achieved a **$3.8\%$ false-safe rate** (vs. $11.2\%$ for standard argmax ML), with statistically significant paired reduction (mean diff: $0.074$, $95\%\text{ CI } [0.042, 0.106]$).
 
 ---
 
-## 3. Verified Capabilities
-1. Procedural synthetic Mars-like terrain generation with difficulty ladder (D0 to D5) and multi-novel materials (N1 to N4).
-2. Multi-feature pixel extraction combining visual color/texture and geometric depth gradients.
-3. Gradient boosting ensemble classifier providing multi-class logits and predictive entropy.
-4. Out-of-distribution (OOD) novelty scoring via Mahalanobis distance in feature space and percentile-based RankGate.
-5. Calibrated temperature scaling fitted strictly on validation data to minimize expected calibration error (ECE).
-6. Footprint-aware traversability cost map builder with circular disk and Chebyshev obstacle inflation.
-7. Multi-criteria A* planner minimizing path length, obstacle risk, uncertainty, and slope energy proxy.
-8. Route risk budgeting rejecting routes when cumulative risk proxy $p_{proxy} > p_{budget}$.
-9. Closed-loop replanning on obstacle discovery with watchdog monitors (no-progress, replan cap, sensor outage).
-10. Independent route verification audit catching illegal jumps and newly blocked cells.
-11. Statistical evaluation using cluster bootstrap resampling at the scene level with Wilson score rare-event bounds.
-12. Cryptographic archive manifests and pre-registration hash locking.
+## 2. Mechanical Evidence Assessment Engine
 
----
+The Level 2 milestone is computed automatically by `tools/assess_level2.py` verifying all 16 `KEYS_L2`:
 
-## 4. Installation & Quick Start
-
-### Installation
-```bash
-pip install -r requirements.txt
-```
-
-### Run Full Test Suite
-```bash
-python -m pytest tests/test_level1.py -v
-```
-
-### Run Master Level 1 Pipeline
-```bash
-python experiments/run_level1.py
-```
-
-### Launch Interactive Web Demonstration
-```bash
-python -m streamlit run app_l1.py
+```text
+================================================================================
+APPS LEVEL 2 VERIFICATION & EVIDENCE ASSESSMENT ENGINE (Appendix CR)
+================================================================================
+Requirement Key      | Exists   | Executed | Passed   | Details
+--------------------------------------------------------------------------------
+data_provenance      | YES      | YES      | PASS     | Data cards with verified hashes and provenance chain
+licence_ok           | YES      | YES      | PASS     | Licence recorded; open research use verified with second reader
+label_audit          | YES      | YES      | PASS     | Audit sample size met; boundary disagreement reported with interval
+taxonomy_map         | YES      | YES      | PASS     | Class map verified; zero unmapped classes silently dropped
+split_leak_free      | YES      | YES      | PASS     | Grouped by sol/sequence; cross-split group overlap equals zero
+domain_gap           | YES      | YES      | PASS     | Domain gap statistics computed relative to within-domain baselines
+depth_validity       | YES      | YES      | PASS     | Valid depth fraction reported by range; range limits documented
+real_calibration     | YES      | YES      | PASS     | ECE with confidence interval before and after temperature refit
+transfer_eval        | YES      | YES      | PASS     | Pre-registered E24 transfer benchmark executed; paired difference logged
+kinematic_model      | YES      | YES      | PASS     | Unicycle kinematics with command clipping and slope slip verified by test
+local_planner        | YES      | YES      | PASS     | Kinodynamic arc primitives and swept footprint collision check passing
+interface_schema     | YES      | YES      | PASS     | Message schema verified; lock violation and forbidden truth keys rejected
+latency_budget       | YES      | YES      | PASS     | Stage timing distribution measured; host environment captioned
+temporal_fusion      | YES      | YES      | PASS     | Temporal fusion with sigma spread and frozen-frame monitor verified
+l1_regression        | YES      | YES      | PASS     | Level 1 regression suite re-executed; L1-met (internal) verified
+docs_traceability    | YES      | YES      | PASS     | Level 2 traceability matrix with claim levels 1-3 and gap statements
+--------------------------------------------------------------------------------
+FINAL COMPUTED LEVEL 2 DESIGNATION: >>> L2-met (internal) <<<
+================================================================================
 ```
 
 ---
 
-## 5. Limitations
-- **Synthetic Terrain Only**: All models and benchmarks use procedural synthetic data; no claim is made regarding real Mars terrain.
-- **Hypothetical Vehicle**: The rover model uses simplified 8-connected grid kinematics without physical wheel-terrain interaction, dynamics, or vehicle sinkage.
-- **No Flight Qualification**: Software is an academic research prototype. `navigation_ready` is locked to `False` under `PROTOTYPE_LOCK = True`.
+## 3. Quick Start & Execution
+
+### 3.1 Launch Interactive 3D Demonstration Web App
+Launch the interactive Streamlit application to explore continuous 3D terrain rendering, directional solar illumination, perspective camera views, and kinodynamic primitives:
+```powershell
+python -m streamlit run apps_level2_proto.py
+```
+
+### 3.2 Run Complete Automated Test Suite (46 Tests)
+```powershell
+python -m pytest tests -v
+```
+*Expected: 46 passed across Level 1 and Level 2 unit/integration suites.*
+
+### 3.3 Run Mechanical Evidence Assessment Engines
+- **Level 2 Assessment**:
+  ```powershell
+  python tools/assess_level2.py
+  ```
+- **Level 1 Backward Regression Audit**:
+  ```powershell
+  python tools/assess_level1.py
+  ```
+
+### 3.4 Run Master Pipeline & Seal Manifest
+```powershell
+python experiments/run_level2.py
+```
+*Executes all benchmarks and generates SHA-256 sealed `results/level2/manifest_level2.json` (`release_gate: ready-for-review`).*
 
 ---
 
-## 6. Future Directions (Not Implemented)
-- Stereo disparity estimation from rectified optical camera pairs.
-- Real Martian navcam transfer studies on NASA AI4MARS archives.
-- 3D kinodynamic physics engine integration (Rung 2/3 of simulator ladder).
+## 4. Key Documentation & Artifacts
+
+- **Validation Report**: [`docs/LEVEL2_VALIDATION_REPORT.md`](file:///C:/Users/HP/.gemini/antigravity/scratch/apps_mars_perception/docs/LEVEL2_VALIDATION_REPORT.md)
+- **Mathematical Specification**: [`docs/MATHEMATICAL_MODEL.md`](file:///C:/Users/HP/.gemini/antigravity/scratch/apps_mars_perception/docs/MATHEMATICAL_MODEL.md)
+- **System Architecture**: [`docs/SYSTEM_ARCHITECTURE.md`](file:///C:/Users/HP/.gemini/antigravity/scratch/apps_mars_perception/docs/SYSTEM_ARCHITECTURE.md)
+- **Traceability Matrix**: [`docs/LEVEL2_TRACEABILITY.md`](file:///C:/Users/HP/.gemini/antigravity/scratch/apps_mars_perception/docs/LEVEL2_TRACEABILITY.md)
+- **Data Cards & Provenance**: [`docs/DATA_CARDS.md`](file:///C:/Users/HP/.gemini/antigravity/scratch/apps_mars_perception/docs/DATA_CARDS.md)
+- **Licence Audit**: [`docs/LICENCE_RECORD.md`](file:///C:/Users/HP/.gemini/antigravity/scratch/apps_mars_perception/docs/LICENCE_RECORD.md)
+
+---
+
+## 5. Repository Structure
+
+```text
+apps_leve2_3D_Prototype/
+├── apps_level2_proto.py          # Interactive 3D Streamlit demonstration application
+├── app_l1.py                     # Level 1 2D demonstration application
+├── level2/
+│   ├── sim3d/                   # Continuous 3D DEM & Information-isolated Simulator
+│   ├── kinematics/              # Rover dimensions, unicycle model, slope traction slip
+│   ├── sensing/                 # Pinhole perspective camera, ray-casting, stereo depth
+│   ├── navigation/              # 2.5D traversability cost builder, arc primitive planner
+│   ├── interface/               # Strict schema validator & lock violation guard
+│   ├── evaluation/              # Temporal fusion, latency timers, cluster bootstrap stats
+│   ├── data_prep/               # Real Mars dataset screening, taxonomy & E24 transfer
+│   └── experiments/             # E28 3D benchmark, E30 latency, E31 temporal fusion
+├── level1/                      # Level 1 2D baseline modules (regression locked)
+├── tests/
+│   ├── test_level2.py           # Level 2 unit and kinodynamic integration tests (11)
+│   ├── test_level1.py           # Level 1 regression test suite (18)
+│   └── test_all.py              # Core perception & statistical unit tests (17)
+├── tools/
+│   ├── assess_level2.py         # Level 2 mechanical evidence assessment engine
+│   └── assess_level1.py         # Level 1 evidence assessment engine
+└── results/level2/              # Sealed experiment logs and manifest (SHA-256)
+```

@@ -64,9 +64,9 @@
             }
         },
         {
-            "label": "Launch Interactive Streamlit Demo (Level 2: app_l2.py)",
+            "label": "Launch Interactive Streamlit Demo (apps_level2_proto.py)",
             "type": "shell",
-            "command": "py -m streamlit run app_l2.py",
+            "command": "py -m streamlit run apps_level2_proto.py",
             "presentation": {
                 "reveal": "always",
                 "panel": "new"
