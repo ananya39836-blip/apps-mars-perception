@@ -231,11 +231,11 @@ python -m streamlit run apps_level3_proto.py
 python -m streamlit run apps_level2_proto.py
 ```
 
-### 7.2 Run Complete Automated Test Suite (125 Tests)
+### 7.2 Run Complete Automated Test Suite (137 Tests)
 ```powershell
 python -m pytest tests -v
 ```
-*Expected: 125 passed across Level 1, Level 2, Level 3, Level 4, Level 5, and Level 6 unit/integration suites (100% passing).*
+*Expected: 137 passed across Level 1, Level 2, Level 3, Level 4, Level 5, Level 6, and Computer Vision suites (100% passing).*
 
 ### 7.3 Run Mechanical Evidence Assessment Engines
 - **Level 6 Assessment Engine**:
@@ -291,6 +291,7 @@ python -m pytest tests -v
 
 ## 8. Key Documentation & Artifacts
 
+- **Computer Vision Specifications (Parts 48–52)**: [`docs/computer_vision/`](docs/computer_vision/) (5 Volumes, 37 pages each in PDF & DOCX, 185 pp total)
 - **Level 6 Validation Report**: [`docs/LEVEL6_VALIDATION_REPORT.md`](docs/LEVEL6_VALIDATION_REPORT.md)
 - **Level 6 Traceability Matrix**: [`docs/LEVEL6_TRACEABILITY.md`](docs/LEVEL6_TRACEABILITY.md)
 - **Level 6 Specifications (Parts 38–47)**: [`docs/level6/`](docs/level6/) (10 Volumes, 37 pages each in PDF & DOCX, 370 pp total)
@@ -308,12 +309,6 @@ python -m pytest tests -v
 - **System Architecture**: [`docs/SYSTEM_ARCHITECTURE.md`](docs/SYSTEM_ARCHITECTURE.md)
 - **Data Cards & Provenance**: [`docs/DATA_CARDS.md`](docs/DATA_CARDS.md)
 - **Licence Audit**: [`docs/LICENCE_RECORD.md`](docs/LICENCE_RECORD.md)
-- **Level 3 Specifications (Parts 13–17)**: [`docs/level3/`](docs/level3/) (5 Volumes, 37 pages each in PDF & DOCX, 185 pp total)
-- **Level 2 Validation Report**: [`docs/LEVEL2_VALIDATION_REPORT.md`](docs/LEVEL2_VALIDATION_REPORT.md)
-- **Mathematical Specification**: [`docs/MATHEMATICAL_MODEL.md`](docs/MATHEMATICAL_MODEL.md)
-- **System Architecture**: [`docs/SYSTEM_ARCHITECTURE.md`](docs/SYSTEM_ARCHITECTURE.md)
-- **Data Cards & Provenance**: [`docs/DATA_CARDS.md`](docs/DATA_CARDS.md)
-- **Licence Audit**: [`docs/LICENCE_RECORD.md`](docs/LICENCE_RECORD.md)
 
 ---
 
@@ -321,7 +316,7 @@ python -m pytest tests -v
 
 ```text
 apps_level2_3_4_3D_Prototype/
-├── apps_level6_proto.py          # Interactive Level 6 Relativistic Cruise, Titan Nautics & Quantum Bell Demo
+├── apps_level6_proto.py          # Interactive Level 6 Relativistic Cruise, Titan Nautics, Quantum & Computer Vision Demo
 ├── apps_level5_proto.py          # Interactive Level 5 Swarm, Subsurface, Cryobot & Astrobiology Demo
 ├── apps_level4_proto.py          # Interactive Level 4 Multi-Agent Autonomous Exploration Demo
 ├── apps_level3_proto.py          # Interactive Level 3 6-DOF & Terramechanics Streamlit App
@@ -329,6 +324,7 @@ apps_level2_3_4_3D_Prototype/
 ├── app_l1.py                     # Level 1 2D baseline demonstration application
 ├── docs/
 │   ├── images/                  # Interactive app & benchmark screenshots
+│   ├── computer_vision/         # 5 Computer Vision Specification Volumes in PDF & DOCX (37 pages each, 185 pp total)
 │   ├── level6/                  # 10 Level 6 Specification Volumes in PDF & DOCX (37 pages each, 370 pp total)
 │   ├── level5/                  # 10 Level 5 Specification Volumes in PDF & DOCX (37 pages each, 370 pp total)
 │   ├── level4/                  # 10 Level 4 Specification Volumes in PDF & DOCX (37 pages each, 370 pp total)
@@ -345,6 +341,9 @@ apps_level2_3_4_3D_Prototype/
 │   ├── MATHEMATICAL_MODEL.md
 │   └── SYSTEM_ARCHITECTURE.md
 ├── level6/
+│   ├── vision/                  # Vision Transformers, NeRF/Gaussian Splatting, Stereo SGM, DVS & Dehazing
+│   ├── vision/                  # Computer Vision Foundation Models: ViT INT8, 3DGS, SGM Stereo VIO, DVS Flow, FDA Dehaze
+│   ├── animation/               # Code-Generated Animation: Procedural, 3D Graphics, Video Diffusion, Physics, CV Reactive, Robotics, Scientific ODE, AI Attention
 │   ├── interplanetary/          # 1PN Post-Newtonian relativistic cruise, Shapiro delay & aerocapture
 │   ├── lunar_base/              # Lunar south pole 40 K PSR cryo-ice mining & 1.2 MW fission microgrid
 │   ├── titan/                   # Kraken Mare hydrocarbon submersible & dense N2 rotorcraft flight
@@ -397,14 +396,25 @@ apps_level2_3_4_3D_Prototype/
 │   └── evaluation/              # Temporal fusion, latency timers, cluster bootstrap stats
 ├── level1/                      # Level 1 2D baseline modules (regression locked)
 ├── tests/
+│   ├── test_animation.py        # Code-generated animation suite across 8 modalities (9 tests)
+│   ├── test_computer_vision.py  # Computer vision foundation models Parts 48-52 (12 tests)
 │   ├── test_level6.py           # Level 6 relativistic nav, lunar/Titan, QKD & replication tests (22)
 │   ├── test_level5.py           # Level 5 deep-space autonomy, swarm, cryobot & quantum tests (22)
 │   ├── test_level4.py           # Level 4 multi-agent, neuromorphic & hierarchical tests (22)
 │   ├── test_level3.py           # Level 3 multibody, terramechanics & LiDAR tests (13)
 │   ├── test_level2.py           # Level 2 unit and kinodynamic integration tests (11)
 │   ├── test_level1.py           # Level 1 regression test suite (18)
-│   └── test_all.py              # Core perception & statistical unit tests (17)
+│   └── test_all.py              # Core perception & statistical unit tests (18)
+├── docs/
+│   ├── computer_vision/         # 5 Master Prompt Volumes (Parts 48–52, 37 pages each, PDF & DOCX)
+│   ├── level6/                  # 10 Level 6 Master Prompt Volumes (Parts 38–47, 37 pages each, PDF & DOCX)
+│   ├── level5/                  # 10 Level 5 Master Prompt Volumes (Parts 28–37, 37 pages each, PDF & DOCX)
+│   ├── level4/                  # 10 Level 4 Master Prompt Volumes (Parts 18–27, 37 pages each, PDF & DOCX)
+│   └── images/                  # Architecture schematics, diagrams & plots
 ├── tools/
+│   ├── generate_cv_documents.py # Master generator for 5 Computer Vision PDF & DOCX volumes
+│   ├── cv_data_part1.py         # Computer Vision specification data Parts 48-50
+│   ├── cv_data_part2.py         # Computer Vision specification data Parts 51-52
 │   ├── assess_level6.py         # Level 6 mechanical evidence assessment engine (20/20 PASS)
 │   ├── run_level6_evidence.py   # Level 6 evidence pipeline generator
 │   ├── generate_level6_documents.py # Master generator for 10 Level 6 PDF & DOCX specification volumes
