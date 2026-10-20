@@ -184,18 +184,28 @@ class MultiSensorRig:
         pts_arr = np.array(pts_cam_frame, dtype=np.float64) if pts_cam_frame else np.empty((0, 3), dtype=np.float64)
         return {
             "depth_image": depth_grid,
+            "depth_grid_m": depth_grid,
             "points_camera": pts_arr,
             "T_world_camera": T_world_cam,
+            "grid_shape": depth_grid.shape,
+            "valid_returns_count": len(pts_cam_frame),
+            "min_depth_m": float(np.min(depth_grid)) if depth_grid.size > 0 else 0.0,
+            "max_depth_m": float(np.max(depth_grid)) if depth_grid.size > 0 else 0.0,
         }
 
     def sample_imu(
         self,
         rover_pose_xytheta: np.ndarray,
-        linear_vel_mps: float,
-        angular_vel_rps: float,
-        dt_s: float = 0.05
+        linear_vel_mps: Optional[float] = None,
+        angular_vel_rps: Optional[float] = None,
+        dt_s: float = 0.05,
+        **kwargs: Any
     ) -> Dict[str, Any]:
         """Simulates tactical 6-axis IMU (3-axis gyro + 3-axis accel under Martian gravity)."""
+        if linear_vel_mps is None:
+            linear_vel_mps = float(kwargs.get("linear_speed_mps", 0.0))
+        if angular_vel_rps is None:
+            angular_vel_rps = float(kwargs.get("angular_rate_rps", 0.0))
         x_r, y_r, yaw_r = rover_pose_xytheta[:3]
         normal, slope_rad = self.terrain.get_surface_normal_and_slope(x_r, y_r)
 

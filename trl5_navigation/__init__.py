@@ -31,6 +31,8 @@ MAX_TRAVERSABLE_SLOPE_DEG: float = 25.0
 MAX_STEP_HEIGHT_M: float = 0.25
 SAFETY_CLEARANCE_MARGIN_M: float = 0.30
 
+from trl5_navigation.environment.scenario_generator import SCENARIO_CLASSES
+
 __all__ = [
     "PROTOTYPE_LOCK",
     "NAVIGATION_READY",
@@ -48,4 +50,5 @@ __all__ = [
     "MAX_TRAVERSABLE_SLOPE_DEG",
     "MAX_STEP_HEIGHT_M",
     "SAFETY_CLEARANCE_MARGIN_M",
+    "SCENARIO_CLASSES",
 ]

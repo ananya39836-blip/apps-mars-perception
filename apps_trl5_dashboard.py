@@ -374,7 +374,7 @@ with tab_sensors:
     with col_s2:
         st.markdown("#### RGB-D Stereo Disparity Depth Map")
         depth_cam = MultiSensorRig(terrain).sample_depth_camera(meta["start_state"])
-        depth_grid = depth_cam["depth_grid_m"]
+        depth_grid = depth_cam.get("depth_grid_m", depth_cam.get("depth_image"))
         fig_depth = go.Figure(go.Heatmap(
             z=depth_grid,
             colorscale="Plasma",

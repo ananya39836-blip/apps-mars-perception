@@ -9,7 +9,7 @@
     ],
     "total_collisions": 0,
     "mean_ate_rmse_m": 0.8108,
-    "mean_planning_latency_ms": 104.02,
+    "mean_planning_latency_ms": 122.53,
     "mean_min_clearance_m": 0.721
   },
   "SC-02_moderate_slopes": {
@@ -22,7 +22,7 @@
     ],
     "total_collisions": 0,
     "mean_ate_rmse_m": 0.2766,
-    "mean_planning_latency_ms": 10.66,
+    "mean_planning_latency_ms": 12.32,
     "mean_min_clearance_m": 0.749
   },
   "SC-03_steep_slopes": {
@@ -35,7 +35,7 @@
     ],
     "total_collisions": 0,
     "mean_ate_rmse_m": 0.1986,
-    "mean_planning_latency_ms": 15.79,
+    "mean_planning_latency_ms": 17.69,
     "mean_min_clearance_m": 2.715
   },
   "SC-04_dense_obstacle_field": {
@@ -48,7 +48,7 @@
     ],
     "total_collisions": 0,
     "mean_ate_rmse_m": 1.5849,
-    "mean_planning_latency_ms": 81.7,
+    "mean_planning_latency_ms": 107.23,
     "mean_min_clearance_m": 0.756
   },
   "SC-05_narrow_passages": {
@@ -61,7 +61,7 @@
     ],
     "total_collisions": 0,
     "mean_ate_rmse_m": 0.8686,
-    "mean_planning_latency_ms": 93.21,
+    "mean_planning_latency_ms": 122.48,
     "mean_min_clearance_m": 0.721
   },
   "SC-06_crater_avoidance": {
@@ -74,7 +74,7 @@
     ],
     "total_collisions": 2,
     "mean_ate_rmse_m": 0.339,
-    "mean_planning_latency_ms": 121.36,
+    "mean_planning_latency_ms": 132.15,
     "mean_min_clearance_m": 0.535
   },
   "SC-07_sensor_noise": {
@@ -87,7 +87,7 @@
     ],
     "total_collisions": 3,
     "mean_ate_rmse_m": 0.3417,
-    "mean_planning_latency_ms": 111.59,
+    "mean_planning_latency_ms": 120.75,
     "mean_min_clearance_m": 0.669
   },
   "SC-08_sensor_dropout": {
@@ -100,7 +100,7 @@
     ],
     "total_collisions": 0,
     "mean_ate_rmse_m": 0.6838,
-    "mean_planning_latency_ms": 71.76,
+    "mean_planning_latency_ms": 78.94,
     "mean_min_clearance_m": 1.187
   },
   "SC-09_localization_drift": {
@@ -113,7 +113,7 @@
     ],
     "total_collisions": 1,
     "mean_ate_rmse_m": 1.2051,
-    "mean_planning_latency_ms": 63.26,
+    "mean_planning_latency_ms": 80.18,
     "mean_min_clearance_m": 0.721
   },
   "SC-10_wheel_slip_disturbance": {
@@ -126,7 +126,7 @@
     ],
     "total_collisions": 2,
     "mean_ate_rmse_m": 0.6932,
-    "mean_planning_latency_ms": 97.78,
+    "mean_planning_latency_ms": 118.16,
     "mean_min_clearance_m": 0.774
   },
   "SC-11_unexpected_obstacles": {
@@ -139,7 +139,7 @@
     ],
     "total_collisions": 1,
     "mean_ate_rmse_m": 2.3348,
-    "mean_planning_latency_ms": 94.68,
+    "mean_planning_latency_ms": 120.23,
     "mean_min_clearance_m": 0.764
   },
   "SC-12_completely_blocked": {
@@ -152,7 +152,7 @@
     ],
     "total_collisions": 1,
     "mean_ate_rmse_m": 3.2251,
-    "mean_planning_latency_ms": 8947.89,
+    "mean_planning_latency_ms": 12232.44,
     "mean_min_clearance_m": 0.774
   },
   "SC-13_low_traction_regolith": {
@@ -165,7 +165,7 @@
     ],
     "total_collisions": 1,
     "mean_ate_rmse_m": 0.6511,
-    "mean_planning_latency_ms": 43.16,
+    "mean_planning_latency_ms": 57.75,
     "mean_min_clearance_m": 0.828
   },
   "SC-14_environmental_replan": {
@@ -178,7 +178,7 @@
     ],
     "total_collisions": 2,
     "mean_ate_rmse_m": 2.4101,
-    "mean_planning_latency_ms": 132.22,
+    "mean_planning_latency_ms": 183.76,
     "mean_min_clearance_m": 0.774
   },
   "SC-15_critical_fault_safestop": {
@@ -191,7 +191,7 @@
     ],
     "total_collisions": 0,
     "mean_ate_rmse_m": 0.0551,
-    "mean_planning_latency_ms": 95.78,
+    "mean_planning_latency_ms": 137.93,
     "mean_min_clearance_m": 1.647
   }
 }

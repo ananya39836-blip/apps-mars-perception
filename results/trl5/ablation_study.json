@@ -5,7 +5,7 @@
     "collision_count": 0,
     "ate_rmse_m": 0.8443,
     "min_clearance_m": 0.721,
-    "mean_planning_latency_ms": 105.8
+    "mean_planning_latency_ms": 124.57
   },
   "ablation_a_no_slope_cost": {
     "success": true,
@@ -13,7 +13,7 @@
     "collision_count": 0,
     "ate_rmse_m": 0.8576,
     "min_clearance_m": 0.721,
-    "mean_planning_latency_ms": 96.46
+    "mean_planning_latency_ms": 142.17
   },
   "ablation_b_no_dynamic_obstacles": {
     "success": true,
@@ -21,7 +21,7 @@
     "collision_count": 0,
     "ate_rmse_m": 0.8743,
     "min_clearance_m": 2.417,
-    "mean_planning_latency_ms": 128.85
+    "mean_planning_latency_ms": 151.62
   },
   "ablation_c_no_replanning": {
     "success": true,
@@ -29,7 +29,7 @@
     "collision_count": 0,
     "ate_rmse_m": 0.8443,
     "min_clearance_m": 0.721,
-    "mean_planning_latency_ms": 101.65
+    "mean_planning_latency_ms": 119.63
   },
   "ablation_d_no_sensor_fusion": {
     "success": true,
@@ -37,7 +37,7 @@
     "collision_count": 0,
     "ate_rmse_m": 0.1128,
     "min_clearance_m": 0.721,
-    "mean_planning_latency_ms": 116.83
+    "mean_planning_latency_ms": 134.37
   },
   "ablation_e_oracle_localization": {
     "success": true,
@@ -45,6 +45,6 @@
     "collision_count": 0,
     "ate_rmse_m": 0.0,
     "min_clearance_m": 0.721,
-    "mean_planning_latency_ms": 95.28
+    "mean_planning_latency_ms": 125.97
   }
 }
