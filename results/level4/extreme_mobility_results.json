@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "active_leveling": {
+    "cmd_rocker_left_rad": -0.3490658503988659,
+    "cmd_rocker_right_rad": -0.3490658503988659,
+    "cmd_bogie_roll_rad": -0.10471975511965978,
+    "residual_pitch_deg": 0.0,
+    "residual_roll_deg": 0.0,
+    "com_shift_m": [
+      -0.051303021498850306,
+      -0.012543415592118416
+    ],
+    "stability_gain_pct": 100.0
+  },
+  "wheel_walking_gait": {
+    "active_mode": "PERISTALTIC_WHEEL_WALKING",
+    "phases": [
+      "LOCKED_5_ADVANCE_FL",
+      "LOCKED_5_ADVANCE_FR",
+      "LOCKED_5_ADVANCE_ML",
+      "LOCKED_5_ADVANCE_MR",
+      "LOCKED_5_ADVANCE_RL",
+      "LOCKED_5_ADVANCE_RR",
+      "CHASSIS_PULL_FORWARD"
+    ],
+    "cycle_duration_s": 18.0,
+    "advance_per_cycle_m": 0.07100944175801811,
+    "effective_traction_gain": 3.2,
+    "sinkage_suppression_ratio": 0.65
+  },
+  "tethered_mobility": {
+    "slope_deg": 35.0,
+    "grav_downslope_N": 393.67418708954045,
+    "grav_normal_N": 562.2250055977495,
+    "tether_tension_N": 243.67418708954045,
+    "tether_safety_factor": 32.83058934129528,
+    "anchor_holding_safe": true
+  }
+}

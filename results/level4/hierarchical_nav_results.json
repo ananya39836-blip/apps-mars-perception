@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "strategic_distance_m": 472.842712474619,
+  "waypoints": 40,
+  "corridors_extracted": 40,
+  "corridor_width_m": 15.0,
+  "prototype_lock": true,
+  "navigation_ready": false
+}

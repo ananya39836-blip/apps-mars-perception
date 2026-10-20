@@ -1,23 +1,24 @@
-# apps_level2_3_3D_Prototype: Automated Planetary Perception System (APPS) — Level 2 & Level 3 Kinodynamic Prototype
+# apps_level2_3_3D_Prototype: Automated Planetary Perception System (APPS) — Level 2, Level 3 & Level 4 Prototype
 
 > **Scientific Integrity & Academic Research Disclaimer**:  
-> This repository contains the Level 2 and Level 3 research prototype of the **Automated Planetary Perception System (APPS)**.  
-> Evaluated on continuous 3D digital elevation models (DEM), 6-DOF multibody dynamics, Bekker-Wong terramechanics, multi-modal active sensing, and offline real planetary image transfer benchmarks.  
+> This repository contains the Level 2, Level 3, and Level 4 research prototype of the **Automated Planetary Perception System (APPS)**.  
+> Evaluated on continuous 3D digital elevation models (DEM), 6-DOF multibody dynamics, Bekker-Wong terramechanics, multi-modal active sensing, kilometer-scale hierarchical navigation, heterogeneous multi-agent autonomy, AEGIS opportunistic science, and neuromorphic edge computing.  
 > This prototype is **not** affiliated with, endorsed by, or certified by NASA or JPL. It is not qualified for spaceflight.  
 > Under `PROTOTYPE_LOCK = True`, `navigation_ready` is held strictly `False`.  
-> Milestone status: **`L2-met (internal)`** & **`L3-met (internal)`** (mechanically computed via Appendix CR & CT assessment engines).
+> Milestone status: **`L2-met (internal)`**, **`L3-met (internal)`**, & **`L4-met (internal)`** (mechanically computed via assessment engines).
 
 ---
 
-## Interactive 3D Demonstration Application (`apps_level2_proto.py` / `apps_level3_proto.py`)
+## Interactive 3D Demonstration Applications (`apps_level4_proto.py` / `apps_level3_proto.py` / `apps_level2_proto.py`)
 
 ![apps_level2_proto Demo Overview](docs/images/demo_overview.png)
 
 ### 🚀 Streamlit Cloud Deployment
-- **Live Streamlit App**: [Launch on Streamlit Cloud](https://share.streamlit.io/) (configured for repository `ananya39836-blip/apps_level2_3_3D_Prototype` or `ananya39836-blip/apps_level2_3D_Prototype`)
+- **Live Streamlit App**: [Launch on Streamlit Cloud](https://share.streamlit.io/) (configured for repository `ananya39836-blip/apps_level2_3_3D_Prototype`)
 - **Main App Files**:
+  - `apps_level4_proto.py`: Level 4 kilometer-scale orbital hierarchical navigation, AEGIS opportunistic science detection, active suspension articulation, heterogeneous aerial scout coordination, and neuromorphic DVS/SNN sensing.
   - `apps_level3_proto.py`: Level 2 & Level 3 6-DOF multibody dynamics, rocker-bogie passive suspension, Bekker-Wong soil traction curves, and 3D Flash LiDAR point cloud viewer.
-  - `apps_level2_proto.py`: Level 2 & Level 3 3D continuous terrain, solar ray-tracing, perspective camera, and real Mars transfer.
+  - `apps_level2_proto.py`: Level 2 3D continuous terrain, solar ray-tracing, perspective camera, and real Mars transfer.
 
 ---
 
@@ -190,22 +191,29 @@ FINAL COMPUTED LEVEL 3 DESIGNATION: >>> L3-met (internal) <<<
 ## 6. Quick Start & Execution
 
 ### 6.1 Launch Interactive Web Applications
-Launch the interactive Streamlit application to explore Level 2 and Level 3 subsystems:
+Launch the interactive Streamlit applications to explore Level 2, Level 3, and Level 4 subsystems:
 ```powershell
+# Launch Level 4 Multi-Agent Autonomous Exploration Demo
+python -m streamlit run apps_level4_proto.py
+
 # Launch Level 3 dedicated 6-DOF & Terramechanics Demo
 python -m streamlit run apps_level3_proto.py
 
-# Or launch Level 2 3D DEM Demo with Level 3 tab
+# Launch Level 2 3D DEM Demo with Level 3 tab
 python -m streamlit run apps_level2_proto.py
 ```
 
-### 6.2 Run Complete Automated Test Suite (59 Tests)
+### 6.2 Run Complete Automated Test Suite (81 Tests)
 ```powershell
 python -m pytest tests -v
 ```
-*Expected: 59 passed across Level 1, Level 2, and Level 3 unit/integration suites (100% passing).*
+*Expected: 81 passed across Level 1, Level 2, Level 3, and Level 4 unit/integration suites (100% passing).*
 
 ### 6.3 Run Mechanical Evidence Assessment Engines
+- **Level 4 Assessment Engine**:
+  ```powershell
+  python tools/assess_level4.py
+  ```
 - **Level 3 Assessment Engine**:
   ```powershell
   python tools/assess_level3.py
@@ -220,6 +228,11 @@ python -m pytest tests -v
   ```
 
 ### 6.4 Run Master Pipeline & Seal Manifest
+- **Level 4 Master Verification Pipeline**:
+  ```powershell
+  python experiments/run_level4.py
+  ```
+  *Executes all Level 4 benchmarks and generates SHA-256 sealed `results/level4/manifest_level4.json` (`release_gate: ready-for-review`, `L4-met (internal)`).*
 - **Level 3 Master Verification Pipeline**:
   ```powershell
   python experiments/run_level3.py
@@ -234,10 +247,12 @@ python -m pytest tests -v
 
 ## 7. Key Documentation & Artifacts
 
-- **Level 4 Specifications (Parts 18–27)**: [`docs/level4/`](docs/level4/) (10 Volumes, 37 pages each in PDF & DOCX)
-- **Level 3 Specifications (Parts 13–17)**: [`docs/level3/`](docs/level3/) (5 Volumes, 37 pages each in PDF & DOCX)
+- **Level 4 Validation Report**: [`docs/LEVEL4_VALIDATION_REPORT.md`](docs/LEVEL4_VALIDATION_REPORT.md)
+- **Level 4 Traceability Matrix**: [`docs/LEVEL4_TRACEABILITY.md`](docs/LEVEL4_TRACEABILITY.md)
+- **Level 4 Specifications (Parts 18–27)**: [`docs/level4/`](docs/level4/) (10 Volumes, 37 pages each in PDF & DOCX, 370 pp total)
 - **Level 3 Validation Report**: [`docs/LEVEL3_VALIDATION_REPORT.md`](docs/LEVEL3_VALIDATION_REPORT.md)
 - **Level 3 Traceability Matrix**: [`docs/LEVEL3_TRACEABILITY.md`](docs/LEVEL3_TRACEABILITY.md)
+- **Level 3 Specifications (Parts 13–17)**: [`docs/level3/`](docs/level3/) (5 Volumes, 37 pages each in PDF & DOCX, 185 pp total)
 - **Level 2 Validation Report**: [`docs/LEVEL2_VALIDATION_REPORT.md`](docs/LEVEL2_VALIDATION_REPORT.md)
 - **Mathematical Specification**: [`docs/MATHEMATICAL_MODEL.md`](docs/MATHEMATICAL_MODEL.md)
 - **System Architecture**: [`docs/SYSTEM_ARCHITECTURE.md`](docs/SYSTEM_ARCHITECTURE.md)
@@ -250,6 +265,7 @@ python -m pytest tests -v
 
 ```text
 apps_level2_3_3D_Prototype/
+├── apps_level4_proto.py          # Interactive Level 4 Multi-Agent Autonomous Exploration Demo
 ├── apps_level3_proto.py          # Interactive Level 3 6-DOF & Terramechanics Streamlit App
 ├── apps_level2_proto.py          # Interactive Level 2 3D DEM & Camera Streamlit App
 ├── app_l1.py                     # Level 1 2D baseline demonstration application
@@ -257,11 +273,25 @@ apps_level2_3_3D_Prototype/
 │   ├── images/                  # Interactive app & benchmark screenshots
 │   ├── level4/                  # 10 Level 4 Specification Volumes in PDF & DOCX (37 pages each, 370 pp total)
 │   ├── level3/                  # 5 Level 3 Specification Volumes in PDF & DOCX (37 pages each, 185 pp total)
+│   ├── LEVEL4_VALIDATION_REPORT.md
+│   ├── LEVEL4_TRACEABILITY.md
 │   ├── LEVEL3_VALIDATION_REPORT.md
 │   ├── LEVEL3_TRACEABILITY.md
 │   ├── LEVEL2_VALIDATION_REPORT.md
 │   ├── MATHEMATICAL_MODEL.md
 │   └── SYSTEM_ARCHITECTURE.md
+├── level4/
+│   ├── navigation/              # Kilometer-scale orbital HiRISE DEM pyramid & hierarchical planner
+│   ├── science/                 # AEGIS autonomous rock segmentation & ChemCam target ranker
+│   ├── mobility/                # Active rocker-bogie articulation, CoM shift & wheel-walking crab gait
+│   ├── cooperative/             # Heterogeneous aerial scout (rotorcraft) & rover coordination
+│   ├── terramechanics/          # Online recursive Bayesian soil estimator & slip anticipation sentinel
+│   ├── neuromorphic/            # Asynchronous DVS event camera parser & LIF spiking neural network
+│   ├── executive/               # Multi-sol timeline executor & temporal PDDL action planner
+│   ├── resilience/              # Diurnal thermal cycles (-120 C to +20 C) & dust storm deep sleep
+│   ├── relocalization/          # Solar ephemeris true heading & horizon silhouette cross-correlation
+│   ├── qualification/           # Hard real-time 100 ms HIL timing validator & fault injector
+│   └── evaluation/              # Level 4 20-key verification engine & release gate
 ├── level3/
 │   ├── physics/                 # 6-DOF multibody dynamics, rocker-bogie, Bekker terramechanics
 │   ├── monitors/                # Longitudinal slip entrapment watchdog & FDIR
@@ -279,11 +309,14 @@ apps_level2_3_3D_Prototype/
 │   └── evaluation/              # Temporal fusion, latency timers, cluster bootstrap stats
 ├── level1/                      # Level 1 2D baseline modules (regression locked)
 ├── tests/
+│   ├── test_level4.py           # Level 4 multi-agent, neuromorphic & hierarchical tests (22)
 │   ├── test_level3.py           # Level 3 multibody, terramechanics & LiDAR tests (13)
 │   ├── test_level2.py           # Level 2 unit and kinodynamic integration tests (11)
 │   ├── test_level1.py           # Level 1 regression test suite (18)
 │   └── test_all.py              # Core perception & statistical unit tests (17)
 ├── tools/
+│   ├── assess_level4.py         # Level 4 mechanical evidence assessment engine
+│   ├── run_level4_evidence.py   # Level 4 evidence pipeline generator
 │   ├── generate_level4_documents.py # Master generator for 10 Level 4 PDF & DOCX specification volumes
 │   ├── level4_data_part1.py     # Technical specification data Part 18-22
 │   ├── level4_data_part2.py     # Technical specification data Part 23-27
@@ -292,6 +325,7 @@ apps_level2_3_3D_Prototype/
 │   ├── assess_level2.py         # Level 2 mechanical evidence assessment engine
 │   └── assess_level1.py         # Level 1 evidence assessment engine
 └── results/
+    ├── level4/                  # Sealed Level 4 experiment logs and manifest (SHA-256)
     ├── level3/                  # Sealed Level 3 experiment logs and manifest (SHA-256)
     └── level2/                  # Sealed Level 2 experiment logs and manifest (SHA-256)
 ```

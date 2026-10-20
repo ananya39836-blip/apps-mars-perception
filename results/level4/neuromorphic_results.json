@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "events_streamed": 300,
+  "spikes_fired": 3,
+  "neuromorphic_power_w": 0.465
+}

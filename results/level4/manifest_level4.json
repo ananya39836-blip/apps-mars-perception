@@ -1,0 +1,93 @@
+{
+  "pipeline": "run_level4",
+  "mode": "full",
+  "timestamp": "2026-10-20T06:07:31Z",
+  "total_duration_s": 15.18,
+  "all_passed": true,
+  "steps": [
+    {
+      "name": "Step 1: Level 3 Milestone Backward Regression Audit",
+      "command": "python tools/assess_level3.py",
+      "returncode": 0,
+      "duration_s": 0.32,
+      "passed": true
+    },
+    {
+      "name": "Step 2: Level 4 Evidence Generation Pipeline",
+      "command": "python tools/run_level4_evidence.py",
+      "returncode": 0,
+      "duration_s": 1.03,
+      "passed": true
+    },
+    {
+      "name": "Step 3: Level 4 Automated Unit & Integration Tests",
+      "command": "python -m pytest tests/test_level4.py -q",
+      "returncode": 0,
+      "duration_s": 1.86,
+      "passed": true
+    },
+    {
+      "name": "Step 4: Master Regression & Multi-Level Test Suite (81 Tests)",
+      "command": "python -m pytest tests/ -q",
+      "returncode": 0,
+      "duration_s": 11.58,
+      "passed": true
+    },
+    {
+      "name": "Step 5: Master Level 4 Evidence Assessment Engine",
+      "command": "python tools/assess_level4.py",
+      "returncode": 0,
+      "duration_s": 0.4,
+      "passed": true
+    }
+  ],
+  "files_sealed": {
+    "results/level4/hierarchical_nav_results.json": {
+      "sha256": "3f42411cf6ab0d1773ccdf9ce9dee2c21efc88423d4176474a697600db2a1767",
+      "bytes": 207
+    },
+    "results/level4/aegis_science_results.json": {
+      "sha256": "89c789170d8dd62100a708d2dbeeb0ad7449535ec3e49569727b8ff7885370b2",
+      "bytes": 1090
+    },
+    "results/level4/extreme_mobility_results.json": {
+      "sha256": "10407668c3e481e91a02fe4cedf86bddfb1b1c4ecf557045a340eafc9f5473e6",
+      "bytes": 1130
+    },
+    "results/level4/multi_agent_results.json": {
+      "sha256": "ee5f0de7397ec6f70bddcc007fd99babc0c4b04ac152e488d897221cee69857c",
+      "bytes": 143
+    },
+    "results/level4/adaptive_terramechanics_results.json": {
+      "sha256": "02de60f9d2ab38c7d6f329f3c57c12039901c6868cd00fc9896beb47a1a92d6f",
+      "bytes": 185
+    },
+    "results/level4/neuromorphic_results.json": {
+      "sha256": "b4db1909f8a7bef0d44bbd0a30ac78b7408dca32eed56483f3cf0cec757933a2",
+      "bytes": 109
+    },
+    "results/level4/mission_executive_results.json": {
+      "sha256": "23a7ffd41c088dda5ccd3c4b27442cb4eaadd74f0b01281484bdbf26c2cc8400",
+      "bytes": 1244
+    },
+    "results/level4/environmental_survival_results.json": {
+      "sha256": "2eb2683932daf8e73a4df1155f0c91ab53693525404fb9f951ab7ac32d4f1a61",
+      "bytes": 163
+    },
+    "results/level4/lost_in_space_results.json": {
+      "sha256": "910e82453b269d5e28d65828d0bedc0813e3e2b160efb5032128fd1b82fbbf3e",
+      "bytes": 126
+    },
+    "results/level4/hil_assurance_results.json": {
+      "sha256": "3f15a140d2abd905af06c4b8c82b65498df01222c785ac0fb21160a76a93c6cf",
+      "bytes": 157
+    },
+    "results/level4/assessment_l4.json": {
+      "sha256": "f509212b4087b1d8c75f97e65258e7a21f47b35ca2d8b24fbafe11a5d8cebe89",
+      "bytes": 4812
+    }
+  },
+  "release_gate": "ready-for-review",
+  "unpassed_keys": [],
+  "level4_designation": "L4-met (internal)"
+}

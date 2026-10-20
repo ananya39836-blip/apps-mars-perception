@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "min_night_temp_c": -110.6,
+  "survival_heater_active": true,
+  "dust_storm_hibernation_mode": true,
+  "hibernation_power_w": 4.5
+}

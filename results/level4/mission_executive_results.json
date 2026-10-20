@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "sol_101_summary": {
+    "sol_id": 101,
+    "planned_activities": [
+      {
+        "name": "MORNING_WAKEUP_HEALTH_CHECK",
+        "duration_min": 15.0,
+        "power_w": 45.0
+      },
+      {
+        "name": "PRE_DRIVE_IMAGING_SURVEY",
+        "duration_min": 20.0,
+        "power_w": 65.0
+      },
+      {
+        "name": "AUTONOMOUS_TRAVERSE",
+        "duration_min": 35.4,
+        "power_w": 140.0
+      },
+      {
+        "name": "POST_DRIVE_AEGIS_SCIENCE",
+        "duration_min": 45.0,
+        "power_w": 110.0
+      },
+      {
+        "name": "ORBITER_COMM_DOWNLINK",
+        "duration_min": 30.0,
+        "power_w": 180.0
+      },
+      {
+        "name": "NIGHTTIME_SURVIVAL_SLEEP",
+        "duration_min": 600.0,
+        "power_w": 15.0
+      }
+    ],
+    "solar_generation_wh": 520.0,
+    "energy_consumed_wh": 438.1,
+    "net_energy_wh": 81.9,
+    "final_soc_pct": 91.8,
+    "storage_used_mb": 237.0,
+    "is_resource_safe": true
+  },
+  "contingency_resolution": {
+    "contingency_type": "DRIVE_SLIP_HALT",
+    "autonomous_resolution": "INSERT_AEGIS_SCIENCE_EARLY_AND_REPLAN_TRAVERSE",
+    "soc_impact": "NEUTRAL",
+    "executive_status": "RESOLVED"
+  }
+}

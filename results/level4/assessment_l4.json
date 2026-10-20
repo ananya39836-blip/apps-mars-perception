@@ -1,0 +1,127 @@
+{
+  "computed_label": "L4-met (internal)",
+  "evidence": {
+    "hierarchical_planner": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "orbital_dem_fusion": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "aegis_targeting": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "science_novelty_ranker": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "active_suspension": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "wheel_walking_crab": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "aerial_scout_coordination": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "landing_site_certification": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "online_bayesian_terramech": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "slip_anticipation_monitor": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "neuromorphic_event_stream": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "snn_hazard_detector": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "temporal_pddl_executive": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "resource_constraint_solver": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "environmental_resilience": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "dust_storm_hibernation": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "celestial_ephemeris_heading": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "horizon_silhouette_relocalization": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "hil_flight_assurance": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "l3_regression": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    }
+  },
+  "details": {
+    "hierarchical_planner": "Kilometer-scale orbital-to-tactical hierarchical path planner with corridor extraction verified by test",
+    "orbital_dem_fusion": "Multi-resolution orbital HiRISE DEM pyramid fusion and slope boundary checks verified",
+    "aegis_targeting": "AEGIS autonomous rock segmentation and ChemCam target candidate prioritization verified by test",
+    "science_novelty_ranker": "Geomorphological feature extraction and background anomaly novelty ranking verified",
+    "active_suspension": "Active rocker-bogie pitch leveling and dynamic CoM uphill shifting on steep slopes verified by test",
+    "wheel_walking_crab": "Peristaltic wheel-walking crab gait generator for severe sandy slip entrapment verified",
+    "aerial_scout_coordination": "Heterogeneous multi-agent aerial scout rotorcraft and ground rover sortie executive verified by test",
+    "landing_site_certification": "Autonomous aerial landing zone slope and obstacle clearance certification verified",
+    "online_bayesian_terramech": "Online recursive Bayesian regolith classification and continuous parameter estimation verified by test",
+    "slip_anticipation_monitor": "Predictive slip anticipation sentinel alerting autonomy ahead of sand traps verified",
+    "neuromorphic_event_stream": "Asynchronous DVS microsecond event stream generation and processing verified by test",
+    "snn_hazard_detector": "Leaky Integrate-and-Fire spiking neural network edge hazard detector with radiation SEU/SEL scrubbing verified",
+    "temporal_pddl_executive": "Multi-sol timeline executive and temporal PDDL action planner with contingency recovery verified by test",
+    "resource_constraint_solver": "Multi-sol battery SoC, storage buffer, and thermal energy dissipation solver verified",
+    "environmental_resilience": "Diurnal thermal cycle (-120 C to +20 C) and survival heater model verified by test",
+    "dust_storm_hibernation": "Deep-sleep survival hibernation state machine under catastrophic dust storms (tau > 5.0) verified",
+    "celestial_ephemeris_heading": "Solar ephemeris vector heading recovery without GPS verified by test",
+    "horizon_silhouette_relocalization": "Horizon skyline silhouette cross-correlation against orbital HiRISE DEM verified",
+    "hil_flight_assurance": "Hard real-time 100 ms HIL timing deadline, fault injection harness, and prototype lock verified",
+    "l3_regression": "Level 3 regression suite re-executed; milestone status: L3-met (internal)"
+  }
+}

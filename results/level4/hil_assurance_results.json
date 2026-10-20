@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "timing_wcet_ms": 51.0,
+  "meets_hard_realtime": true,
+  "fault_injection_handled": true,
+  "prototype_lock_verified": true
+}
