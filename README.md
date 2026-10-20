@@ -147,7 +147,26 @@ The repository delivers 10 exhaustive Level 4 technical specification master pro
 
 ---
 
-## 5. Mechanical Evidence Assessment Engines
+## 5. Level 5 Master Technical Specifications (10 Volumes, 37 Pages Each — 370 Pages Total)
+
+The repository delivers 10 exhaustive Level 5 technical specification master prompt volumes (Parts 28 to 37, Chapters 370 to 469), meticulously generated in both **PDF** and **DOCX** formats, engineered to **exactly 37 pages each** (370 pages total across all 10 volumes):
+
+| Volume | Chapters | Topic / Title | Format | Exact Pages | PDF Document | DOCX Document |
+|---|---|---|---|---|---|---|
+| **Part 28** | Ch. 370–379 | Distributed Multi-Rover Swarm Autonomy, Decentralized Consensus & Cooperative Fleet Excavation | PDF & DOCX | **37 Pages** | [`docs/level5/Part_28.pdf`](docs/level5/APPS_Master_Prompt_Part_28_Swarm_Autonomy_Consensus.pdf) | [`docs/level5/Part_28.docx`](docs/level5/APPS_Master_Prompt_Part_28_Swarm_Autonomy_Consensus.docx) |
+| **Part 29** | Ch. 380–389 | Subsurface Cave, Lava Tube & Skylight Autonomous Exploration (GPS-Denied & Dark Navigation) | PDF & DOCX | **37 Pages** | [`docs/level5/Part_29.pdf`](docs/level5/APPS_Master_Prompt_Part_29_Subsurface_Lava_Tube_Caves.pdf) | [`docs/level5/Part_29.docx`](docs/level5/APPS_Master_Prompt_Part_29_Subsurface_Lava_Tube_Caves.docx) |
+| **Part 30** | Ch. 390–399 | Ocean Worlds & Cryogenic Cryobot Sub-Ice Exploration (Europa/Enceladus Penetration) | PDF & DOCX | **37 Pages** | [`docs/level5/Part_30.pdf`](docs/level5/APPS_Master_Prompt_Part_30_Ocean_Worlds_Cryobot_Penetration.pdf) | [`docs/level5/Part_30.docx`](docs/level5/APPS_Master_Prompt_Part_30_Ocean_Worlds_Cryobot_Penetration.docx) |
+| **Part 31** | Ch. 400–409 | Long-Horizon Autonomous Astrobiology: Biosignature Recognition, Raman Spectroscopy & In-Situ Nucleic Acid Detection | PDF & DOCX | **37 Pages** | [`docs/level5/Part_31.pdf`](docs/level5/APPS_Master_Prompt_Part_31_Autonomous_Astrobiology_Biosignatures.pdf) | [`docs/level5/Part_31.docx`](docs/level5/APPS_Master_Prompt_Part_31_Autonomous_Astrobiology_Biosignatures.docx) |
+| **Part 32** | Ch. 410–419 | Self-Reconfigurable Morphological Robotics, Modular Wheel-Leg Hybrids & In-Situ Self-Repair | PDF & DOCX | **37 Pages** | [`docs/level5/Part_32.pdf`](docs/level5/APPS_Master_Prompt_Part_32_Reconfigurable_Modular_Robotics.pdf) | [`docs/level5/Part_32.docx`](docs/level5/APPS_Master_Prompt_Part_32_Reconfigurable_Modular_Robotics.docx) |
+| **Part 33** | Ch. 420–429 | In-Situ Resource Utilization (ISRU) Autonomy: Automated Mining, Sintering & Regolith Civil Engineering | PDF & DOCX | **37 Pages** | [`docs/level5/Part_33.pdf`](docs/level5/APPS_Master_Prompt_Part_33_ISRU_Automated_Mining_Sintering.pdf) | [`docs/level5/Part_33.docx`](docs/level5/APPS_Master_Prompt_Part_33_ISRU_Automated_Mining_Sintering.docx) |
+| **Part 34** | Ch. 430–439 | Interplanetary Deep Space Optical (Laser) Communications, Delay-Tolerant Networking (DTN) & Terabit Swarm Uplinks | PDF & DOCX | **37 Pages** | [`docs/level5/Part_34.pdf`](docs/level5/APPS_Master_Prompt_Part_34_Deep_Space_Optical_Laser_DTN.pdf) | [`docs/level5/Part_34.docx`](docs/level5/APPS_Master_Prompt_Part_34_Deep_Space_Optical_Laser_DTN.docx) |
+| **Part 35** | Ch. 440–449 | Quantum-Resilient Space Edge Cryptography, Autonomous Cybersecurity & Anti-Spoofing Command Verification | PDF & DOCX | **37 Pages** | [`docs/level5/Part_35.pdf`](docs/level5/APPS_Master_Prompt_Part_35_Quantum_Cybersecurity_Space_Enclaves.pdf) | [`docs/level5/Part_35.docx`](docs/level5/APPS_Master_Prompt_Part_35_Quantum_Cybersecurity_Space_Enclaves.docx) |
+| **Part 36** | Ch. 450–459 | Decadal Autonomous Operations: Self-Evolving Machine Learning, Continual Learning & Aging Dynamics | PDF & DOCX | **37 Pages** | [`docs/level5/Part_36.pdf`](docs/level5/APPS_Master_Prompt_Part_36_Decadal_Continual_Learning_Aging.pdf) | [`docs/level5/Part_36.docx`](docs/level5/APPS_Master_Prompt_Part_36_Decadal_Continual_Learning_Aging.docx) |
+| **Part 37** | Ch. 460–469 | Planetary Protection Category V, Deep-Space Flight Certification, Formal Verification & Swarm Ethics Framework | PDF & DOCX | **37 Pages** | [`docs/level5/Part_37.pdf`](docs/level5/APPS_Master_Prompt_Part_37_Category_V_Formal_Verification.pdf) | [`docs/level5/Part_37.docx`](docs/level5/APPS_Master_Prompt_Part_37_Category_V_Formal_Verification.docx) |
+
+---
+
+## 6. Mechanical Evidence Assessment Engines
 
 ### 5.1 Level 3 Assessment Engine (Appendix CT): `L3-met (internal)`
 The Level 3 milestone is computed automatically by `tools/assess_level3.py` verifying all 20 `KEYS_L3`:
@@ -188,9 +207,9 @@ FINAL COMPUTED LEVEL 3 DESIGNATION: >>> L3-met (internal) <<<
 
 ---
 
-## 6. Quick Start & Execution
+## 7. Quick Start & Execution
 
-### 6.1 Launch Interactive Web Applications
+### 7.1 Launch Interactive Web Applications
 Launch the interactive Streamlit applications to explore Level 2, Level 3, and Level 4 subsystems:
 ```powershell
 # Launch Level 4 Multi-Agent Autonomous Exploration Demo
@@ -203,13 +222,13 @@ python -m streamlit run apps_level3_proto.py
 python -m streamlit run apps_level2_proto.py
 ```
 
-### 6.2 Run Complete Automated Test Suite (81 Tests)
+### 7.2 Run Complete Automated Test Suite (81 Tests)
 ```powershell
 python -m pytest tests -v
 ```
 *Expected: 81 passed across Level 1, Level 2, Level 3, and Level 4 unit/integration suites (100% passing).*
 
-### 6.3 Run Mechanical Evidence Assessment Engines
+### 7.3 Run Mechanical Evidence Assessment Engines
 - **Level 4 Assessment Engine**:
   ```powershell
   python tools/assess_level4.py
@@ -227,7 +246,7 @@ python -m pytest tests -v
   python tools/assess_level1.py
   ```
 
-### 6.4 Run Master Pipeline & Seal Manifest
+### 7.4 Run Master Pipeline & Seal Manifest
 - **Level 4 Master Verification Pipeline**:
   ```powershell
   python experiments/run_level4.py
@@ -245,8 +264,9 @@ python -m pytest tests -v
 
 ---
 
-## 7. Key Documentation & Artifacts
+## 8. Key Documentation & Artifacts
 
+- **Level 5 Specifications (Parts 28–37)**: [`docs/level5/`](docs/level5/) (10 Volumes, 37 pages each in PDF & DOCX, 370 pp total)
 - **Level 4 Validation Report**: [`docs/LEVEL4_VALIDATION_REPORT.md`](docs/LEVEL4_VALIDATION_REPORT.md)
 - **Level 4 Traceability Matrix**: [`docs/LEVEL4_TRACEABILITY.md`](docs/LEVEL4_TRACEABILITY.md)
 - **Level 4 Specifications (Parts 18–27)**: [`docs/level4/`](docs/level4/) (10 Volumes, 37 pages each in PDF & DOCX, 370 pp total)
@@ -261,7 +281,7 @@ python -m pytest tests -v
 
 ---
 
-## 8. Repository Structure
+## 9. Repository Structure
 
 ```text
 apps_level2_3_3D_Prototype/
@@ -271,6 +291,7 @@ apps_level2_3_3D_Prototype/
 ├── app_l1.py                     # Level 1 2D baseline demonstration application
 ├── docs/
 │   ├── images/                  # Interactive app & benchmark screenshots
+│   ├── level5/                  # 10 Level 5 Specification Volumes in PDF & DOCX (37 pages each, 370 pp total)
 │   ├── level4/                  # 10 Level 4 Specification Volumes in PDF & DOCX (37 pages each, 370 pp total)
 │   ├── level3/                  # 5 Level 3 Specification Volumes in PDF & DOCX (37 pages each, 185 pp total)
 │   ├── LEVEL4_VALIDATION_REPORT.md
@@ -315,6 +336,9 @@ apps_level2_3_3D_Prototype/
 │   ├── test_level1.py           # Level 1 regression test suite (18)
 │   └── test_all.py              # Core perception & statistical unit tests (17)
 ├── tools/
+│   ├── generate_level5_documents.py # Master generator for 10 Level 5 PDF & DOCX specification volumes
+│   ├── level5_data_part1.py     # Technical specification data Part 28-32
+│   ├── level5_data_part2.py     # Technical specification data Part 33-37
 │   ├── assess_level4.py         # Level 4 mechanical evidence assessment engine
 │   ├── run_level4_evidence.py   # Level 4 evidence pipeline generator
 │   ├── generate_level4_documents.py # Master generator for 10 Level 4 PDF & DOCX specification volumes
