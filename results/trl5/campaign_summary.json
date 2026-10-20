@@ -1,0 +1,197 @@
+{
+  "SC-01_flat_baseline": {
+    "total_runs": 3,
+    "success_count": 3,
+    "success_rate_pct": 100.0,
+    "wilson_ci_95": [
+      43.8,
+      100.0
+    ],
+    "total_collisions": 0,
+    "mean_ate_rmse_m": 0.8108,
+    "mean_planning_latency_ms": 104.02,
+    "mean_min_clearance_m": 0.721
+  },
+  "SC-02_moderate_slopes": {
+    "total_runs": 3,
+    "success_count": 3,
+    "success_rate_pct": 100.0,
+    "wilson_ci_95": [
+      43.8,
+      100.0
+    ],
+    "total_collisions": 0,
+    "mean_ate_rmse_m": 0.2766,
+    "mean_planning_latency_ms": 10.66,
+    "mean_min_clearance_m": 0.749
+  },
+  "SC-03_steep_slopes": {
+    "total_runs": 3,
+    "success_count": 3,
+    "success_rate_pct": 100.0,
+    "wilson_ci_95": [
+      43.8,
+      100.0
+    ],
+    "total_collisions": 0,
+    "mean_ate_rmse_m": 0.1986,
+    "mean_planning_latency_ms": 15.79,
+    "mean_min_clearance_m": 2.715
+  },
+  "SC-04_dense_obstacle_field": {
+    "total_runs": 3,
+    "success_count": 3,
+    "success_rate_pct": 100.0,
+    "wilson_ci_95": [
+      43.8,
+      100.0
+    ],
+    "total_collisions": 0,
+    "mean_ate_rmse_m": 1.5849,
+    "mean_planning_latency_ms": 81.7,
+    "mean_min_clearance_m": 0.756
+  },
+  "SC-05_narrow_passages": {
+    "total_runs": 3,
+    "success_count": 3,
+    "success_rate_pct": 100.0,
+    "wilson_ci_95": [
+      43.8,
+      100.0
+    ],
+    "total_collisions": 0,
+    "mean_ate_rmse_m": 0.8686,
+    "mean_planning_latency_ms": 93.21,
+    "mean_min_clearance_m": 0.721
+  },
+  "SC-06_crater_avoidance": {
+    "total_runs": 3,
+    "success_count": 1,
+    "success_rate_pct": 33.3,
+    "wilson_ci_95": [
+      6.1,
+      79.2
+    ],
+    "total_collisions": 2,
+    "mean_ate_rmse_m": 0.339,
+    "mean_planning_latency_ms": 121.36,
+    "mean_min_clearance_m": 0.535
+  },
+  "SC-07_sensor_noise": {
+    "total_runs": 3,
+    "success_count": 0,
+    "success_rate_pct": 0.0,
+    "wilson_ci_95": [
+      0.0,
+      56.2
+    ],
+    "total_collisions": 3,
+    "mean_ate_rmse_m": 0.3417,
+    "mean_planning_latency_ms": 111.59,
+    "mean_min_clearance_m": 0.669
+  },
+  "SC-08_sensor_dropout": {
+    "total_runs": 3,
+    "success_count": 3,
+    "success_rate_pct": 100.0,
+    "wilson_ci_95": [
+      43.8,
+      100.0
+    ],
+    "total_collisions": 0,
+    "mean_ate_rmse_m": 0.6838,
+    "mean_planning_latency_ms": 71.76,
+    "mean_min_clearance_m": 1.187
+  },
+  "SC-09_localization_drift": {
+    "total_runs": 3,
+    "success_count": 2,
+    "success_rate_pct": 66.7,
+    "wilson_ci_95": [
+      20.8,
+      93.9
+    ],
+    "total_collisions": 1,
+    "mean_ate_rmse_m": 1.2051,
+    "mean_planning_latency_ms": 63.26,
+    "mean_min_clearance_m": 0.721
+  },
+  "SC-10_wheel_slip_disturbance": {
+    "total_runs": 3,
+    "success_count": 1,
+    "success_rate_pct": 33.3,
+    "wilson_ci_95": [
+      6.1,
+      79.2
+    ],
+    "total_collisions": 2,
+    "mean_ate_rmse_m": 0.6932,
+    "mean_planning_latency_ms": 97.78,
+    "mean_min_clearance_m": 0.774
+  },
+  "SC-11_unexpected_obstacles": {
+    "total_runs": 3,
+    "success_count": 2,
+    "success_rate_pct": 66.7,
+    "wilson_ci_95": [
+      20.8,
+      93.9
+    ],
+    "total_collisions": 1,
+    "mean_ate_rmse_m": 2.3348,
+    "mean_planning_latency_ms": 94.68,
+    "mean_min_clearance_m": 0.764
+  },
+  "SC-12_completely_blocked": {
+    "total_runs": 3,
+    "success_count": 2,
+    "success_rate_pct": 66.7,
+    "wilson_ci_95": [
+      20.8,
+      93.9
+    ],
+    "total_collisions": 1,
+    "mean_ate_rmse_m": 3.2251,
+    "mean_planning_latency_ms": 8947.89,
+    "mean_min_clearance_m": 0.774
+  },
+  "SC-13_low_traction_regolith": {
+    "total_runs": 3,
+    "success_count": 2,
+    "success_rate_pct": 66.7,
+    "wilson_ci_95": [
+      20.8,
+      93.9
+    ],
+    "total_collisions": 1,
+    "mean_ate_rmse_m": 0.6511,
+    "mean_planning_latency_ms": 43.16,
+    "mean_min_clearance_m": 0.828
+  },
+  "SC-14_environmental_replan": {
+    "total_runs": 3,
+    "success_count": 1,
+    "success_rate_pct": 33.3,
+    "wilson_ci_95": [
+      6.1,
+      79.2
+    ],
+    "total_collisions": 2,
+    "mean_ate_rmse_m": 2.4101,
+    "mean_planning_latency_ms": 132.22,
+    "mean_min_clearance_m": 0.774
+  },
+  "SC-15_critical_fault_safestop": {
+    "total_runs": 3,
+    "success_count": 3,
+    "success_rate_pct": 100.0,
+    "wilson_ci_95": [
+      43.8,
+      100.0
+    ],
+    "total_collisions": 0,
+    "mean_ate_rmse_m": 0.0551,
+    "mean_planning_latency_ms": 95.78,
+    "mean_min_clearance_m": 1.647
+  }
+}

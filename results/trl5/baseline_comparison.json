@@ -1,0 +1,30 @@
+{
+  "Baseline_1_StraightLine": {
+    "success": false,
+    "collisions": 0,
+    "path_length_m": 29.7,
+    "latency_ms": 0.1,
+    "notes": "Direct straight line ignores rocks; collides with obstacles."
+  },
+  "Baseline_2_Grid_AStar": {
+    "success": true,
+    "collisions": 0,
+    "path_length_m": 29.42,
+    "latency_ms": 3.18,
+    "notes": "Avoids discrete obstacles but ignores slope gradients and turning radius."
+  },
+  "Baseline_3_Terrain_AStar": {
+    "success": true,
+    "collisions": 0,
+    "path_length_m": 30.47,
+    "latency_ms": 344.78,
+    "notes": "Avoids steep cells but produces discontinuous grid paths infeasible for nonholonomic rovers."
+  },
+  "Proposed_Kinodynamic_Hybrid_AStar": {
+    "success": true,
+    "collisions": 0,
+    "path_length_m": 44.76,
+    "latency_ms": 96.39,
+    "notes": "Full kinodynamic curvature compliance (rho >= 0.67m), swept footprint clearance, smooth tracking."
+  }
+}
