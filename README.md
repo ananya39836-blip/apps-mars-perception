@@ -127,9 +127,28 @@ The repository provides 5 exhaustive technical specification volumes (185 pages 
 
 ---
 
-## 4. Mechanical Evidence Assessment Engines
+## 4. Level 4 Master Technical Specifications (10 Volumes, 37 Pages Each — 370 Pages Total)
 
-### 4.1 Level 3 Assessment Engine (Appendix CT): `L3-met (internal)`
+The repository delivers 10 exhaustive Level 4 technical specification master prompt volumes (Parts 18 to 27, Chapters 270 to 369), meticulously generated in both **PDF** and **DOCX** formats, engineered to **exactly 37 pages each** (370 pages total across all 10 volumes):
+
+| Volume | Chapters | Topic / Title | Format | Exact Pages | PDF Document | DOCX Document |
+|---|---|---|---|---|---|---|
+| **Part 18** | Ch. 270–279 | Kilometer-Scale Orbital-to-Tactical Hierarchical Navigation & Global HiRISE DEM Fusion | PDF & DOCX | **37 Pages** | [`docs/level4/Part_18.pdf`](docs/level4/APPS_Master_Prompt_Part_18_Orbital_Hierarchical_Navigation.pdf) | [`docs/level4/Part_18.docx`](docs/level4/APPS_Master_Prompt_Part_18_Orbital_Hierarchical_Navigation.docx) |
+| **Part 19** | Ch. 280–289 | Autonomous Opportunistic Science Detection, Geomorphology & AEGIS Targeting | PDF & DOCX | **37 Pages** | [`docs/level4/Part_19.pdf`](docs/level4/APPS_Master_Prompt_Part_19_Opportunistic_Science_AEGIS.pdf) | [`docs/level4/Part_19.docx`](docs/level4/APPS_Master_Prompt_Part_19_Opportunistic_Science_AEGIS.docx) |
+| **Part 20** | Ch. 290–299 | Extreme Mobility Dynamics, Active Articulation & Steep-Slope Wheel-Walking/Anchoring | PDF & DOCX | **37 Pages** | [`docs/level4/Part_20.pdf`](docs/level4/APPS_Master_Prompt_Part_20_Extreme_Mobility_Active_Suspension.pdf) | [`docs/level4/Part_20.docx`](docs/level4/APPS_Master_Prompt_Part_20_Extreme_Mobility_Active_Suspension.docx) |
+| **Part 21** | Ch. 300–309 | Heterogeneous Cooperative Autonomy: Aerial Scout & Rover Multi-Agent Coordination | PDF & DOCX | **37 Pages** | [`docs/level4/Part_21.pdf`](docs/level4/APPS_Master_Prompt_Part_21_Heterogeneous_Air_Ground_Cooperation.pdf) | [`docs/level4/Part_21.docx`](docs/level4/APPS_Master_Prompt_Part_21_Heterogeneous_Air_Ground_Cooperation.docx) |
+| **Part 22** | Ch. 310–319 | Online Adaptive Terramechanics & Dynamic Bayesian Regolith Identification | PDF & DOCX | **37 Pages** | [`docs/level4/Part_22.pdf`](docs/level4/APPS_Master_Prompt_Part_22_Adaptive_Terramechanics_Online_Learning.pdf) | [`docs/level4/Part_22.docx`](docs/level4/APPS_Master_Prompt_Part_22_Adaptive_Terramechanics_Online_Learning.docx) |
+| **Part 23** | Ch. 320–329 | Neuromorphic Edge Computing, Event-Based Sensing & Low-SWaP Radiation Accelerators | PDF & DOCX | **37 Pages** | [`docs/level4/Part_23.pdf`](docs/level4/APPS_Master_Prompt_Part_23_Neuromorphic_Radiation_Edge_Computing.pdf) | [`docs/level4/Part_23.docx`](docs/level4/APPS_Master_Prompt_Part_23_Neuromorphic_Radiation_Edge_Computing.docx) |
+| **Part 24** | Ch. 330–339 | Multi-Sol Autonomous Mission Executive, Temporal PDDL Planning & Contingency Handling | PDF & DOCX | **37 Pages** | [`docs/level4/Part_24.pdf`](docs/level4/APPS_Master_Prompt_Part_24_MultiSol_Mission_Executive_Planning.pdf) | [`docs/level4/Part_24.docx`](docs/level4/APPS_Master_Prompt_Part_24_MultiSol_Mission_Executive_Planning.docx) |
+| **Part 25** | Ch. 340–349 | Extreme Environmental Resilience: Multi-Sol Power, Thermal Cycling & Global Dust Storm Survival | PDF & DOCX | **37 Pages** | [`docs/level4/Part_25.pdf`](docs/level4/APPS_Master_Prompt_Part_25_Environmental_Resilience_Dust_Storm.pdf) | [`docs/level4/Part_25.docx`](docs/level4/APPS_Master_Prompt_Part_25_Environmental_Resilience_Dust_Storm.docx) |
+| **Part 26** | Ch. 350–359 | Celestial, Stellar & Horizon-Feature Global Relocalization (Lost-in-Space Recovery) | PDF & DOCX | **37 Pages** | [`docs/level4/Part_26.pdf`](docs/level4/APPS_Master_Prompt_Part_26_Celestial_Horizon_Global_Relocalization.pdf) | [`docs/level4/Part_26.docx`](docs/level4/APPS_Master_Prompt_Part_26_Celestial_Horizon_Global_Relocalization.docx) |
+| **Part 27** | Ch. 360–369 | Systems Safety, Hardware-in-the-Loop (HIL) V&V, and Flight Qualification Framework | PDF & DOCX | **37 Pages** | [`docs/level4/Part_27.pdf`](docs/level4/APPS_Master_Prompt_Part_27_Flight_Qualification_HIL_Assurance.pdf) | [`docs/level4/Part_27.docx`](docs/level4/APPS_Master_Prompt_Part_27_Flight_Qualification_HIL_Assurance.docx) |
+
+---
+
+## 5. Mechanical Evidence Assessment Engines
+
+### 5.1 Level 3 Assessment Engine (Appendix CT): `L3-met (internal)`
 The Level 3 milestone is computed automatically by `tools/assess_level3.py` verifying all 20 `KEYS_L3`:
 
 ```text
@@ -163,14 +182,14 @@ FINAL COMPUTED LEVEL 3 DESIGNATION: >>> L3-met (internal) <<<
 ================================================================================
 ```
 
-### 4.2 Level 2 Assessment Engine (Appendix CR): `L2-met (internal)`
+### 5.2 Level 2 Assessment Engine (Appendix CR): `L2-met (internal)`
 ![Mechanical Evidence Assessment Engine L2-met](docs/images/l2_assessment_engine.png)
 
 ---
 
-## 5. Quick Start & Execution
+## 6. Quick Start & Execution
 
-### 5.1 Launch Interactive Web Applications
+### 6.1 Launch Interactive Web Applications
 Launch the interactive Streamlit application to explore Level 2 and Level 3 subsystems:
 ```powershell
 # Launch Level 3 dedicated 6-DOF & Terramechanics Demo
@@ -180,13 +199,13 @@ python -m streamlit run apps_level3_proto.py
 python -m streamlit run apps_level2_proto.py
 ```
 
-### 5.2 Run Complete Automated Test Suite (59 Tests)
+### 6.2 Run Complete Automated Test Suite (59 Tests)
 ```powershell
 python -m pytest tests -v
 ```
 *Expected: 59 passed across Level 1, Level 2, and Level 3 unit/integration suites (100% passing).*
 
-### 5.3 Run Mechanical Evidence Assessment Engines
+### 6.3 Run Mechanical Evidence Assessment Engines
 - **Level 3 Assessment Engine**:
   ```powershell
   python tools/assess_level3.py
@@ -200,7 +219,7 @@ python -m pytest tests -v
   python tools/assess_level1.py
   ```
 
-### 5.4 Run Master Pipeline & Seal Manifest
+### 6.4 Run Master Pipeline & Seal Manifest
 - **Level 3 Master Verification Pipeline**:
   ```powershell
   python experiments/run_level3.py
@@ -213,8 +232,10 @@ python -m pytest tests -v
 
 ---
 
-## 6. Key Documentation & Artifacts
+## 7. Key Documentation & Artifacts
 
+- **Level 4 Specifications (Parts 18–27)**: [`docs/level4/`](docs/level4/) (10 Volumes, 37 pages each in PDF & DOCX)
+- **Level 3 Specifications (Parts 13–17)**: [`docs/level3/`](docs/level3/) (5 Volumes, 37 pages each in PDF & DOCX)
 - **Level 3 Validation Report**: [`docs/LEVEL3_VALIDATION_REPORT.md`](docs/LEVEL3_VALIDATION_REPORT.md)
 - **Level 3 Traceability Matrix**: [`docs/LEVEL3_TRACEABILITY.md`](docs/LEVEL3_TRACEABILITY.md)
 - **Level 2 Validation Report**: [`docs/LEVEL2_VALIDATION_REPORT.md`](docs/LEVEL2_VALIDATION_REPORT.md)
@@ -225,7 +246,7 @@ python -m pytest tests -v
 
 ---
 
-## 7. Repository Structure
+## 8. Repository Structure
 
 ```text
 apps_level2_3_3D_Prototype/
@@ -234,7 +255,8 @@ apps_level2_3_3D_Prototype/
 ├── app_l1.py                     # Level 1 2D baseline demonstration application
 ├── docs/
 │   ├── images/                  # Interactive app & benchmark screenshots
-│   ├── level3/                  # 5 Specification Volumes in PDF & DOCX (37 pages each)
+│   ├── level4/                  # 10 Level 4 Specification Volumes in PDF & DOCX (37 pages each, 370 pp total)
+│   ├── level3/                  # 5 Level 3 Specification Volumes in PDF & DOCX (37 pages each, 185 pp total)
 │   ├── LEVEL3_VALIDATION_REPORT.md
 │   ├── LEVEL3_TRACEABILITY.md
 │   ├── LEVEL2_VALIDATION_REPORT.md
@@ -262,6 +284,9 @@ apps_level2_3_3D_Prototype/
 │   ├── test_level1.py           # Level 1 regression test suite (18)
 │   └── test_all.py              # Core perception & statistical unit tests (17)
 ├── tools/
+│   ├── generate_level4_documents.py # Master generator for 10 Level 4 PDF & DOCX specification volumes
+│   ├── level4_data_part1.py     # Technical specification data Part 18-22
+│   ├── level4_data_part2.py     # Technical specification data Part 23-27
 │   ├── assess_level3.py         # Level 3 mechanical evidence assessment engine
 │   ├── run_level3_evidence.py   # Level 3 evidence pipeline generator
 │   ├── assess_level2.py         # Level 2 mechanical evidence assessment engine
