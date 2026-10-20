@@ -1,21 +1,23 @@
-# apps_level2_3_4_3D_Prototype: Automated Planetary Perception System (APPS) — Level 2, 3, 4 & 5 Autonomous Planetary Exploration
+# apps_level2_3_4_3D_Prototype: Automated Planetary Perception System (APPS) — Level 2, 3, 4, 5 & 6 Planetary-Scale Autonomy & Relativistic Navigation
 
 > **Scientific Integrity & Academic Research Disclaimer**:  
-> This repository contains the Level 2, Level 3, Level 4, and Level 5 research prototype of the **Automated Planetary Perception System (APPS)**.  
-> Evaluated on continuous 3D digital elevation models (DEM), 6-DOF multibody dynamics, Bekker-Wong terramechanics, multi-modal active sensing, kilometer-scale hierarchical navigation, heterogeneous multi-agent autonomy, AEGIS opportunistic science, neuromorphic edge computing, decentralized swarm consensus, subterranean lava tube 3D LiDAR SLAM, ocean worlds cryobots, astrobiology biosignature detection, and Category V planetary protection.  
+> This repository contains the Level 2, Level 3, Level 4, Level 5, and Level 6 research prototype of the **Automated Planetary Perception System (APPS)**.  
+> Evaluated on continuous 3D digital elevation models (DEM), 6-DOF multibody dynamics, Bekker-Wong terramechanics, multi-modal active sensing, kilometer-scale hierarchical navigation, heterogeneous multi-agent autonomy, AEGIS opportunistic science, neuromorphic edge computing, decentralized swarm consensus, subterranean lava tube 3D LiDAR SLAM, ocean worlds cryobots, astrobiology biosignature detection, Category V planetary protection, interplanetary relativistic navigation (1PN Einstein-Infeld-Hoffmann, Shapiro delay, pulsar XNAV), closed-loop aerocapture, lunar south pole 40 K PSR cryogenic mining, 1.2 MW Stirling fission microgrid, Titan cryogenic hydrocarbon submersibles, kilometer-depth coiled tubing drilling rigs, Venus 465°C / 92 bar supercritical avionics with 500°C 4H-SiC logic, asteroid kinetic deflection, living bacterial biosensors, continuous-variable quantum key distribution (CV-QKD), Bell polarization entanglement (CHSH S > 2.0), and Von Neumann kinematic self-replication closure (> 0.95).  
 > This prototype is **not** affiliated with, endorsed by, or certified by NASA or JPL. It is not qualified for spaceflight.  
 > Under `PROTOTYPE_LOCK = True`, `navigation_ready` is held strictly `False`.  
-> Milestone status: **`L2-met (internal)`**, **`L3-met (internal)`**, **`L4-met (internal)`**, & **`L5-met (internal)`** (mechanically computed via assessment engines).
+> Milestone status: **`L2-met (internal)`**, **`L3-met (internal)`**, **`L4-met (internal)`**, **`L5-met (internal)`**, & **`L6-met (internal)`** (mechanically computed via assessment engines).
 
 ---
 
-## Interactive 3D Demonstration Applications (`apps_level5_proto.py` / `apps_level4_proto.py` / `apps_level3_proto.py` / `apps_level2_proto.py`)
+## Interactive 3D Demonstration Applications (`apps_level6_proto.py` / `apps_level5_proto.py` / `apps_level4_proto.py` / `apps_level3_proto.py` / `apps_level2_proto.py`)
 
 ![apps_level2_proto Demo Overview](docs/images/demo_overview.png)
 
 ### 🚀 Streamlit Cloud Deployment
 - **Live Streamlit App**: [Launch on Streamlit Cloud](https://share.streamlit.io/) (configured for repository `ananya39836-blip/apps_level2_3_4_3D_Prototype`)
+- **Direct App Link**: `https://ananya39836-blip-apps-level2-3-4-3d-prototype.streamlit.app`
 - **Main App Files**:
+  - `apps_level6_proto.py`: **Level 6 Planetary-Scale Systems & Relativistic Autonomy**: Interplanetary 1PN relativistic cruise & autonomous closed-loop aerocapture corridor, lunar south pole 40 K PSR cryogenic water-ice auger mining & 1.2 MW Stirling fission microgrid, Titan Kraken Mare cryogenic hydrocarbon submarine & dense nitrogen flight, kilometer-depth continuous coiled tubing drilling rig & acoustic mud pulse telemetry, Venus 465°C / 92 bar supercritical avionics & 500°C 4H-SiC logic, Didymos-Dimorphos asteroid binary tracking & 6.5 km/s kinetic deflection, continuous-variable QKD secret key sifting, polarization-entangled Bell pairs (CHSH S = 2.81 > 2.0), Von Neumann kinematic self-replication closure (> 0.95), vacuum selective laser melting (SLM) metal 3D printing, and COSPAR Category V 650°C vacuum induction braze biobarrier containment ledger.
   - `apps_level5_proto.py`: Level 5 deep-space autonomous robotics: multi-rover swarm consensus, subterranean lava tube 3D LiDAR SLAM & skylight rappel, Europa ocean worlds cryobot melting kinematics, astrobiology deep-UV Raman deconvolution, ISRU microwave regolith sintering, post-quantum ML-DSA cybersecurity, and Category V planetary protection break-the-chain seal.
   - `apps_level4_proto.py`: Level 4 kilometer-scale orbital hierarchical navigation, AEGIS opportunistic science detection, active suspension articulation, heterogeneous aerial scout coordination, and neuromorphic DVS/SNN sensing.
   - `apps_level3_proto.py`: Level 2 & Level 3 6-DOF multibody dynamics, rocker-bogie passive suspension, Bekker-Wong soil traction curves, and 3D Flash LiDAR point cloud viewer.
@@ -211,8 +213,14 @@ FINAL COMPUTED LEVEL 3 DESIGNATION: >>> L3-met (internal) <<<
 ## 7. Quick Start & Execution
 
 ### 7.1 Launch Interactive Web Applications
-Launch the interactive Streamlit applications to explore Level 2, Level 3, and Level 4 subsystems:
+Launch any of the interactive Streamlit applications to explore the APPS capabilities:
 ```powershell
+# Launch Level 6 Relativistic Cruise, Titan Nautics & Quantum Bell Demo
+python -m streamlit run apps_level6_proto.py
+
+# Launch Level 5 Swarm, Subsurface, Cryobot & Astrobiology Demo
+python -m streamlit run apps_level5_proto.py
+
 # Launch Level 4 Multi-Agent Autonomous Exploration Demo
 python -m streamlit run apps_level4_proto.py
 
@@ -223,13 +231,21 @@ python -m streamlit run apps_level3_proto.py
 python -m streamlit run apps_level2_proto.py
 ```
 
-### 7.2 Run Complete Automated Test Suite (81 Tests)
+### 7.2 Run Complete Automated Test Suite (125 Tests)
 ```powershell
 python -m pytest tests -v
 ```
-*Expected: 81 passed across Level 1, Level 2, Level 3, and Level 4 unit/integration suites (100% passing).*
+*Expected: 125 passed across Level 1, Level 2, Level 3, Level 4, Level 5, and Level 6 unit/integration suites (100% passing).*
 
 ### 7.3 Run Mechanical Evidence Assessment Engines
+- **Level 6 Assessment Engine**:
+  ```powershell
+  python tools/assess_level6.py
+  ```
+- **Level 5 Assessment Engine**:
+  ```powershell
+  python tools/assess_level5.py
+  ```
 - **Level 4 Assessment Engine**:
   ```powershell
   python tools/assess_level4.py
@@ -248,16 +264,24 @@ python -m pytest tests -v
   ```
 
 ### 7.4 Run Master Pipeline & Seal Manifest
+- **Level 6 Master Verification Pipeline**:
+  ```powershell
+  python experiments/run_level6.py
+  ```
+  *Executes all Level 6 benchmarks and generates SHA-256 sealed `results/level6/manifest_level6.json` (`release_gate: READY-FOR-REVIEW`, `L6-met (internal)`).*
+- **Level 5 Master Verification Pipeline**:
+  ```powershell
+  python experiments/run_level5.py
+  ```
+  *Executes all Level 5 benchmarks and generates SHA-256 sealed `results/level5/manifest_level5.json` (`release_gate: ready-for-review`, `L5-met (internal)`).*
 - **Level 4 Master Verification Pipeline**:
   ```powershell
   python experiments/run_level4.py
   ```
-  *Executes all Level 4 benchmarks and generates SHA-256 sealed `results/level4/manifest_level4.json` (`release_gate: ready-for-review`, `L4-met (internal)`).*
 - **Level 3 Master Verification Pipeline**:
   ```powershell
   python experiments/run_level3.py
   ```
-  *Executes all benchmarks and generates SHA-256 sealed `results/level3/manifest_level3.json` (`release_gate: ready-for-review`).*
 - **Level 2 Master Verification Pipeline**:
   ```powershell
   python experiments/run_level2.py
@@ -267,6 +291,9 @@ python -m pytest tests -v
 
 ## 8. Key Documentation & Artifacts
 
+- **Level 6 Validation Report**: [`docs/LEVEL6_VALIDATION_REPORT.md`](docs/LEVEL6_VALIDATION_REPORT.md)
+- **Level 6 Traceability Matrix**: [`docs/LEVEL6_TRACEABILITY.md`](docs/LEVEL6_TRACEABILITY.md)
+- **Level 6 Specifications (Parts 38–47)**: [`docs/level6/`](docs/level6/) (10 Volumes, 37 pages each in PDF & DOCX, 370 pp total)
 - **Level 5 Validation Report**: [`docs/LEVEL5_VALIDATION_REPORT.md`](docs/LEVEL5_VALIDATION_REPORT.md)
 - **Level 5 Traceability Matrix**: [`docs/LEVEL5_TRACEABILITY.md`](docs/LEVEL5_TRACEABILITY.md)
 - **Level 5 Specifications (Parts 28–37)**: [`docs/level5/`](docs/level5/) (10 Volumes, 37 pages each in PDF & DOCX, 370 pp total)
@@ -281,6 +308,12 @@ python -m pytest tests -v
 - **System Architecture**: [`docs/SYSTEM_ARCHITECTURE.md`](docs/SYSTEM_ARCHITECTURE.md)
 - **Data Cards & Provenance**: [`docs/DATA_CARDS.md`](docs/DATA_CARDS.md)
 - **Licence Audit**: [`docs/LICENCE_RECORD.md`](docs/LICENCE_RECORD.md)
+- **Level 3 Specifications (Parts 13–17)**: [`docs/level3/`](docs/level3/) (5 Volumes, 37 pages each in PDF & DOCX, 185 pp total)
+- **Level 2 Validation Report**: [`docs/LEVEL2_VALIDATION_REPORT.md`](docs/LEVEL2_VALIDATION_REPORT.md)
+- **Mathematical Specification**: [`docs/MATHEMATICAL_MODEL.md`](docs/MATHEMATICAL_MODEL.md)
+- **System Architecture**: [`docs/SYSTEM_ARCHITECTURE.md`](docs/SYSTEM_ARCHITECTURE.md)
+- **Data Cards & Provenance**: [`docs/DATA_CARDS.md`](docs/DATA_CARDS.md)
+- **Licence Audit**: [`docs/LICENCE_RECORD.md`](docs/LICENCE_RECORD.md)
 
 ---
 
@@ -288,6 +321,7 @@ python -m pytest tests -v
 
 ```text
 apps_level2_3_4_3D_Prototype/
+├── apps_level6_proto.py          # Interactive Level 6 Relativistic Cruise, Titan Nautics & Quantum Bell Demo
 ├── apps_level5_proto.py          # Interactive Level 5 Swarm, Subsurface, Cryobot & Astrobiology Demo
 ├── apps_level4_proto.py          # Interactive Level 4 Multi-Agent Autonomous Exploration Demo
 ├── apps_level3_proto.py          # Interactive Level 3 6-DOF & Terramechanics Streamlit App
@@ -295,9 +329,12 @@ apps_level2_3_4_3D_Prototype/
 ├── app_l1.py                     # Level 1 2D baseline demonstration application
 ├── docs/
 │   ├── images/                  # Interactive app & benchmark screenshots
+│   ├── level6/                  # 10 Level 6 Specification Volumes in PDF & DOCX (37 pages each, 370 pp total)
 │   ├── level5/                  # 10 Level 5 Specification Volumes in PDF & DOCX (37 pages each, 370 pp total)
 │   ├── level4/                  # 10 Level 4 Specification Volumes in PDF & DOCX (37 pages each, 370 pp total)
 │   ├── level3/                  # 5 Level 3 Specification Volumes in PDF & DOCX (37 pages each, 185 pp total)
+│   ├── LEVEL6_VALIDATION_REPORT.md
+│   ├── LEVEL6_TRACEABILITY.md
 │   ├── LEVEL5_VALIDATION_REPORT.md
 │   ├── LEVEL5_TRACEABILITY.md
 │   ├── LEVEL4_VALIDATION_REPORT.md
@@ -307,6 +344,18 @@ apps_level2_3_4_3D_Prototype/
 │   ├── LEVEL2_VALIDATION_REPORT.md
 │   ├── MATHEMATICAL_MODEL.md
 │   └── SYSTEM_ARCHITECTURE.md
+├── level6/
+│   ├── interplanetary/          # 1PN Post-Newtonian relativistic cruise, Shapiro delay & aerocapture
+│   ├── lunar_base/              # Lunar south pole 40 K PSR cryo-ice mining & 1.2 MW fission microgrid
+│   ├── titan/                   # Kraken Mare hydrocarbon submersible & dense N2 rotorcraft flight
+│   ├── drilling_rig/            # Kilometer-depth coiled tubing injector & acoustic mud pulse telemetry
+│   ├── venus/                   # 465 C / 92 bar supercritical CO2 aeroballoon & 500 C 4H-SiC avionics
+│   ├── asteroid/                # Binary Didymos-Dimorphos tracking & 6.5 km/s kinetic deflection
+│   ├── bio_hybrid/              # Living Bacillus subtilis biosensors & memristive spiking crossbars
+│   ├── quantum_network/         # Continuous-Variable QKD & polarization-entangled Bell states (CHSH S > 2.0)
+│   ├── self_replication/        # Von Neumann kinematic closure (> 0.95) & vacuum SLM metal 3D printing
+│   ├── biosecurity/             # Category V 650 C vacuum braze biobarrier & xenobiotic sequencing assay
+│   └── evaluation/              # Level 6 20-key verification engine & release gate
 ├── level5/
 │   ├── swarm/                   # Multi-rover Raft/Paxos consensus, CBBA allocation & fleet excavation
 │   ├── subsurface/              # Subterranean lava tube 3D LiDAR SLAM & skylight winch rappel
@@ -348,6 +397,7 @@ apps_level2_3_4_3D_Prototype/
 │   └── evaluation/              # Temporal fusion, latency timers, cluster bootstrap stats
 ├── level1/                      # Level 1 2D baseline modules (regression locked)
 ├── tests/
+│   ├── test_level6.py           # Level 6 relativistic nav, lunar/Titan, QKD & replication tests (22)
 │   ├── test_level5.py           # Level 5 deep-space autonomy, swarm, cryobot & quantum tests (22)
 │   ├── test_level4.py           # Level 4 multi-agent, neuromorphic & hierarchical tests (22)
 │   ├── test_level3.py           # Level 3 multibody, terramechanics & LiDAR tests (13)
@@ -355,6 +405,11 @@ apps_level2_3_4_3D_Prototype/
 │   ├── test_level1.py           # Level 1 regression test suite (18)
 │   └── test_all.py              # Core perception & statistical unit tests (17)
 ├── tools/
+│   ├── assess_level6.py         # Level 6 mechanical evidence assessment engine (20/20 PASS)
+│   ├── run_level6_evidence.py   # Level 6 evidence pipeline generator
+│   ├── generate_level6_documents.py # Master generator for 10 Level 6 PDF & DOCX specification volumes
+│   ├── level6_data_part1.py     # Technical specification data Part 38-42
+│   ├── level6_data_part2.py     # Technical specification data Part 43-47
 │   ├── assess_level5.py         # Level 5 mechanical evidence assessment engine (20/20 PASS)
 │   ├── run_level5_evidence.py   # Level 5 evidence pipeline generator
 │   ├── generate_level5_documents.py # Master generator for 10 Level 5 PDF & DOCX specification volumes
@@ -370,6 +425,7 @@ apps_level2_3_4_3D_Prototype/
 │   ├── assess_level2.py         # Level 2 mechanical evidence assessment engine
 │   └── assess_level1.py         # Level 1 evidence assessment engine
 └── results/
+    ├── level6/                  # Sealed Level 6 experiment logs and manifest (SHA-256)
     ├── level5/                  # Sealed Level 5 experiment logs and manifest (SHA-256)
     ├── level4/                  # Sealed Level 4 experiment logs and manifest (SHA-256)
     ├── level3/                  # Sealed Level 3 experiment logs and manifest (SHA-256)

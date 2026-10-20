@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "vacuum_braze_biobarrier": {
+    "braze_temp_c": 650.0,
+    "hold_seconds": 45.0,
+    "containment_sealed": true,
+    "helium_leak_rate_mbar_l_s": 5e-12,
+    "sterility_assurance_level": "SAL_1E_NEG_9",
+    "cospar_rating": "CATEGORY_V_RESTRICTED_EARTH_RETURN",
+    "prototype_lock": true,
+    "navigation_ready": false
+  },
+  "xenobiotic_assay": {
+    "divergence_metric": 1.0,
+    "non_canonical_backbone_detected": true,
+    "terrestrial_origin_disproven": true,
+    "biosecurity_alert_level": "LEVEL_4_HOT_ZONE",
+    "prototype_lock": true,
+    "navigation_ready": false
+  },
+  "formal_safety_verifier": {
+    "all_invariants_satisfied": true,
+    "passed_count": 5,
+    "total_count": 5,
+    "failed_keys": [],
+    "level6_certified": true,
+    "prototype_lock": true,
+    "navigation_ready": false
+  }
+}

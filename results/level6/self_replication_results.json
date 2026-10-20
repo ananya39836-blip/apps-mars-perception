@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "kinematic_closure": {
+    "total_bom_count": 150,
+    "reproducible_parts_count": 145,
+    "closure_ratio": 0.9667,
+    "kinematic_closure_achieved": true,
+    "external_seed_dependency_pct": 3.33,
+    "prototype_lock": true,
+    "navigation_ready": false
+  },
+  "slm_additive_manufacturing": {
+    "part_mass_kg": 15.0,
+    "powder_material": "NICKEL_IRON",
+    "energy_density_j_mm3": 86.81,
+    "density_relative_pct": 99.6,
+    "yield_strength_mpa": 880.0,
+    "print_time_hours": 42.9,
+    "tensile_qualified": true,
+    "prototype_lock": true,
+    "navigation_ready": false
+  },
+  "safety_governor": {
+    "current_population": 7,
+    "max_quota": 32,
+    "reproduction_authorized": true,
+    "status": "AUTHORIZED_REPRODUCTION",
+    "asilomar_ai_safety_compliance": true,
+    "prototype_lock": true,
+    "navigation_ready": false
+  }
+}

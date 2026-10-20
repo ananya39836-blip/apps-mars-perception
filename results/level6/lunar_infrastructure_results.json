@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "psr_ice_mining": {
+    "duration_hours": 6.0,
+    "excavated_volume_m3": 2.73,
+    "ice_extracted_kg": 394.95,
+    "accumulated_ice_total_kg": 394.95,
+    "psr_ambient_temp_k": 40.0,
+    "shear_resistance_mpa": 4.2,
+    "prototype_lock": true,
+    "navigation_ready": false
+  },
+  "fission_microgrid": {
+    "electric_capacity_kw": 384.0,
+    "total_demand_kw": 165.0,
+    "grid_stable": true,
+    "reserve_margin_pct": 57.0,
+    "hvdc_bus_voltage_kv": 10.0,
+    "stirling_units_active": 4,
+    "prototype_lock": true,
+    "navigation_ready": false
+  },
+  "thermal_wadi": {
+    "elapsed_night_hours": 120.0,
+    "current_core_temp_c": 531.5,
+    "available_thermal_energy_kwh": 9661.64,
+    "sufficient_for_survival": true,
+    "prototype_lock": true,
+    "navigation_ready": false
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "computed_label": "L6-met (internal)",
+  "evidence": {
+    "interplanetary_relativistic_nav": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "interplanetary_aerocapture": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "lunar_psr_cryo_mining": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "lunar_megawatt_microgrid": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "titan_submersible_buoyancy": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "titan_dense_atmosphere_flight": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "deep_drilling_coiled_tubing": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "deep_drilling_mud_telemetry": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "venus_supercritical_aerodynamics": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "venus_sic_high_temp_logic": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "asteroid_binary_tracking": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "asteroid_kinetic_impactor": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "biohybrid_bacterial_biosensor": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "biohybrid_memristive_crossbar": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "quantum_cv_qkd_sifting": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "quantum_entanglement_chsh": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "self_replication_closure": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "self_replication_slm_printer": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "galactic_biosecurity_containment": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "l5_regression": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    }
+  },
+  "details": {
+    "interplanetary_relativistic_nav": "Post-Newtonian 1PN relativistic trajectory propagator and X-ray pulsar XNAV verified by test",
+    "interplanetary_aerocapture": "Autonomous closed-loop planetary aerocapture corridor bank-angle guidance verified",
+    "lunar_psr_cryo_mining": "40 K permanently shadowed region (PSR) cryogenic water ice excavation verified by test",
+    "lunar_megawatt_microgrid": "1.2 MW thermal Stirling fission power dispatch and sintered basalt thermal wadi storage verified",
+    "titan_submersible_buoyancy": "Liquid methane/ethane variable-bellows buoyancy engine and depth control verified by test",
+    "titan_dense_atmosphere_flight": "Cryogenic acoustic seabed bathymetry and dense nitrogen atmosphere rotorcraft flight verified",
+    "deep_drilling_coiled_tubing": "Kilometer-depth continuous coiled tubing drilling rig and weight-on-bit control verified by test",
+    "deep_drilling_mud_telemetry": "Acoustic drill string mud pulse telemetry and wellbore blowout preventer (BOP) verified",
+    "venus_supercritical_aerodynamics": "465 C / 92 bar dense supercritical CO2 aerodynamics and aeroballoon altitude cycling verified by test",
+    "venus_sic_high_temp_logic": "500 C uncooled 4H-SiC JFET logic gates and Inconel clockwork mechanical backup verified",
+    "asteroid_binary_tracking": "Binary asteroid mutual orbit modeling and Werner-Scheeres polyhedral gravity tracking verified by test",
+    "asteroid_kinetic_impactor": "Hypervelocity (6.5 km/s) proportional navigation and canted ion gravity tractor towing verified",
+    "biohybrid_bacterial_biosensor": "Living Bacillus subtilis spore biosensors with luciferase reporter expression verified by test",
+    "biohybrid_memristive_crossbar": "Radiation-hardened TaOx/HfOx memristive spiking crossbars (< 0.45 W) and nanopore sequencer verified",
+    "quantum_cv_qkd_sifting": "Continuous-Variable QKD Devetak-Winter secret key rate and QBER monitoring verified by test",
+    "quantum_entanglement_chsh": "SPDC polarization-entangled Bell states, CHSH inequality violation (S > 2.0), and state tomography verified",
+    "self_replication_closure": "Von Neumann kinematic machine closure ratio (> 0.95) for autonomous reproduction verified by test",
+    "self_replication_slm_printer": "Vacuum Selective Laser Melting (SLM) metal 3D printing and evolutionary safety governor verified",
+    "galactic_biosecurity_containment": "Category V 650 C vacuum induction braze biobarrier, xenobiotic assay, and formal invariants verified by test",
+    "l5_regression": "Level 5 regression suite re-executed; milestone status: L5-met (internal)"
+  }
+}

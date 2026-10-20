@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "binary_orbit": {
+    "primary_mass_kg": 520000000000.0,
+    "secondary_mass_kg": 4800000000.0,
+    "mutual_period_hours": 11.95,
+    "mean_motion_rad_s": 0.00014600803764153102,
+    "hill_sphere_radius_km": 69.86,
+    "prototype_lock": true,
+    "navigation_ready": false
+  },
+  "kinetic_impactor": {
+    "time_to_go_s": 2.308,
+    "commanded_accel_mps2": 13.65,
+    "delta_momentum_Ns": 9262500.0,
+    "kinetic_energy_gj": 12.04,
+    "target_locked": true,
+    "impact_imminent": false,
+    "prototype_lock": true,
+    "navigation_ready": false
+  },
+  "gravity_tractor": {
+    "standoff_distance_m": 160.0,
+    "gravitational_tow_force_N": 0.015,
+    "required_ion_thrust_N": 0.016,
+    "cant_angle_deg": 20.0,
+    "station_keeping_stable": true,
+    "prototype_lock": true,
+    "navigation_ready": false
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "bacterial_biosensor": {
+    "target_conc_pM": 40.0,
+    "bioluminescent_signal_cps": 1111.1,
+    "detection_confirmed": true,
+    "spores_active": 100000000,
+    "containment_intact": true,
+    "prototype_lock": true,
+    "navigation_ready": false
+  },
+  "memristive_crossbar": {
+    "output_spikes_count": 64,
+    "max_activation": 40.19834518432617,
+    "active_power_watts": 0.378,
+    "crossbar_dims": [
+      64,
+      64
+    ],
+    "prototype_lock": true,
+    "navigation_ready": false
+  },
+  "nanopore_sequencing": {
+    "fragment_length_bp": 4000,
+    "sequencing_time_s": 2.22,
+    "base_call_accuracy_pct": 99.6,
+    "xenobiotic_backbone_flag": false,
+    "channels_operational": 512,
+    "prototype_lock": true,
+    "navigation_ready": false
+  }
+}

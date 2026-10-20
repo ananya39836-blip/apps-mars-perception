@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "supercritical_aerodynamics": {
+    "altitude_km": 8.5,
+    "ambient_density_kg_m3": 39.26,
+    "ambient_temp_c": 398.7,
+    "net_lift_N": 28355.18,
+    "buoyancy_positive": true,
+    "supercritical_regime": true,
+    "prototype_lock": true,
+    "navigation_ready": false
+  },
+  "sic_jfet_electronics": {
+    "ambient_temp_c": 475.0,
+    "leakage_current_na": 5.59,
+    "gate_delay_ns": 19.12,
+    "clock_mhz": 10.0,
+    "logic_operational": true,
+    "thermal_runaway_alert": false,
+    "prototype_lock": true,
+    "navigation_ready": false
+  },
+  "clockwork_mechanical_backup": {
+    "input_torque_nm": 15.0,
+    "output_torque_nm": 63.0,
+    "clockwork_jammed": false,
+    "operational": true,
+    "lubricant": "SOLID_MOS2_GRAPHITE",
+    "temperature_tolerance_c": 600.0,
+    "prototype_lock": true,
+    "navigation_ready": false
+  }
+}

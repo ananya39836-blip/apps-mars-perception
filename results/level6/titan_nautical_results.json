@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "submersible_buoyancy": {
+    "current_depth_m": 2.91,
+    "net_buoyancy_N": -8.76,
+    "vertical_rate_mps": -0.291,
+    "safe_depth_envelope": true,
+    "liquid_temp_k": 94.0,
+    "prototype_lock": true,
+    "navigation_ready": false
+  },
+  "acoustic_bathymetry": {
+    "measured_altitude_m": 45.0,
+    "two_way_tof_ms": 63.38,
+    "effervescence_bubble_alert": false,
+    "speed_of_sound_mps": 1420.0,
+    "beams_active": 16,
+    "prototype_lock": true,
+    "navigation_ready": false
+  },
+  "nitrogen_aero_hover": {
+    "weight_titan_N": 60.84,
+    "induced_velocity_mps": 2.232,
+    "hover_power_watts": 208.9,
+    "earth_power_ratio": 0.024,
+    "flight_authorized": true,
+    "prototype_lock": true,
+    "navigation_ready": false
+  }
+}

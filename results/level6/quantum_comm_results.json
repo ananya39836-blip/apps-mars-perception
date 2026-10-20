@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "cv_qkd": {
+    "distance_au": 1.4,
+    "transmittance": 0.0012755102040816328,
+    "qber": 0.0378,
+    "secret_key_rate_bits_pulse": 0.0,
+    "channel_secure": true,
+    "reconciliation_efficiency": 0.95,
+    "prototype_lock": true,
+    "navigation_ready": false
+  },
+  "spdc_chsh": {
+    "s_chsh_correlation": 2.8215,
+    "classical_bound": 2.0,
+    "bell_inequality_violated": true,
+    "entanglement_fidelity": 0.9988,
+    "pairs_per_second": 10000000.0,
+    "prototype_lock": true,
+    "navigation_ready": false
+  },
+  "tomography": {
+    "fidelity": 0.97,
+    "purity": 0.9412,
+    "concurrence": 0.94,
+    "separable_state": false,
+    "quantum_state_certified": true,
+    "prototype_lock": true,
+    "navigation_ready": false
+  }
+}

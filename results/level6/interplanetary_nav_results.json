@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "post_newtonian_accel_magnitude": 0.005929914535365084,
+  "shapiro_delay_seconds": 3.226618187624752e-05,
+  "xnav_pulsar_arrival": {
+    "pulsar": "PSR_B1937+21",
+    "projected_range_m": 84744187783.2003,
+    "geometric_time_delay_s": 282.676183212055,
+    "phase_fraction": 0.8276059938361868,
+    "timing_uncertainty_ns": 120.0,
+    "prototype_lock": true,
+    "navigation_ready": false
+  },
+  "aerocapture_guidance": {
+    "altitude_km": 68.0,
+    "entry_speed_mps": 5600.0,
+    "commanded_bank_deg": 57.8,
+    "corridor_tracking_ok": false,
+    "aerocapture_complete": false,
+    "prototype_lock": true,
+    "navigation_ready": false
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "coiled_tubing_advance": {
+    "current_depth_m": 18.0,
+    "wob_applied_kN": 14.88,
+    "buckling_threshold_kN": 25.27,
+    "buckling_safe": true,
+    "core_recovered_m": 17.1,
+    "cumulative_core_m": 17.1,
+    "prototype_lock": true,
+    "navigation_ready": false
+  },
+  "mud_pulse_telemetry": {
+    "depth_m": 1100.0,
+    "transit_latency_ms": 215.69,
+    "attenuation_dB": 16.5,
+    "snr_dB": 11.5,
+    "packet_intact": true,
+    "bitrate_bps": 128,
+    "prototype_lock": true,
+    "navigation_ready": false
+  },
+  "blowout_preventer": {
+    "formation_pressure_bar": 130.0,
+    "mud_hydrostatic_bar": 105.0,
+    "overpressure_kick_detected": true,
+    "blowout_preventer_closed": true,
+    "action": "EMERGENCY_SHEAR_RAMS_TRIPPED",
+    "prototype_lock": true,
+    "navigation_ready": false
+  }
+}
