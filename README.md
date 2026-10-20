@@ -406,12 +406,16 @@ apps_level2_3_4_3D_Prototype/
 │   ├── test_level1.py           # Level 1 regression test suite (18)
 │   └── test_all.py              # Core perception & statistical unit tests (18)
 ├── docs/
+│   ├── level7/                  # 5 Level 7 Master Prompt Volumes (Parts 53–57, 37 pages each, PDF & DOCX)
 │   ├── computer_vision/         # 5 Master Prompt Volumes (Parts 48–52, 37 pages each, PDF & DOCX)
 │   ├── level6/                  # 10 Level 6 Master Prompt Volumes (Parts 38–47, 37 pages each, PDF & DOCX)
 │   ├── level5/                  # 10 Level 5 Master Prompt Volumes (Parts 28–37, 37 pages each, PDF & DOCX)
 │   ├── level4/                  # 10 Level 4 Master Prompt Volumes (Parts 18–27, 37 pages each, PDF & DOCX)
 │   └── images/                  # Architecture schematics, diagrams & plots
 ├── tools/
+│   ├── generate_level7_documents.py # Master generator for 5 Level 7 PDF & DOCX volumes
+│   ├── level7_data_part1.py     # Level 7 specification data Parts 53-54
+│   ├── level7_data_part2.py     # Level 7 specification data Parts 55-57
 │   ├── generate_cv_documents.py # Master generator for 5 Computer Vision PDF & DOCX volumes
 │   ├── cv_data_part1.py         # Computer Vision specification data Parts 48-50
 │   ├── cv_data_part2.py         # Computer Vision specification data Parts 51-52
