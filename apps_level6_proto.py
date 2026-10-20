@@ -121,42 +121,64 @@ with tab1:
 
     with col_nav_view:
         if HAS_PLOTLY:
-            theta = np.linspace(0, 1.5 * np.pi, 100)
-            r_orbit = np.linspace(1.0, dist_au, 100)
-            x_cruise = r_orbit * np.cos(theta)
-            y_cruise = r_orbit * np.sin(theta)
-            z_cruise = 0.05 * np.sin(theta * 2.0)
+            try:
+                theta = np.linspace(0, 1.5 * np.pi, 100)
+                r_orbit = np.linspace(1.0, dist_au, 100)
+                x_cruise = r_orbit * np.cos(theta)
+                y_cruise = r_orbit * np.sin(theta)
 
-            fig_nav = go.Figure()
-            fig_nav.add_trace(go.Scatter3d(
-                x=[0], y=[0], z=[0],
-                mode="markers+text",
-                marker=dict(size=14, color="gold"),
-                text=["Sun (1 M☉)"],
-                textposition="top center",
-                name="Primary"
-            ))
-            fig_nav.add_trace(go.Scatter3d(
-                x=x_cruise, y=y_cruise, z=z_cruise,
-                mode="lines",
-                line=dict(color="cyan", width=5),
-                name="1PN Relativistic Trajectory"
-            ))
-            fig_nav.add_trace(go.Scatter3d(
-                x=[x_cruise[-1]], y=[y_cruise[-1]], z=[z_cruise[-1]],
-                mode="markers+text",
-                marker=dict(size=10, color="crimson"),
-                text=["Mars Aerocapture Ingress"],
-                textposition="bottom center",
-                name="Target Destination"
-            ))
-            fig_nav.update_layout(
-                title=f"Interplanetary Cruise & Pulsar Triangulation ({dist_au:.2f} AU)",
-                scene=dict(xaxis_title="X (AU)", yaxis_title="Y (AU)", zaxis_title="Z (AU)"),
-                template="plotly_dark",
-                height=520
-            )
-            st.plotly_chart(fig_nav, use_container_width=True)
+                th_circle = np.linspace(0, 2 * np.pi, 120)
+
+                fig_nav = go.Figure()
+                # Sun at (0, 0)
+                fig_nav.add_trace(go.Scatter(
+                    x=[0], y=[0],
+                    mode="markers+text",
+                    marker=dict(size=18, color="gold", symbol="circle"),
+                    text=["Sun (1 M☉)"],
+                    textposition="top center",
+                    name="Sun (Primary)"
+                ))
+                # Earth Reference Orbit (1.0 AU)
+                fig_nav.add_trace(go.Scatter(
+                    x=np.cos(th_circle), y=np.sin(th_circle),
+                    mode="lines",
+                    line=dict(color="dodgerblue", width=1, dash="dot"),
+                    name="Earth Orbit (1.0 AU)"
+                ))
+                # Mars Reference Orbit (1.52 AU)
+                fig_nav.add_trace(go.Scatter(
+                    x=1.52 * np.cos(th_circle), y=1.52 * np.sin(th_circle),
+                    mode="lines",
+                    line=dict(color="orangered", width=1, dash="dot"),
+                    name="Mars Orbit (1.52 AU)"
+                ))
+                # Relativistic Cruise path
+                fig_nav.add_trace(go.Scatter(
+                    x=x_cruise, y=y_cruise,
+                    mode="lines",
+                    line=dict(color="cyan", width=4),
+                    name="1PN Relativistic Trajectory"
+                ))
+                # Target planet arrival & aerocapture
+                fig_nav.add_trace(go.Scatter(
+                    x=[x_cruise[-1]], y=[y_cruise[-1]],
+                    mode="markers+text",
+                    marker=dict(size=14, color="crimson", symbol="star"),
+                    text=["Mars Aerocapture Point"],
+                    textposition="bottom center",
+                    name="Aerocapture Ingress"
+                ))
+                fig_nav.update_layout(
+                    title=f"Heliocentric Cruise & 1PN Relativistic Transfer ({dist_au:.2f} AU)",
+                    xaxis_title="Ecliptic Heliocentric X (AU)",
+                    yaxis_title="Ecliptic Heliocentric Y (AU)",
+                    template="plotly_dark",
+                    height=520
+                )
+                st.plotly_chart(fig_nav, use_container_width=True)
+            except Exception as e:
+                st.warning(f"Visualization rendering notice: {e}")
 
 # -----------------------------------------------------------------------------
 # TAB 2: Lunar South Pole PSR Mining & Fission Microgrid
@@ -191,33 +213,36 @@ with tab2:
 
     with col_lunar_view:
         if HAS_PLOTLY:
-            hours = np.linspace(1, 24, 24)
-            ice_production = [harvester.mine_psr_sector(excav_depth_m, h, ice_grade_pct)["ice_extracted_kg"] for h in hours]
-            wadi_temps = [wadi.compute_night_thermal_reserve(h * 14)["current_core_temp_c"] for h in hours]
+            try:
+                hours = np.linspace(1, 24, 24)
+                ice_production = [harvester.mine_psr_sector(excav_depth_m, h, ice_grade_pct)["ice_extracted_kg"] for h in hours]
+                wadi_temps = [wadi.compute_night_thermal_reserve(h * 14)["current_core_temp_c"] for h in hours]
 
-            fig_lunar = go.Figure()
-            fig_lunar.add_trace(go.Scatter(
-                x=hours, y=ice_production,
-                name="Water-Ice Extracted (kg)",
-                mode="lines+markers",
-                line=dict(color="cyan", width=3)
-            ))
-            fig_lunar.add_trace(go.Scatter(
-                x=hours, y=wadi_temps,
-                name="Thermal Wadi Core Temp (°C)",
-                mode="lines",
-                line=dict(color="orange", width=3, dash="dash"),
-                yaxis="y2"
-            ))
-            fig_lunar.update_layout(
-                title="PSR Water-Ice Extraction & Thermal Wadi Core Temperature Response",
-                xaxis_title="Operational Shift (hours)",
-                yaxis_title="Extracted Cryogenic Ice (kg)",
-                yaxis2=dict(title="Thermal Wadi Temp (°C)", overlaying="y", side="right"),
-                template="plotly_dark",
-                height=520
-            )
-            st.plotly_chart(fig_lunar, use_container_width=True)
+                fig_lunar = go.Figure()
+                fig_lunar.add_trace(go.Scatter(
+                    x=hours, y=ice_production,
+                    name="Water-Ice Extracted (kg)",
+                    mode="lines+markers",
+                    line=dict(color="cyan", width=3)
+                ))
+                fig_lunar.add_trace(go.Scatter(
+                    x=hours, y=wadi_temps,
+                    name="Thermal Wadi Core Temp (°C)",
+                    mode="lines",
+                    line=dict(color="orange", width=3, dash="dash"),
+                    yaxis="y2"
+                ))
+                fig_lunar.update_layout(
+                    title="PSR Water-Ice Extraction & Thermal Wadi Core Temperature Response",
+                    xaxis_title="Operational Shift (hours)",
+                    yaxis_title="Extracted Cryogenic Ice (kg)",
+                    yaxis2=dict(title="Thermal Wadi Temp (°C)", overlaying="y", side="right"),
+                    template="plotly_dark",
+                    height=520
+                )
+                st.plotly_chart(fig_lunar, use_container_width=True)
+            except Exception as e:
+                st.warning(f"Visualization rendering notice: {e}")
 
 # -----------------------------------------------------------------------------
 # TAB 3: Titan Cryogenic Nautical Submersible & Flight
@@ -251,27 +276,30 @@ with tab3:
 
     with col_titan_view:
         if HAS_PLOTLY:
-            depths = np.linspace(0, 300, 50)
-            rho = 650.0  # kg/m3 liquid methane
-            g_titan = 1.352
-            pressures = (1.47e5 + rho * g_titan * depths) / 1e5
+            try:
+                depths = np.linspace(0, 300, 50)
+                rho = 650.0  # kg/m3 liquid methane
+                g_titan = 1.352
+                pressures = (1.47e5 + rho * g_titan * depths) / 1e5
 
-            fig_sub = go.Figure()
-            fig_sub.add_trace(go.Scatter(
-                x=pressures, y=depths,
-                name="Hydrostatic Pressure (bar)",
-                mode="lines",
-                line=dict(color="deepskyblue", width=3)
-            ))
-            fig_sub.update_layout(
-                title="Kraken Mare Hydrocarbon Hydrostatic Gradient & Seabed Depth",
-                xaxis_title="Hydrostatic Pressure (bar)",
-                yaxis_title="Immersion Depth (m)",
-                yaxis=dict(autorange="reversed"),
-                template="plotly_dark",
-                height=520
-            )
-            st.plotly_chart(fig_sub, use_container_width=True)
+                fig_sub = go.Figure()
+                fig_sub.add_trace(go.Scatter(
+                    x=pressures, y=depths,
+                    name="Hydrostatic Pressure (bar)",
+                    mode="lines",
+                    line=dict(color="deepskyblue", width=3)
+                ))
+                fig_sub.update_layout(
+                    title="Kraken Mare Hydrocarbon Hydrostatic Gradient & Seabed Depth",
+                    xaxis_title="Hydrostatic Pressure (bar)",
+                    yaxis_title="Immersion Depth (m)",
+                    yaxis=dict(autorange="reversed"),
+                    template="plotly_dark",
+                    height=520
+                )
+                st.plotly_chart(fig_sub, use_container_width=True)
+            except Exception as e:
+                st.warning(f"Visualization rendering notice: {e}")
 
 # -----------------------------------------------------------------------------
 # TAB 4: Deep Coiled Tubing Rig & BOP
@@ -308,24 +336,27 @@ with tab4:
 
     with col_rig_view:
         if HAS_PLOTLY:
-            depth_curve = np.linspace(100, 2000, 40)
-            critical_loads = [25.0 + 0.015 * d for d in depth_curve]
+            try:
+                depth_curve = np.linspace(100, 2000, 40)
+                critical_loads = [25.0 + 0.015 * d for d in depth_curve]
 
-            fig_rig = go.Figure()
-            fig_rig.add_trace(go.Scatter(
-                x=depth_curve, y=critical_loads,
-                name="Helical Buckling Threshold (kN)",
-                mode="lines",
-                line=dict(color="red", width=3, dash="dot")
-            ))
-            fig_rig.update_layout(
-                title="Continuous Coiled Tubing Buckling Margin vs Depth",
-                xaxis_title="Wellbore Depth (m)",
-                yaxis_title="Critical Compressive Limit (kN)",
-                template="plotly_dark",
-                height=520
-            )
-            st.plotly_chart(fig_rig, use_container_width=True)
+                fig_rig = go.Figure()
+                fig_rig.add_trace(go.Scatter(
+                    x=depth_curve, y=critical_loads,
+                    name="Helical Buckling Threshold (kN)",
+                    mode="lines",
+                    line=dict(color="red", width=3, dash="dot")
+                ))
+                fig_rig.update_layout(
+                    title="Continuous Coiled Tubing Buckling Margin vs Depth",
+                    xaxis_title="Wellbore Depth (m)",
+                    yaxis_title="Critical Compressive Limit (kN)",
+                    template="plotly_dark",
+                    height=520
+                )
+                st.plotly_chart(fig_rig, use_container_width=True)
+            except Exception as e:
+                st.warning(f"Visualization rendering notice: {e}")
 
 # -----------------------------------------------------------------------------
 # TAB 5: Venus Supercritical 465°C & Asteroid Kinetic Homing
@@ -359,24 +390,27 @@ with tab5:
 
     with col_v_view:
         if HAS_PLOTLY:
-            alts = np.linspace(0, 50, 40)
-            densities = [balloon.calculate_buoyant_lift(a)["ambient_density_kg_m3"] for a in alts]
+            try:
+                alts = np.linspace(0, 50, 40)
+                densities = [balloon.calculate_buoyant_lift(a)["ambient_density_kg_m3"] for a in alts]
 
-            fig_v = go.Figure()
-            fig_v.add_trace(go.Scatter(
-                x=densities, y=alts,
-                name="Venusian Atmospheric Density (kg/m³)",
-                mode="lines",
-                line=dict(color="orange", width=3)
-            ))
-            fig_v.update_layout(
-                title="Supercritical Venusian Atmospheric Density Profile",
-                xaxis_title="Ambient Density (kg/m³)",
-                yaxis_title="Altitude (km)",
-                template="plotly_dark",
-                height=520
-            )
-            st.plotly_chart(fig_v, use_container_width=True)
+                fig_v = go.Figure()
+                fig_v.add_trace(go.Scatter(
+                    x=densities, y=alts,
+                    name="Venusian Atmospheric Density (kg/m³)",
+                    mode="lines",
+                    line=dict(color="orange", width=3)
+                ))
+                fig_v.update_layout(
+                    title="Supercritical Venusian Atmospheric Density Profile",
+                    xaxis_title="Ambient Density (kg/m³)",
+                    yaxis_title="Altitude (km)",
+                    template="plotly_dark",
+                    height=520
+                )
+                st.plotly_chart(fig_v, use_container_width=True)
+            except Exception as e:
+                st.warning(f"Visualization rendering notice: {e}")
 
 # -----------------------------------------------------------------------------
 # TAB 6: Quantum Bell Entanglement & Evidence Ledger
