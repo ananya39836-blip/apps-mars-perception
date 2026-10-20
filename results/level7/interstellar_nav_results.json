@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "lorentz_gamma": 1.0206207261596576,
+  "aberration_angle_rad": 0.881021326009397,
+  "doppler_frequency_hz": 122474487139158.9,
+  "proper_time_dilation": {
+    "coordinate_time_s": 31557600.0,
+    "proper_time_s": 30920007.00274177,
+    "dilation_ratio": 0.9797958971132713,
+    "time_deficit_s": 637592.997258231
+  },
+  "sail_thrust_n": 66.70948339867842,
+  "sail_temp_k": 477.22956020516926,
+  "dust_impact_joules": 1853298.4425306036,
+  "pulsar_xnav_status": "TRIANGULATION_LOCKED"
+}

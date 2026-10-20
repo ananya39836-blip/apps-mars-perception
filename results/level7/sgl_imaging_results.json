@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "z_min_au": 548.7492276088998,
+  "optical_gain_peak": 116593165452.63115,
+  "deconvolution_psnr_db": 49.654522575702586,
+  "stationkeeping_corridor_ok": true
+}

@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "switching_energy_j": 2.0678338484619294e-19,
+  "core_power_uw": 1033.9169242309647,
+  "cryo_stable": true,
+  "spintronic_rad_status": "RADIATION_HARDENED_CERTIFIED"
+}
