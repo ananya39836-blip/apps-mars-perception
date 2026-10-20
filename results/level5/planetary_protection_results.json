@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "category_v_seal": {
+    "containment_sealed": true,
+    "braze_temperature_c": 560.0,
+    "sterilization_met": true,
+    "residual_spore_burden_total": 0.00125,
+    "cospar_category": "CATEGORY_V_RESTRICTED_EARTH_RETURN",
+    "integrity_score": 1.0
+  },
+  "safety_invariants": {
+    "safe": true,
+    "invariants_passed": true,
+    "failed_count": 0,
+    "failed_names": [],
+    "certified_autonomous_envelope": true
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "pqc_public_key": "ML-DSA-87-97a74123e64069a41b22b3c2b3273efc",
+  "ml_dsa_signature_verified": true,
+  "anti_spoofing_clearance": true,
+  "ephemeris_token_sha256": "dd2a3db416fd21d85734db744be1e90084ebc217203d996327bef55ed268b848"
+}

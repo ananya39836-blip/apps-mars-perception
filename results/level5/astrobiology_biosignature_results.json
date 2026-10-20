@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "raman_analysis": {
+    "peaks_evaluated": [
+      1600.0,
+      1650.0,
+      2930.0
+    ],
+    "matched_biomarkers": [
+      "aromatic_ring",
+      "amide_I",
+      "aliphatic_ch"
+    ],
+    "organic_complexity_index": 0.6,
+    "complex_organics_confirmed": true,
+    "spectral_snr_db": 26.0
+  },
+  "biosignature_classification": {
+    "chiral_excess_pct": 38.0,
+    "delta_13c_permil": -34.0,
+    "chiral_score": 0.95,
+    "isotopic_score": 1.0,
+    "biogenicity_score": 0.945,
+    "is_candidate_biosignature": true,
+    "priority_level": "CRITICAL_ALPHA"
+  }
+}

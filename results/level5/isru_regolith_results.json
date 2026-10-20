@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "water_extraction": {
+    "batch_mass_kg": 100.0,
+    "water_wt_pct": 6.8,
+    "recovered_water_kg": 5.98,
+    "extraction_efficiency_pct": 88.0,
+    "energy_consumed_kwh": 15.33,
+    "specific_energy_kwh_per_kg_h2o": 2.56
+  },
+  "sintered_regolith": {
+    "brick_mass_kg": 3.6,
+    "sinter_time_min": 17.6,
+    "compressive_strength_mpa": 38.5,
+    "is_landing_pad_grade": true,
+    "defect_rate_pct": 1.2
+  },
+  "civil_infrastructure": {
+    "elevation_roughness_rms_cm": 1.2,
+    "grade_tolerance_satisfied": true,
+    "berm_completion_pct": 97.0,
+    "berm_structurally_sound": true,
+    "overall_pad_certified": true
+  }
+}

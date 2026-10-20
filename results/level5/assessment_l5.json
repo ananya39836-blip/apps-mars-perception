@@ -1,0 +1,127 @@
+{
+  "computed_label": "L5-met (internal)",
+  "evidence": {
+    "swarm_consensus": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "swarm_potential_fields": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "cave_zero_illumination_slam": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "cave_tether_breadcrumb": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "cryobot_thermal_drill": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "cryobot_sonar_obstacle": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "raman_spectroscopy_deconv": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "biosignature_chirality_index": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "reconfigurable_morphology": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "modular_docking_actuator": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "isru_regolith_yield": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "isru_sintered_pad": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "lasercom_dsoc_link": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "lasercom_dtn_bundle": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "quantum_enclave_crypto": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "quantum_anti_spoofing": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "continual_learning_replay": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "actuator_wear_compensation": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "planetary_protection_containment": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    },
+    "l4_regression": {
+      "exists": true,
+      "executed": true,
+      "passed": true
+    }
+  },
+  "details": {
+    "swarm_consensus": "Decentralized Raft/Paxos consensus and Byzantine fault-tolerant quorum verified by test",
+    "swarm_potential_fields": "Distributed artificial potential fields, CBBA auction allocation, and fleet excavation verified",
+    "cave_zero_illumination_slam": "Zero-illumination 3D LiDAR SLAM in basaltic lava tubes with degeneracy handling verified by test",
+    "cave_tether_breadcrumb": "Skylight tethered winch rappel dynamics and RF breadcrumb dropper network verified",
+    "cryobot_thermal_drill": "Cryogenic ice shell thermal melting kinematics for Europa/Enceladus probes verified by test",
+    "cryobot_sonar_obstacle": "Hydroacoustic forward lookahead sonar and hydrothermal plume chemical tracer verified",
+    "raman_spectroscopy_deconv": "Deep-UV Raman spectroscopy deconvolution and macromolecular biomarker library matching verified by test",
+    "biosignature_chirality_index": "Enantiomeric homochirality metric (|CE| > 25%) and carbon isotopic fractionation verified",
+    "reconfigurable_morphology": "Wheel-to-legged metamorphic transformation kinematics for extreme terrain verified by test",
+    "modular_docking_actuator": "Hermaphroditic electromechanical docking latch and kinematic fault remapping verified",
+    "isru_regolith_yield": "Thermal desorption volatile water extraction yield and energy consumption model verified by test",
+    "isru_sintered_pad": "Microwave regolith sintering furnace and landing pad civil grading certification verified",
+    "lasercom_dsoc_link": "Deep-Space Optical Communications (DSOC 1550 nm) link budget and sub-microradian PAT jitter verified by test",
+    "lasercom_dtn_bundle": "Delay-Tolerant Networking (DTN RFC 9171) store-and-forward custody transfer verified",
+    "quantum_enclave_crypto": "Post-quantum ML-DSA signature verification and hardware secure enclave emulation verified by test",
+    "quantum_anti_spoofing": "Anti-spoofing uplink validation with ephemeris challenge-response and replay defense verified",
+    "continual_learning_replay": "Continual lifelong learning with Bayesian surprise memory replay buffer verified by test",
+    "actuator_wear_compensation": "Actuator gear backlash and friction drift degradation tracking with adaptive torque tuning verified",
+    "planetary_protection_containment": "Category V break-the-chain seal induction brazing and formal safety invariant verification verified",
+    "l4_regression": "Level 4 regression suite re-executed; milestone status: L4-met (internal)"
+  }
+}

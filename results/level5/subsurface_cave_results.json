@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "slam_pose": {
+    "points_registered": 2500,
+    "current_pose_m": [
+      0.5,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "degeneracy_detected": true,
+    "trans_uncertainty_m": 0.038,
+    "structural_symmetry_disambiguated": true
+  },
+  "rappel_safety": {
+    "deployed_depth_m": 40.0,
+    "tether_tension_N": 713.8,
+    "tether_safety_factor": 6.3,
+    "anchor_margin_pct": 81.2,
+    "is_rappel_safe": true
+  },
+  "breadcrumb_mesh": {
+    "node_count": 2,
+    "last_drop": {
+      "total_deployed": 2,
+      "should_deploy_now": true,
+      "remaining_in_magazine": 6,
+      "network_chain_healthy": true
+    }
+  }
+}

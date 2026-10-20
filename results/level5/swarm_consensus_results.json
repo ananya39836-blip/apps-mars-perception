@@ -1,0 +1,69 @@
+{
+  "status": "passed",
+  "consensus": {
+    "proposal": [
+      30.0,
+      45.0
+    ],
+    "proposer_node": 0,
+    "total_active_nodes": 6,
+    "quorum_required": 5,
+    "affirmative_votes": 6,
+    "consensus_reached": true,
+    "fault_tolerance_f": 1
+  },
+  "cbba_allocation": {
+    "tasks_allocated": 4,
+    "assignments": {
+      "0": [
+        {
+          "task_id": 3,
+          "pos": [
+            -30.0,
+            -15.0
+          ],
+          "bid_cost": 10.0
+        }
+      ],
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [
+        {
+          "task_id": 1,
+          "pos": [
+            -10.0,
+            35.0
+          ],
+          "bid_cost": 30.41
+        }
+      ],
+      "5": [
+        {
+          "task_id": 0,
+          "pos": [
+            15.0,
+            20.0
+          ],
+          "bid_cost": 15.81
+        }
+      ]
+    },
+    "assignment_balance_std": 0.4714045207910317
+  },
+  "potential_fields_computed": 6,
+  "byzantine_quarantine": {
+    "quarantined_node_id": 2,
+    "status": "ISOLATED",
+    "safety_interlock": "DRIVE_POWER_CUT",
+    "remaining_active_fleet": 5
+  },
+  "excavation_throughput": {
+    "duration_hours": 6.0,
+    "active_excavators": 2,
+    "active_haulers": 2,
+    "total_excavated_tons": 1.44,
+    "total_hauled_tons": 1.44,
+    "landing_pad_progress_pct": 32.0
+  }
+}

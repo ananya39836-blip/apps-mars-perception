@@ -1,0 +1,93 @@
+{
+  "pipeline": "run_level5",
+  "mode": "full",
+  "timestamp": "2026-10-20T08:03:10Z",
+  "total_duration_s": 14.81,
+  "all_passed": true,
+  "steps": [
+    {
+      "name": "Step 1: Level 4 Milestone Backward Regression Audit",
+      "command": "python tools/assess_level4.py",
+      "returncode": 0,
+      "duration_s": 0.29,
+      "passed": true
+    },
+    {
+      "name": "Step 2: Level 5 Evidence Generation Pipeline",
+      "command": "python tools/run_level5_evidence.py",
+      "returncode": 0,
+      "duration_s": 0.71,
+      "passed": true
+    },
+    {
+      "name": "Step 3: Level 5 Automated Unit & Integration Tests (22 Tests)",
+      "command": "python -m pytest tests/test_level5.py -q",
+      "returncode": 0,
+      "duration_s": 1.71,
+      "passed": true
+    },
+    {
+      "name": "Step 4: Master Regression & Multi-Level Test Suite (103 Tests)",
+      "command": "python -m pytest tests/ -q",
+      "returncode": 0,
+      "duration_s": 11.38,
+      "passed": true
+    },
+    {
+      "name": "Step 5: Master Level 5 Evidence Assessment Engine",
+      "command": "python tools/assess_level5.py",
+      "returncode": 0,
+      "duration_s": 0.71,
+      "passed": true
+    }
+  ],
+  "files_sealed": {
+    "results/level5/swarm_consensus_results.json": {
+      "sha256": "fa8526aa38f42825428c5cc5d833d2b7f0fa0c83acde968ac484a2dec3278c2c",
+      "bytes": 1401
+    },
+    "results/level5/subsurface_cave_results.json": {
+      "sha256": "2b1ed411ed77073404ee3e37c239db7d5dd2a21d64735cd9860f22936ae6a090",
+      "bytes": 676
+    },
+    "results/level5/cryobot_ocean_results.json": {
+      "sha256": "a8e172f811dffe71ac022070b7d4fe1420bec0896146fd3d8a53ed64baac3a63",
+      "bytes": 597
+    },
+    "results/level5/astrobiology_biosignature_results.json": {
+      "sha256": "27bfaf0c44531912e846057bba8168c998fb0cf77934abaa563e67396a848b09",
+      "bytes": 616
+    },
+    "results/level5/reconfigurable_robotics_results.json": {
+      "sha256": "5ec386bdd5f6b0536b139757b69df63206e32093419f8644f9b20028a236d51f",
+      "bytes": 715
+    },
+    "results/level5/isru_regolith_results.json": {
+      "sha256": "54c0476e092a02cdadf345460ff8d5c4c7539f8d1df1167e1b15a6a572f8b78b",
+      "bytes": 677
+    },
+    "results/level5/lasercom_dtn_results.json": {
+      "sha256": "67fffe4fe1fa41e0604c861eee553f3d708587101b7bd44739713723d247c861",
+      "bytes": 793
+    },
+    "results/level5/quantum_enclave_results.json": {
+      "sha256": "af09d4e627775dfeed3746f5ca66fd025856710d83687ba2e2d9353c06b2b0f5",
+      "bytes": 264
+    },
+    "results/level5/continual_learning_results.json": {
+      "sha256": "b7ed7dd83cd9ccf14ef51c1166275225353c9095d5de52b0e1a7e1b791456570",
+      "bytes": 696
+    },
+    "results/level5/planetary_protection_results.json": {
+      "sha256": "0fc0825ed996b94853a9259327b07183f10a2248ce830d1d3726f8201aaab07b",
+      "bytes": 466
+    },
+    "results/level5/assessment_l5.json": {
+      "sha256": "75d8bbda3a62398554e040e8b643b1033287e3d9fbc7db533a3541d2b5e9f7ea",
+      "bytes": 4843
+    }
+  },
+  "release_gate": "ready-for-review",
+  "unpassed_keys": [],
+  "level5_designation": "L5-met (internal)"
+}

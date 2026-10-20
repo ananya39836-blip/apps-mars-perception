@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "laser_link": {
+    "distance_au": 1.4,
+    "laser_wavelength_nm": 1550.0,
+    "beam_divergence_urad": 8.6,
+    "pointing_jitter_urad": 0.15,
+    "pointing_loss_db": -0.0,
+    "data_rate_mbps": 65.0,
+    "link_margin_db": 5.2,
+    "link_viable": true
+  },
+  "dtn_bundle_store": {
+    "bundle_size_mb": 250.0,
+    "contact_open": false,
+    "buffered_storage_used_gb": 14.74,
+    "storage_utilization_pct": 5.9,
+    "action": "STORED_IN_NONVOLATILE_DTN_BUFFER",
+    "custody_accepted": true
+  },
+  "dtn_bundle_downlink": {
+    "bundle_size_mb": 250.0,
+    "contact_open": true,
+    "buffered_storage_used_gb": 14.5,
+    "storage_utilization_pct": 5.8,
+    "action": "CUSTODY_TRANSFERRED_DOWNLINK_SUCCESS",
+    "custody_accepted": true
+  }
+}

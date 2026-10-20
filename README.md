@@ -1,21 +1,22 @@
-# apps_level2_3_3D_Prototype: Automated Planetary Perception System (APPS) — Level 2, Level 3 & Level 4 Prototype
+# apps_level2_3_4_3D_Prototype: Automated Planetary Perception System (APPS) — Level 2, 3, 4 & 5 Autonomous Planetary Exploration
 
 > **Scientific Integrity & Academic Research Disclaimer**:  
-> This repository contains the Level 2, Level 3, and Level 4 research prototype of the **Automated Planetary Perception System (APPS)**.  
-> Evaluated on continuous 3D digital elevation models (DEM), 6-DOF multibody dynamics, Bekker-Wong terramechanics, multi-modal active sensing, kilometer-scale hierarchical navigation, heterogeneous multi-agent autonomy, AEGIS opportunistic science, and neuromorphic edge computing.  
+> This repository contains the Level 2, Level 3, Level 4, and Level 5 research prototype of the **Automated Planetary Perception System (APPS)**.  
+> Evaluated on continuous 3D digital elevation models (DEM), 6-DOF multibody dynamics, Bekker-Wong terramechanics, multi-modal active sensing, kilometer-scale hierarchical navigation, heterogeneous multi-agent autonomy, AEGIS opportunistic science, neuromorphic edge computing, decentralized swarm consensus, subterranean lava tube 3D LiDAR SLAM, ocean worlds cryobots, astrobiology biosignature detection, and Category V planetary protection.  
 > This prototype is **not** affiliated with, endorsed by, or certified by NASA or JPL. It is not qualified for spaceflight.  
 > Under `PROTOTYPE_LOCK = True`, `navigation_ready` is held strictly `False`.  
-> Milestone status: **`L2-met (internal)`**, **`L3-met (internal)`**, & **`L4-met (internal)`** (mechanically computed via assessment engines).
+> Milestone status: **`L2-met (internal)`**, **`L3-met (internal)`**, **`L4-met (internal)`**, & **`L5-met (internal)`** (mechanically computed via assessment engines).
 
 ---
 
-## Interactive 3D Demonstration Applications (`apps_level4_proto.py` / `apps_level3_proto.py` / `apps_level2_proto.py`)
+## Interactive 3D Demonstration Applications (`apps_level5_proto.py` / `apps_level4_proto.py` / `apps_level3_proto.py` / `apps_level2_proto.py`)
 
 ![apps_level2_proto Demo Overview](docs/images/demo_overview.png)
 
 ### 🚀 Streamlit Cloud Deployment
-- **Live Streamlit App**: [Launch on Streamlit Cloud](https://share.streamlit.io/) (configured for repository `ananya39836-blip/apps_level2_3_3D_Prototype`)
+- **Live Streamlit App**: [Launch on Streamlit Cloud](https://share.streamlit.io/) (configured for repository `ananya39836-blip/apps_level2_3_4_3D_Prototype`)
 - **Main App Files**:
+  - `apps_level5_proto.py`: Level 5 deep-space autonomous robotics: multi-rover swarm consensus, subterranean lava tube 3D LiDAR SLAM & skylight rappel, Europa ocean worlds cryobot melting kinematics, astrobiology deep-UV Raman deconvolution, ISRU microwave regolith sintering, post-quantum ML-DSA cybersecurity, and Category V planetary protection break-the-chain seal.
   - `apps_level4_proto.py`: Level 4 kilometer-scale orbital hierarchical navigation, AEGIS opportunistic science detection, active suspension articulation, heterogeneous aerial scout coordination, and neuromorphic DVS/SNN sensing.
   - `apps_level3_proto.py`: Level 2 & Level 3 6-DOF multibody dynamics, rocker-bogie passive suspension, Bekker-Wong soil traction curves, and 3D Flash LiDAR point cloud viewer.
   - `apps_level2_proto.py`: Level 2 3D continuous terrain, solar ray-tracing, perspective camera, and real Mars transfer.
@@ -266,6 +267,8 @@ python -m pytest tests -v
 
 ## 8. Key Documentation & Artifacts
 
+- **Level 5 Validation Report**: [`docs/LEVEL5_VALIDATION_REPORT.md`](docs/LEVEL5_VALIDATION_REPORT.md)
+- **Level 5 Traceability Matrix**: [`docs/LEVEL5_TRACEABILITY.md`](docs/LEVEL5_TRACEABILITY.md)
 - **Level 5 Specifications (Parts 28–37)**: [`docs/level5/`](docs/level5/) (10 Volumes, 37 pages each in PDF & DOCX, 370 pp total)
 - **Level 4 Validation Report**: [`docs/LEVEL4_VALIDATION_REPORT.md`](docs/LEVEL4_VALIDATION_REPORT.md)
 - **Level 4 Traceability Matrix**: [`docs/LEVEL4_TRACEABILITY.md`](docs/LEVEL4_TRACEABILITY.md)
@@ -284,7 +287,8 @@ python -m pytest tests -v
 ## 9. Repository Structure
 
 ```text
-apps_level2_3_3D_Prototype/
+apps_level2_3_4_3D_Prototype/
+├── apps_level5_proto.py          # Interactive Level 5 Swarm, Subsurface, Cryobot & Astrobiology Demo
 ├── apps_level4_proto.py          # Interactive Level 4 Multi-Agent Autonomous Exploration Demo
 ├── apps_level3_proto.py          # Interactive Level 3 6-DOF & Terramechanics Streamlit App
 ├── apps_level2_proto.py          # Interactive Level 2 3D DEM & Camera Streamlit App
@@ -294,6 +298,8 @@ apps_level2_3_3D_Prototype/
 │   ├── level5/                  # 10 Level 5 Specification Volumes in PDF & DOCX (37 pages each, 370 pp total)
 │   ├── level4/                  # 10 Level 4 Specification Volumes in PDF & DOCX (37 pages each, 370 pp total)
 │   ├── level3/                  # 5 Level 3 Specification Volumes in PDF & DOCX (37 pages each, 185 pp total)
+│   ├── LEVEL5_VALIDATION_REPORT.md
+│   ├── LEVEL5_TRACEABILITY.md
 │   ├── LEVEL4_VALIDATION_REPORT.md
 │   ├── LEVEL4_TRACEABILITY.md
 │   ├── LEVEL3_VALIDATION_REPORT.md
@@ -301,6 +307,18 @@ apps_level2_3_3D_Prototype/
 │   ├── LEVEL2_VALIDATION_REPORT.md
 │   ├── MATHEMATICAL_MODEL.md
 │   └── SYSTEM_ARCHITECTURE.md
+├── level5/
+│   ├── swarm/                   # Multi-rover Raft/Paxos consensus, CBBA allocation & fleet excavation
+│   ├── subsurface/              # Subterranean lava tube 3D LiDAR SLAM & skylight winch rappel
+│   ├── cryobot/                 # Ocean worlds thermal melt-head drilling & hydroacoustic lookahead sonar
+│   ├── astrobiology/            # Deep-UV Raman deconvolution, homochirality index & delta-13C fractionation
+│   ├── morphological/           # Wheel-to-leg metamorphic transformation & hermaphroditic docking
+│   ├── isru/                    # Volatile water extraction yield & concentrated microwave regolith sintering
+│   ├── optical_comm/            # Deep-Space Optical Comm (DSOC) & DTN RFC 9171 bundle custody transfer
+│   ├── cybersecurity/           # NIST ML-DSA post-quantum cryptography & hardware secure enclave
+│   ├── continual_learning/      # Bayesian surprise memory replay & actuator friction/backlash wear model
+│   ├── qualification/           # Category V break-the-chain seal induction braze & formal invariants
+│   └── evaluation/              # Level 5 20-key verification engine & release gate
 ├── level4/
 │   ├── navigation/              # Kilometer-scale orbital HiRISE DEM pyramid & hierarchical planner
 │   ├── science/                 # AEGIS autonomous rock segmentation & ChemCam target ranker
@@ -330,12 +348,15 @@ apps_level2_3_3D_Prototype/
 │   └── evaluation/              # Temporal fusion, latency timers, cluster bootstrap stats
 ├── level1/                      # Level 1 2D baseline modules (regression locked)
 ├── tests/
+│   ├── test_level5.py           # Level 5 deep-space autonomy, swarm, cryobot & quantum tests (22)
 │   ├── test_level4.py           # Level 4 multi-agent, neuromorphic & hierarchical tests (22)
 │   ├── test_level3.py           # Level 3 multibody, terramechanics & LiDAR tests (13)
 │   ├── test_level2.py           # Level 2 unit and kinodynamic integration tests (11)
 │   ├── test_level1.py           # Level 1 regression test suite (18)
 │   └── test_all.py              # Core perception & statistical unit tests (17)
 ├── tools/
+│   ├── assess_level5.py         # Level 5 mechanical evidence assessment engine (20/20 PASS)
+│   ├── run_level5_evidence.py   # Level 5 evidence pipeline generator
 │   ├── generate_level5_documents.py # Master generator for 10 Level 5 PDF & DOCX specification volumes
 │   ├── level5_data_part1.py     # Technical specification data Part 28-32
 │   ├── level5_data_part2.py     # Technical specification data Part 33-37
@@ -349,6 +370,7 @@ apps_level2_3_3D_Prototype/
 │   ├── assess_level2.py         # Level 2 mechanical evidence assessment engine
 │   └── assess_level1.py         # Level 1 evidence assessment engine
 └── results/
+    ├── level5/                  # Sealed Level 5 experiment logs and manifest (SHA-256)
     ├── level4/                  # Sealed Level 4 experiment logs and manifest (SHA-256)
     ├── level3/                  # Sealed Level 3 experiment logs and manifest (SHA-256)
     └── level2/                  # Sealed Level 2 experiment logs and manifest (SHA-256)

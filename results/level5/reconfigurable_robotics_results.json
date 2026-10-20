@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "morphological_transformation": {
+    "active_morphology": "LEGGED_CLIMBER_MODE",
+    "mode_changed": true,
+    "obstacle_clearance_m": 0.55,
+    "max_slope_capability_deg": 38.0,
+    "nominal_speed_mps": 0.03,
+    "transformation_time_s": 12.0
+  },
+  "docking_interface": {
+    "alignment_error_mm": 3.5,
+    "capture_successful": true,
+    "latch_holding_force_N": 1500.0,
+    "power_bus_continuity": true,
+    "data_link_speed_mbps": 5.0
+  },
+  "fdir_remapping": {
+    "frozen_joint": 1,
+    "remaining_active_dof": 5,
+    "retains_positioning": true,
+    "manipulability_retained_pct": 83.3,
+    "fdir_reconfiguration_status": "RECONFIGURED_DEGRADED_MODE"
+  }
+}
