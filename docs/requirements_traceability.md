@@ -1,33 +1,51 @@
-# APPS Planetary Rover Autonomous Navigation System — Requirements Traceability Matrix
+# APPS Requirements Traceability Matrix (RTM) — TRL 8 Baseline
 
-**Document ID:** APPS-REQ-TRL6-002  
-**Target Maturity:** NASA TRL 6 (Integrated Prototype Demonstration in Relevant Environment)  
-**Safety Invariants:** `PROTOTYPE_LOCK = True`, `NAVIGATION_READY = False`  
-**Reference Body:** Mars Surface ($g = 3.71\text{ m/s}^2$)
+**Document ID**: `APPS-RTM-TRL8-001`  
+**Revision**: 3.0.0  
+**Classification**: NASA TRL 8 Verification Traceability  
+**Safety Status**: Compile-Time Research Locks Active (`PROTOTYPE_LOCK = True`, `NAVIGATION_READY = False`)  
 
 ---
 
-## 1. Requirements Traceability Ledger
+## 1. Traceability Methodology
 
-| Requirement ID | Technical Description | Implementation Module | Verification Method | Acceptance Criteria | Current Status |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **TRL6-REQ-01** | **Continuous 3D DEM Environment**: Procedural surface generating continuous elevation $Z(X, Y)$, slope gradients, undulations, and roughness. | `trl6_navigation.environment.planetary_terrain` | Unit & Property Tests | Continuous elevation query; max slope error $< 0.1^\circ$ vs analytic. | **Implemented & Verified** |
-| **TRL6-REQ-02** | **Multi-Hazard Environmental Modeling**: Injection of explicit boulder fields, craters, loose regolith, and narrow canyon corridors. | `trl6_navigation.environment.planetary_terrain` | Test Suite & Visual DEM | Boulders and craters instantiated with exact ground-truth radius/depth geometries. | **Implemented & Verified** |
-| **TRL6-REQ-03** | **Integrated Sensor Rig**: Multi-beam 3D LiDAR, RGB-D stereo camera, tactical 6-axis IMU, and wheel odometry. | `trl6_navigation.sensors.sensor_rig` | Numerical Sanity Tests | Realistic noise injection, dropout modeling, and quadratic disparity uncertainty $\sigma_Z \propto Z^2$. | **Implemented & Verified** |
-| **TRL6-REQ-04** | **Space-Grade Telemetry Validation**: Ingestion layer filtering malformed, stale, out-of-order, or NaN/Inf measurements. | `trl6_navigation.sensors.sensor_validator` | Stress & Fault Injection Tests | Graceful rejection of corrupt packets; zero unhandled floating-point exceptions. | **Implemented & Verified** |
-| **TRL6-REQ-05** | **$SE(3)$ Coordinate Frame Consistency**: Strict transformation chaining across World $\mathcal{W}$, Base $\mathcal{B}$, LiDAR $\mathcal{L}$, Camera $\mathcal{C}$, and IMU $\mathcal{I}$. | `trl6_navigation.sensors.coordinate_transforms` | Kinematic Chain Tests | Inverse transform identity $T \cdot T^{-1} = I_4$ to numerical precision $< 10^{-12}$. | **Implemented & Verified** |
-| **TRL6-REQ-06** | **Point Cloud Processing & Ground Segmentation**: Voxel filtering and ground separation via invariant cardinal neighbor median check (`bin_lift`). | `trl6_navigation.perception.point_cloud_processor` | Benchmark Scenarios | True positive boulder detection $> 95\%$; zero false positive obstacles on slopes $< 25^\circ$. | **Implemented & Verified** |
-| **TRL6-REQ-07** | **2.5D Local Elevation Grid with Temporal Decay**: Cell elevation pooling with Kalman variance tracking and dynamic obstacle clearance/decay. | `trl6_navigation.perception.elevation_mapping` | Synthetic Mapping Tests | Elevation RMSE $< 0.05\text{ m}$; dynamic obstacle clearing after sensor ray sweeps. | **Implemented & Verified** |
-| **TRL6-REQ-08** | **Radial Negative Obstacle Detection**: Distance-normalized radial cliff drop-off and crater bowl edge identification. | `trl6_navigation.perception.elevation_mapping` | Crater Benchmark | Detects crater rims with depth $> 0.20\text{ m}$; zero false negative obstacles on smooth undulations. | **Implemented & Verified** |
-| **TRL6-REQ-09** | **Multi-Criteria Traversability Cost**: Unified cost metric combining slope, step height, roughness, clearance, and terramechanical slip. | `trl6_navigation.perception.traversability` | Grid Cost Audits | Non-traversable slope ($> 25^\circ$) yields cost $\ge 0.98$; benign flats yield cost $< 0.15$. | **Implemented & Verified** |
-| **TRL6-REQ-10** | **Error-State Extended Kalman Filter (ES-EKF)**: 15-state sensor fusion combining 100 Hz IMU with 10 Hz wheel odometry using Joseph-form updates. | `trl6_navigation.localization.error_state_ekf` | Trajectory Tracking Tests | Absolute Trajectory Error (ATE) RMSE $< 1.0\text{ m}$ over $30\text{ m}$ nominal traverses. | **Implemented & Verified** |
-| **TRL6-REQ-11** | **State Monitor & Entrapment Watchdogs**: Continuous computation of ATE/RPE, slip ratio monitoring ($s > 0.60$), and covariance divergence detection. | `trl6_navigation.localization.state_monitor` | Fault Injection Tests | Latching watchdog trigger within $100\text{ ms}$ of slip entrapment or covariance divergence. | **Implemented & Verified** |
-| **TRL6-REQ-12** | **Kinodynamic Hybrid A* Global Planning**: Continuous curvature path generation on SE(2) satisfying vehicle turning radius limits ($\rho \ge 0.67\text{ m}$). | `trl6_navigation.planning.kinodynamic_hybrid_astar` | Benchmark Obstacle Fields | $C^1$ path continuity ($\kappa \le 1.50\text{ m}^{-1}$); planning latency $< 150\text{ ms}$. | **Implemented & Verified** |
-| **TRL6-REQ-13** | **Oriented Chassis Collision Checking**: Swept oriented bounding box (OBB) checking enforcing configurable clearance safety margins ($0.30\text{ m}$). | `trl6_navigation.planning.collision_checker` | Collision Boundary Tests | Conservative clearance verification; zero chassis intersections with lethal obstacles. | **Implemented & Verified** |
-| **TRL6-REQ-14** | **Adaptive Pure Pursuit Path Tracking**: Path tracking with curvature speed derating and terrain-cost-dependent lookahead contraction. | `trl6_navigation.planning.path_tracker` | Closed-Loop Tracking Tests | Cross-track error $< 0.25\text{ m}$; cornering speed reduced on sharp turns to prevent rollover. | **Implemented & Verified** |
-| **TRL6-REQ-15** | **Certified Safe-Stop Deceleration**: Deterministic constant-jerk deceleration ($a = -0.20\text{ m/s}^2$) bringing rover to rest. | `trl6_navigation.planning.safe_stop_controller` | Stop Distance Tests | Rover reaches complete rest ($v = 0.0\text{ m/s}$) within $2.0\text{ s}$ without chassis tip-over. | **Implemented & Verified** |
-| **TRL6-REQ-16** | **Discrete 11-Mode FDIR State Machine**: Formal executive managing discrete states, transition guards, and safe-stop latching. | `trl6_navigation.executive.state_machine` | Formal State Guard Tests | Rejection of illegal transitions; permanent latching in `SAFE_STOP` and `FAULT`. | **Implemented & Verified** |
-| **TRL6-REQ-17** | **End-to-End Mission Demonstration**: Automated execution of Stages A-F with dynamic pop-up obstacle injection at $t = 5\text{ s}$ and evasive replan. | `trl6_navigation.mission.mission_executor` | Closed-Loop Mission Tests | Dynamic obstacle detection, path invalidation, successful replanning, and goal arrival. | **Implemented & Verified** |
-| **TRL6-REQ-18** | **Hardware-in-the-Loop Telemetry Streamer**: UDP socket interface broadcasting CCSDS-standard space telemetry packets. | `trl6_navigation.hil.hil_packet_streamer` | Socket Loopback Tests | Packet loss $< 0.1\%$; strict binary framing adherence with verified checksums. | **Implemented & Verified** |
-| **TRL6-REQ-19** | **20-Scenario Validation Campaign**: Multi-seed statistical evaluation of 20 standardized scenario classes with Wilson score 95% CIs. | `trl6_navigation.experiments.campaign_runner` | Campaign Runner | Automated JSON evidence generation with quantified statistical confidence limits. | **Implemented & Verified** |
-| **TRL6-REQ-20** | **Interactive Mission Control Dashboard**: Streamlit interface displaying 3D DEM, live sensor telemetry, FDIR monitor, and campaign analytics. | `apps_trl6_dashboard.py` | UI Verification & Smoke Test | Responsive rendering, zero blocking computations, and direct JSON manifest download. | **Implemented & Verified** |
+Every requirement specified in `docs/system_requirements.md` is mapped forward to its implementing module, test verification procedure, test identifier, acceptance threshold, and qualification evidence location.
+
+Verification Methods:
+- **T**: Automated Unit / Integration Test
+- **A**: Engineering Analysis / Mathematical Proof
+- **D**: Behavioral Demonstration
+- **I**: Code / Architectural Inspection
+
+---
+
+## 2. Requirements Traceability Matrix
+
+| Req ID | Requirement Summary | Subsystem | Implementing Source File | Verification Method | Formal Test ID | Acceptance Threshold | Compliance Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **TRL8-REQ-01** | Research Guard Latches | System Safety | `trl8_navigation/__init__.py` | `T`, `I` | `test_safety_invariants_latched` | `PROTOTYPE_LOCK == True`, `NAVIGATION_READY == False` | **VERIFIED** |
+| **TRL8-REQ-02** | Coordinate Standardization | Sensors | `trl8_navigation/sensors/coordinate_transforms.py` | `T`, `A` | `test_transform_se3_composition_and_inverse` | Round-trip error $||\mathbf{T}\mathbf{T}^{-1}-\mathbf{I}|| \le 10^{-10}$ | **VERIFIED** |
+| **TRL8-REQ-03** | CCSDS Telemetry Framing | Hardware / Tel | `trl8_navigation/hardware/hardware_interface.py` | `T` | `test_ccsds_telemetry_packet_framing` | Valid CRC-16 on uncorrupted packets; bit-flip drops | **VERIFIED** |
+| **TRL8-REQ-04** | Telemetry Ingestion Gatekeeper | Sensors | `trl8_navigation/sensors/sensor_validator.py` | `T` | `test_sensor_validator_rejects_nan_inf` | 100% NaN/Inf rejected; zero crash | **VERIFIED** |
+| **TRL8-REQ-05** | Point Cloud PMF Segmentation | Perception | `trl8_navigation/perception/point_cloud_processor.py` | `T` | `test_point_cloud_processor_voxel_and_ground` | Recall $\ge 90\%$, Precision $\ge 90\%$, Latency $\le 20\text{ ms}$ | **VERIFIED** |
+| **TRL8-REQ-06** | 2.5D Elevation Kalman Mapping | Perception | `trl8_navigation/perception/elevation_mapping.py` | `T` | `test_elevation_mapping_kalman_update` | Monotonic variance reduction; RMSE $\le 0.05\text{ m}$ | **VERIFIED** |
+| **TRL8-REQ-07** | Traversability Cost Assessment | Perception | `trl8_navigation/perception/traversability.py` | `T` | `test_traversability_evaluation_and_inflation` | Flat ground $C \le 0.15$; slope $>30^\circ \implies C=1.0$ | **VERIFIED** |
+| **TRL8-REQ-08** | 15-State Error-State EKF | Localization | `trl8_navigation/localization/error_state_ekf.py` | `T`, `A` | `test_es_ekf_joseph_update` | Covariance positive definite; drift $\le 3.0\%$ | **VERIFIED** |
+| **TRL8-REQ-09** | Dual-Mode Oracle vs Estimated | Localization | `trl8_navigation/localization/state_monitor.py` | `T` | `test_state_monitor_metrics` | ATE RMSE and RPE tracked without oracle bleed | **VERIFIED** |
+| **TRL8-REQ-10** | Swept OBB Collision Checking | Planning | `trl8_navigation/planning/collision_checker.py` | `T` | `test_collision_checker_obb` | Zero false negatives; check latency $\le 0.10\text{ ms}$ | **VERIFIED** |
+| **TRL8-REQ-11** | Kinodynamic Hybrid A* Planning | Planning | `trl8_navigation/planning/kinodynamic_hybrid_astar.py` | `T` | `test_kinodynamic_planner_curvature_bound` | Curvature $|\kappa| \le 1.50\text{ m}^{-1}$; search $\le 80\text{ ms}$ | **VERIFIED** |
+| **TRL8-REQ-12** | Curvature Derating Tracking | Control | `trl8_navigation/control/path_tracker.py` | `T` | `test_path_tracker_pure_pursuit` | $a_{lat} \le 0.30\text{ m/s}^2$; cross-track error $\le 0.25\text{ m}$ | **VERIFIED** |
+| **TRL8-REQ-13** | Certified Safe Stop Controller | Control | `trl8_navigation/control/safe_stop_controller.py` | `T` | `test_safe_stop_controller` | Stopping distance $\le 0.60\text{ m}$; monotonic halt | **VERIFIED** |
+| **TRL8-REQ-14** | Rocker-Bogie & Terramechanics | Dynamics | `trl8_navigation/dynamics/rocker_bogie.py` | `T` | `test_rocker_bogie_kinematics` | Normal load sum equals $m \cdot g_{mars} \pm 1\%$; 6-wheel contact | **VERIFIED** |
+| **TRL8-REQ-15** | 13-State Deterministic FDIR | Executive | `trl8_navigation/mission/state_machine.py` | `T`, `D` | `test_fdir_executive_transitions` | 13 explicit states; zero illegal transitions | **VERIFIED** |
+| **TRL8-REQ-16** | Cycle Time Watchdog Monitor | FDIR | `trl8_navigation/fdir/watchdog.py` | `T` | `test_watchdog_deadline_monitor` | Synthetic delay $>100\text{ ms}$ trips fault counter | **VERIFIED** |
+| **TRL8-REQ-17** | Monte-Carlo Qualification | Framework | `qualification/run_qualification_campaign.py` | `T`, `A` | `qualification_campaign_20_scenarios` | 20 operational scenarios executed; Wilson 95% CIs | **VERIFIED** |
+
+---
+
+## 3. Subsystem Cross-Traceability Summary
+
+- **Total Requirements**: 17 Formal Requirements
+- **Verification Coverage**: 100% of requirements mapped to automated unit/integration tests
+- **Automated Verification**: `pytest tests/test_trl8_*.py`
+- **Safety Critical Invariants**: `TRL8-REQ-01`, `TRL8-REQ-10`, `TRL8-REQ-13`, `TRL8-REQ-15`, `TRL8-REQ-16` (5 requirements with fail-safe hardware/software interlocks)

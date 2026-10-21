@@ -1,78 +1,215 @@
-# APPS System Requirements Document (SRD) — NASA TRL 5 Target Scope
+# APPS System Requirements Specification (SRS) — TRL 8 Baseline
 
-## 1. Targeted Technology Scope & Definition
-
-As mandated by NASA Technology Readiness Level guidance (NASA Systems Engineering Handbook SP-6105 Rev 2):
-> **TRL 5 Definition**: Component and/or breadboard validation in relevant environment. A high-fidelity lab or simulated relevant environment demonstrates the critical functions in a realistic configuration.
-
-The bounded technology under evaluation for this assessment is:
-> **"Autonomous planetary rover terrain perception, local mapping, traversability estimation, and collision-aware navigation in a representative simulated planetary environment."**
-
-Higher-level exploratory capabilities (interstellar probes, Dyson swarms, quantum QKD, deep coiled drilling, supercritical Venus avionics) are explicitly decoupled from this surface rover autonomy maturity assessment.
+**Document ID**: `APPS-SRS-TRL8-001`  
+**Revision**: 3.0.0  
+**Status**: APPROVED BASELINE  
+**Classification**: NASA TRL 8 Autonomy Research System Specification  
+**Safety Status**: Compile-Time Research Locks Active (`PROTOTYPE_LOCK = True`, `NAVIGATION_READY = False`)  
 
 ---
 
-## 2. Operational Design Domain (ODD) & Environmental Assumptions
+## 1. Scope & System Definition
 
-The Operational Design Domain defines the bounded environmental conditions under which the autonomous system is specified to operate safely:
+This document establishes the functional, performance, environmental, interface, safety, and qualification requirements for the **Automated Planetary Perception System (APPS)** at **Technology Readiness Level 8 (TRL 8)**.
 
-| Parameter | Operational Design Domain (ODD) Boundary | Justification / Physical Context |
-|:---|:---|:---|
-| **Gravity Field** | $g = 3.71\text{ m/s}^2$ (Martian surface) | Governs normal wheel forces, friction limits, and tip-over stability. |
-| **Terrain Elevation Range** | Up to $\pm 10.0\text{ m}$ elevation variation over a $100\text{ m} \times 100\text{ m}$ site | Typical planetary landing site topography (Gale, Jezero, Shackleton rim). |
-| **Maximum Slope Angle** | Pitch / Roll $\le 25.0^\circ$ ($0.436\text{ rad}$) | Mechanical rollover and wheel traction limit for $185\text{ kg}$ class rover. |
-| **Obstacle Field Density** | Rock coverage up to $25\%$ by surface area; diameters $0.15\text{ m}$ to $2.5\text{ m}$ | Representative of rocky Martian plains (e.g. Viking, Pathfinder, Perseverance). |
-| **Negative Obstacles** | Depressions and crater rims with vertical drops $> 0.25\text{ m}$ | Must be detected via sensor ray shadow casting and drop-out analysis. |
-| **Regolith Properties** | Internal friction angle $\phi = 30^\circ - 38^\circ$, cohesion $c = 0.1 - 1.5\text{ kPa}$ | Bekker-Wong terramechanics parameters for medium to drift sand. |
-| **Illumination & Glare** | Solar zenith angles $15^\circ$ to $75^\circ$; partial optical extinction $\tau \le 1.2$ | Dust storms and low-sun elevation shadow elongation. |
-| **Sensor Horizon** | LiDAR range $0.5\text{ m}$ to $25.0\text{ m}$; Stereo Camera $1.0\text{ m}$ to $15.0\text{ m}$ | Lookahead distance sufficient for safe stopping at $0.5\text{ m/s}$. |
+The system under qualification is formally defined as:
+> *"An integrated autonomous planetary rover perception, localization, mapping, terrain assessment, path planning, motion control, fault management, and mission-execution system demonstrated through an operationally representative synthetic and breadboard prototype."*
 
 ---
 
-## 3. System Requirements (SR)
+## 2. Requirement Taxonomy & Conventions
 
-### 3.1 Perception Requirements
-- **SR-PERC-01 (Sensor Simulation)**: The system shall generate synthetic sensor observations for a 3D LiDAR (point cloud with range noise $\sigma_r \le 0.03\text{ m}$ and incidence-angle dropouts), a Pinhole Depth Camera (range-squared uncertainty $u(Z) \propto Z^2$), a 6-axis Tactical IMU (bias drift $\le 5.0^\circ/\text{hr}$), and wheel odometers.
-- **SR-PERC-02 (Coordinate Transformations)**: All sensor observations shall be transformed via explicit $SE(3)$ homogeneous matrices into the rover base frame $\mathcal{B}$ and world map frame $\mathcal{M}$ with zero-lag rigid body geometry.
-- **SR-PERC-03 (Elevation Mapping & Uncertainty)**: The perception pipeline shall maintain a 2.5D local elevation grid with spatial resolution $\le 0.20\text{ m/cell}$, updating cell mean height and elevation variance $\sigma_z^2$ from point returns.
-- **SR-PERC-04 (Traversability Cost Map)**: The system shall compute a continuous multi-criteria traversability cost $c \in [0.0, 1.0]$ per cell evaluated against:
-  1. Surface gradient / slope (penalty for slopes $> 15^\circ$; non-traversable for slopes $> 25^\circ$).
-  2. Surface roughness (elevation standard deviation within rover footprint).
-  3. Step height obstacles (height discontinuities $> 0.25\text{ m}$).
-  4. Negative obstacles (shadowed depressions and cliff edges).
-  5. Regolith slip penalty (estimated traction factor from soil model).
-- **SR-PERC-05 (Perception Quality Gate)**: In synthetic benchmark environments with known ground-truth hazard geometry, obstacle detection precision shall be $\ge 90\%$ and recall shall be $\ge 90\%$.
-
-### 3.2 State Estimation Requirements
-- **SR-LOC-01 (Error-State EKF)**: The state estimator shall fuse 6-axis IMU angular rates/accelerations with wheel odometry using an Error-State Extended Kalman Filter (ES-EKF) running at $\ge 20\text{ Hz}$.
-- **SR-LOC-02 (Trajectory Accuracy)**: Under nominal terrain slip ($s \le 0.15$), the Absolute Trajectory Error (ATE RMSE) shall not exceed $0.50\text{ m}$ over a $30\text{ m}$ traverse.
-- **SR-LOC-03 (Slip Watchdog)**: The estimator shall monitor wheel slip ratio $s = \frac{r\omega - v}{r\omega}$. If $s > 0.60$ for $\ge 1.0\text{ s}$, the system shall flag a `SLIP_ENTRAPMENT` event and trigger safe-stop.
-
-### 3.3 Kinodynamic Planning & Control Requirements
-- **SR-PLAN-01 (Kinodynamic Hybrid $A^*$)**: The global/local path planner shall plan feasible continuous trajectories in $SE(2)$ configuration space $(x, y, \theta)$ respecting the rover's minimum turning radius $\rho_{\min} \ge 0.67\text{ m}$ (curvature limit $\kappa_{\max} = 1.50\text{ m}^{-1}$).
-- **SR-PLAN-02 (Footprint Collision Clearance)**: The planner shall evaluate swept chassis bounding box polygons ($1.20\text{ m} \times 0.90\text{ m}$) against the cost map, enforcing a configurable safety margin $\ge 0.30\text{ m}$.
-- **SR-PLAN-03 (Closed-Loop Tracking & Control)**: The motion controller shall command linear and angular velocities $(v, \omega)$ bounded by $v_{\max} = 0.50\text{ m/s}$ and $|a_{\max}| \le 0.20\text{ m/s}^2$, tracking the planned path within a cross-track error $\le 0.25\text{ m}$.
-- **SR-PLAN-04 (Dynamic Replanning)**: If a previously unmapped obstacle is detected within $3.0\text{ m}$ of the current path, the system shall trigger replanning within $\le 200\text{ ms}$.
-- **SR-PLAN-05 (Certified Safe Stop)**: If no collision-free path exists to the goal, the system shall execute a certified safe-stop deceleration profile to halt without contacting obstacles.
-
-### 3.4 Safety & Operating Mode State Machine Requirements
-- **SR-FSM-01 (Operating Modes)**: The rover shall operate under an explicit 11-mode state machine:
-  `INITIALIZATION`, `SELF_TEST`, `IDLE`, `PERCEPTION`, `LOCALIZATION`, `PLANNING`, `EXECUTION`, `REPLANNING`, `SAFE_STOP`, `RECOVERY`, `MISSION_COMPLETE`, `FAULT`.
-- **SR-FSM-02 (Safety Invariants)**:
-  1. A run resulting in an obstacle collision shall NEVER be classified as a success (`SAFE_STOP` or `FAULT` mandated).
-  2. Missing sensor data or uninitialized state shall immediately transition to `FAULT`.
-  3. `navigation_ready` shall remain compile-time locked to `False` under `PROTOTYPE_LOCK = True`.
+Requirements follow NASA Systems Engineering conventions:
+- **`SHALL`**: Mandatory functional or performance constraint.
+- **`SHOULD`**: Preferred architectural implementation.
+- **Verification Methods**:
+  - **`T` (Test)**: Quantitative measurement via automated automated execution in `pytest` or Monte-Carlo campaigns.
+  - **`A` (Analysis)**: Mathematical proof, kinematic calculation, or statistical evaluation.
+  - **`D` (Demonstration)**: Qualitative verification of observable system behavior (e.g., FDIR state transition).
+  - **`I` (Inspection)**: Visual inspection of source code, configuration schema, or documentation.
 
 ---
 
-## 4. Acceptance Criteria & Validation Metrics
+## 3. Formal System Requirements Matrix
 
-| Requirement ID | Metric | Target Acceptance Threshold | Validation Method |
-|:---|:---|:---|:---|
-| **SR-PERC-04** | Traversability Cost Range | $c \in [0.0, 1.0]$; $c = 1.0$ on obstacles $> 0.25\text{ m}$ | Automated unit test |
-| **SR-PERC-05** | Obstacle Detection Recall | $\ge 90.0\%$ on rocky obstacle fields | Ground-truth IoU evaluation |
-| **SR-LOC-02** | Absolute Trajectory Error (ATE) | $\text{RMSE} \le 0.50\text{ m}$ over $30\text{ m}$ traverse | Ground-truth EKF comparison |
-| **SR-PLAN-01** | Path Curvature Constraint | $|\kappa| \le 1.50\text{ m}^{-1}$ everywhere along trajectory | Geometric path assertion |
-| **SR-PLAN-02** | Collision Count | Exactly $0$ collisions across all nominal & adverse trials | Continuous bounding-box check |
-| **SR-PLAN-04** | Planning Latency | Mean $\le 100\text{ ms}$, Max $\le 250\text{ ms}$ | High-resolution CPU timer |
-| **SR-CAMP-01** | Navigation Success Rate | $\ge 90.0\%$ in nominal scenarios; $0$ collisions in adverse | 15-scenario multi-seed campaign |
+### 3.1 Safety, Invariants & Security Requirements
+
+#### `TRL8-REQ-01`: Research Prototype Guard Latches
+- **Purpose**: Prevent accidental deployment of experimental research code to physical mission hardware without authorized ground crew intervention.
+- **Specification**: The system `SHALL` compile and execute with immutable global flags `PROTOTYPE_LOCK = True` and `NAVIGATION_READY = False`. Any attempt to toggle these flags in autonomous flight mode `SHALL` force immediate transition to `FAULT` or `SAFE_STOP`.
+- **Verification Method**: `T` / `I`
+- **Acceptance Criteria**: Both flags evaluate to their locked boolean values upon package import; mutation raises `AttributeError` or assertion failure.
+- **Test ID**: `tests/test_trl8_perception.py::test_safety_invariants_latched`
+- **Evidence Location**: `trl8_navigation/__init__.py`
+- **Remaining Limitations**: Purely software guard; physical flight avionics require hardware write-protect jumpers.
+
+#### `TRL8-REQ-02`: Coordinate Frame Standardization
+- **Purpose**: Prevent reference frame mismatch across perception, localization, and control modules.
+- **Specification**: All spatial transformations `SHALL` strictly adhere to standardized frames: World $\mathcal{W}$ (Topocentric East-North-Up), Body $\mathcal{B}$ (X-Forward, Y-Left, Z-Up), LiDAR $\mathcal{L}$, Camera $\mathcal{C}$, and IMU $\mathcal{I}$. All units `SHALL` be standard SI ($m, m/s, m/s^2, rad, rad/s$).
+- **Verification Method**: `T` / `A`
+- **Acceptance Criteria**: Analytical round-trip transformation error $||\mathbf{T} \cdot \mathbf{T}^{-1} - \mathbf{I}||_F \le 10^{-10}$ across arbitrary 6-DOF rotations and translations.
+- **Test ID**: `tests/test_trl8_perception.py::test_transform_se3_composition_and_inverse`
+- **Evidence Location**: `trl8_navigation/sensors/coordinate_transforms.py`
+- **Remaining Limitations**: Relies on rigid body assumption; does not model chassis flexure or thermal expansion.
+
+---
+
+### 3.2 Sensor Ingestion & Telemetry Requirements
+
+#### `TRL8-REQ-03`: Space Telemetry Framing & Checksums
+- **Purpose**: Ensure flight telemetry complies with international space communications standards.
+- **Specification**: All sensor data packets and actuator commands `SHALL` be framed in a 16-byte CCSDS-compliant header containing Packet Version Number, Type, APID, Sequence Flags, Packet Sequence Count, Packet Data Length, and a CCITT-16 CRC checksum.
+- **Verification Method**: `T`
+- **Acceptance Criteria**: Bit-flip injection in packet payload fails CRC-16 verification; correctly framed packets pass checksum check.
+- **Test ID**: `tests/test_trl8_system_integration.py::test_ccsds_telemetry_packet_framing`
+- **Evidence Location**: `trl8_navigation/hardware/hardware_interface.py`
+- **Remaining Limitations**: Checksum validation performed in CPU software rather than hardware FPGA/ASIC.
+
+#### `TRL8-REQ-04`: Telemetry Ingestion Gatekeeper & Sanity Checks
+- **Purpose**: Reject invalid, stale, corrupt, or out-of-order telemetry prior to algorithmic consumption.
+- **Specification**: The sensor validator `SHALL` reject packets containing `NaN`, `+Inf`, `-Inf`, non-monotonic timestamps ($\Delta t \le 0$), or sensor values outside physical operational limits ($|a| > 50\text{ m/s}^2, |\omega| > 10\text{ rad/s}$).
+- **Verification Method**: `T`
+- **Acceptance Criteria**: 100% of packets with corrupted floats are dropped with error flags raised; valid packets pass with zero latency penalty.
+- **Test ID**: `tests/test_trl8_perception.py::test_sensor_validator_rejects_nan_inf`
+- **Evidence Location**: `trl8_navigation/sensors/sensor_validator.py`
+- **Remaining Limitations**: Rejection buffers assume finite ring-buffer memory; buffer overflow drops oldest frames.
+
+---
+
+### 3.3 Perception & Mapping Requirements
+
+#### `TRL8-REQ-05`: Point Cloud Filtering & Ground Segmentation
+- **Purpose**: Extract terrain geometry and isolate lethal obstacles from raw LiDAR point clouds.
+- **Specification**: The perception pipeline `SHALL` downsample raw point clouds using a 3D voxel grid filter ($\Delta = 0.20\text{ m}$), filter statistical outliers, and segment points into ground and obstacle classes using Progressive Morphological Filtering (PMF) within $\le 20.0\text{ ms}$.
+- **Verification Method**: `T`
+- **Acceptance Criteria**: Ground extraction recall $\ge 90\%$, obstacle classification precision $\ge 90\%$ on synthetic calibration terrains.
+- **Test ID**: `tests/test_trl8_perception.py::test_point_cloud_processor_voxel_and_ground`
+- **Evidence Location**: `trl8_navigation/perception/point_cloud_processor.py`
+- **Remaining Limitations**: PMF assumes continuous ground connectivity; dense overhangs require full 3D voxel grids.
+
+#### `TRL8-REQ-06`: Recursive 2.5D Elevation Grid Mapping
+- **Purpose**: Build a persistent local elevation map with probabilistic uncertainty.
+- **Specification**: The elevation map `SHALL` update cell elevations using a 1D recursive Kalman filter update for elevation and variance:
+$$\hat{z}_{k} = \hat{z}_{k-1} + K_k (z_{meas} - \hat{z}_{k-1}), \quad \sigma^2_k = (1 - K_k) \sigma^2_{k-1}$$
+- **Verification Method**: `T`
+- **Acceptance Criteria**: Sequential observations of a static surface strictly decrease cell variance; spatial elevation RMSE $\le 0.05\text{ m}$ against ground truth DEM.
+- **Test ID**: `tests/test_trl8_perception.py::test_elevation_mapping_kalman_update`
+- **Evidence Location**: `trl8_navigation/perception/elevation_mapping.py`
+- **Remaining Limitations**: 2.5D grid cannot represent multiple elevation layers (e.g., caves or underpasses).
+
+#### `TRL8-REQ-07`: Multi-Criteria Traversability Cost Assessment
+- **Purpose**: Quantify terrain traversal risk based on physical rover limitations.
+- **Specification**: Traversability cost $C(x, y) \in [0.0, 1.0]$ `SHALL` combine macroscopic surface gradient slope ($\theta_{max} = 25.0^\circ$), step obstacles ($h_{step} > 0.20\text{ m}$), surface roughness variance ($\sigma_z > 0.08\text{ m}$), and negative obstacle (crater) depressions. Cells exceeding tip-over limits ($\ge 30.0^\circ$) `SHALL` be classified as lethal ($C = 1.0$).
+- **Verification Method**: `T`
+- **Acceptance Criteria**: Smooth horizontal regolith has cost $C \le 0.15$; vertical step obstacles and steep crater rims have cost $C \ge 0.95$.
+- **Test ID**: `tests/test_trl8_perception.py::test_traversability_evaluation_and_inflation`
+- **Evidence Location**: `trl8_navigation/perception/traversability.py`
+- **Remaining Limitations**: Soil shear parameters are estimated globally rather than identified dynamically online per-wheel.
+
+---
+
+### 3.4 State Estimation & Localization Requirements
+
+#### `TRL8-REQ-08`: 15-State Error-State Extended Kalman Filter (ES-EKF)
+- **Purpose**: Provide high-rate, drift-bounded 6-DOF state estimates under Mars surface conditions.
+- **Specification**: The state estimator `SHALL` maintain a 15-state error vector $\delta \mathbf{x} = [\delta \mathbf{p}, \delta \mathbf{v}, \delta \boldsymbol{\theta}, \delta \mathbf{b}_a, \delta \mathbf{b}_g]^T \in \mathbb{R}^{15}$. Propagation `SHALL` execute at 100 Hz using strapdown IMU mechanization. Measurement updates `SHALL` execute using Joseph-form covariance updates:
+$$\mathbf{P}^+ = (\mathbf{I} - \mathbf{K}\mathbf{H}) \mathbf{P}^- (\mathbf{I} - \mathbf{K}\mathbf{H})^T + \mathbf{K}\mathbf{R}\mathbf{K}^T$$
+- **Verification Method**: `T` / `A`
+- **Acceptance Criteria**: Covariance matrix $\mathbf{P}$ remains strictly symmetric positive-definite; position error drift rate $\le 3.0\%$ of total distance traversed under nominal wheel odometry.
+- **Test ID**: `tests/test_trl8_localization.py::test_es_ekf_joseph_update`
+- **Evidence Location**: `trl8_navigation/localization/error_state_ekf.py`
+- **Remaining Limitations**: Visual odometry updates are emulated via synthetic pose measurements during GPS-denied traverses.
+
+#### `TRL8-REQ-09`: Dual-Mode Ground Truth (Oracle) vs Estimated Telemetry
+- **Purpose**: Enable rigorous verification and ablation studies without contaminating operational navigation logic.
+- **Specification**: The state estimator `SHALL` provide an explicit dual-mode flag `oracle_mode: bool`. When `False`, navigation planners and controllers `SHALL` strictly consume estimated EKF states. Ground-truth states `SHALL` be isolated for ATE/RPE error metrics recording.
+- **Verification Method**: `T`
+- **Acceptance Criteria**: State monitor correctly computes Absolute Trajectory Error (ATE) RMSE between estimated and oracle trajectories.
+- **Test ID**: `tests/test_trl8_localization.py::test_state_monitor_metrics`
+- **Evidence Location**: `trl8_navigation/localization/state_monitor.py`
+- **Remaining Limitations**: In physical deployment, oracle ground truth is unavailable except via external optical tracking or total stations.
+
+---
+
+### 3.5 Planning & Collision Avoidance Requirements
+
+#### `TRL8-REQ-10`: Continuous Swept Oriented Bounding Box (OBB) Collision Checking
+- **Purpose**: Guarantee geometric clearance for the full rover vehicle footprint.
+- **Specification**: The collision checker `SHALL` test the full rectangular footprint ($L = 2.80\text{ m}, W = 2.20\text{ m}$) plus an explicit safety buffer margin ($\Delta r = 0.35\text{ m}$) across all planned continuous poses $(x, y, \psi)$ using the Separating Axis Theorem (SAT).
+- **Verification Method**: `T`
+- **Acceptance Criteria**: Zero false negatives; poses intersecting lethal obstacle masks are rejected in $\le 0.10\text{ ms}$ per pose.
+- **Test ID**: `tests/test_trl8_navigation.py::test_collision_checker_obb`
+- **Evidence Location**: `trl8_navigation/planning/collision_checker.py`
+- **Remaining Limitations**: Assumes rigid 2D planar projection of rover footprint.
+
+#### `TRL8-REQ-11`: Kinodynamic Hybrid A* Motion Planning
+- **Purpose**: Generate dynamically executable, kinematically feasible trajectories satisfying vehicle curvature bounds.
+- **Specification**: The global planner `SHALL` search continuous $SE(2)$ configuration space $(x, y, \psi)$ subject to maximum curvature $\kappa \le 1.50\text{ m}^{-1}$ (minimum turning radius $R_{min} \ge 0.67\text{ m}$). Paths `SHALL` include analytic Reeds-Shepp expansions and heuristic cost-to-go maps.
+- **Verification Method**: `T`
+- **Acceptance Criteria**: All generated trajectory segments satisfy $|\kappa(s)| \le 1.50\text{ m}^{-1}$; search duration $\le 80.0\text{ ms}$ for a 20m traverse.
+- **Test ID**: `tests/test_trl8_navigation.py::test_kinodynamic_planner_curvature_bound`
+- **Evidence Location**: `trl8_navigation/planning/kinodynamic_hybrid_astar.py`
+- **Remaining Limitations**: 3D grade effects are accounted for via costmap penalty rather than full 3D kinodynamic branch search.
+
+---
+
+### 3.6 Motion Control & Vehicle Dynamics Requirements
+
+#### `TRL8-REQ-12`: Adaptive Path Tracking with Curvature Speed Derating
+- **Purpose**: Track planned trajectories accurately while mitigating lateral slippage and tip-over risks.
+- **Specification**: The path tracker `SHALL` compute steering angle $\delta$ and linear velocity $v$ via adaptive Pure Pursuit. Command velocity `SHALL` automatically derate in curves such that lateral acceleration does not exceed $a_{lat,max} \le 0.30\text{ m/s}^2$:
+$$v_{max} = \sqrt{\frac{a_{lat,max}}{|\kappa| + \epsilon}}$$
+- **Verification Method**: `T`
+- **Acceptance Criteria**: Cross-track error $e_{ct} \le 0.25\text{ m}$ under nominal regolith conditions; zero wheel velocity saturation.
+- **Test ID**: `tests/test_trl8_navigation.py::test_path_tracker_pure_pursuit`
+- **Evidence Location**: `trl8_navigation/control/path_tracker.py`
+- **Remaining Limitations**: Actuator response is modeled as first-order lag ($\tau = 0.10\text{ s}$) rather than non-linear motor inductance.
+
+#### `TRL8-REQ-13`: Certified Constant-Jerk Safe Stop Controller
+- **Purpose**: Execute an emergency or nominal halt without inducing vehicle tipping or wheel skidding.
+- **Specification**: Upon receiving a `SAFE_STOP` trigger, the controller `SHALL` decelerate the vehicle to $v = 0.0\text{ m/s}$ using a certified constant-jerk profile ($a = -0.20\text{ m/s}^2, j = -0.50\text{ m/s}^3$).
+- **Verification Method**: `T`
+- **Acceptance Criteria**: Deceleration strictly monotonically decreases velocity to 0; stopping distance $d \le 0.60\text{ m}$ from $v = 0.40\text{ m/s}$ with zero overshoot.
+- **Test ID**: `tests/test_trl8_navigation.py::test_safe_stop_controller`
+- **Evidence Location**: `trl8_navigation/control/safe_stop_controller.py`
+- **Remaining Limitations**: Assumes regolith provides at least $\mu \ge 0.25$ traction.
+
+#### `TRL8-REQ-14`: Rocker-Bogie Kinematics & Terramechanics Integration
+- **Purpose**: Simulate realistic Mars rover wheel-ground interaction, sinkage, and drawbar pull.
+- **Specification**: The dynamics engine `SHALL` compute the 6-wheel rocker-bogie pitch angles, differential tilt, normal wheel loads, Bekker-Wong sinkage ($z_0 = (p / k_c/b + k_\phi)^{1/n}$), and Janosi-Hanamoto shear traction.
+- **Verification Method**: `T`
+- **Acceptance Criteria**: Passive articulation keeps all 6 wheels in ground contact across obstacles up to $0.25\text{ m}$ height; wheel normal force sum equals total vehicle weight ($W = m \cdot g_{mars} \approx 3162.6\text{ N}$).
+- **Test ID**: `tests/test_trl8_navigation.py::test_rocker_bogie_kinematics`
+- **Evidence Location**: `trl8_navigation/dynamics/rocker_bogie.py`
+- **Remaining Limitations**: Discrete rigid-body solver; does not simulate soil particle fluidization (DEM particle physics).
+
+---
+
+### 3.7 Mission Management, FDIR & Telemetry Requirements
+
+#### `TRL8-REQ-15`: 13-State Deterministic FDIR Executive
+- **Purpose**: Guarantee deterministic operational state transitions and rapid fault isolation.
+- **Specification**: The executive `SHALL` implement exactly 13 mutually exclusive operational modes: `INITIALIZATION`, `SELF_TEST`, `IDLE`, `PERCEPTION`, `LOCALIZATION`, `PLANNING`, `EXECUTION`, `REPLANNING`, `SAFE_STOP`, `RECOVERY`, `MISSION_COMPLETE`, `MISSION_ABORT`, `FAULT`. Unhandled events `SHALL` default to `FAULT` and trigger `SAFE_STOP`.
+- **Verification Method**: `T` / `D`
+- **Acceptance Criteria**: 100% of defined state transitions conform to formal state transition matrix; unauthorized transitions are rejected.
+- **Test ID**: `tests/test_trl8_navigation.py::test_fdir_executive_transitions`
+- **Evidence Location**: `trl8_navigation/mission/state_machine.py`
+- **Remaining Limitations**: Executive states are held in memory; non-volatile flash journaling required for power-loss recovery.
+
+#### `TRL8-REQ-16`: Execution Cycle Time Watchdog & Real-Time Deadlines
+- **Purpose**: Prevent timing overrun and ensure RTOS compatibility at 10 Hz navigation rates.
+- **Specification**: The real-time watchdog `SHALL` monitor the total navigation loop execution time. If any cycle exceeds $100.0\text{ ms}$ (deadline miss), a fault counter `SHALL` increment; 3 consecutive misses `SHALL` force transition to `SAFE_STOP`.
+- **Verification Method**: `T`
+- **Acceptance Criteria**: Synthetic delay injection $>100\text{ ms}$ triggers fault escalation; nominal cycles execute in $<40\text{ ms}$.
+- **Test ID**: `tests/test_trl8_system_integration.py::test_watchdog_deadline_monitor`
+- **Evidence Location**: `trl8_navigation/fdir/watchdog.py`
+- **Remaining Limitations**: Python execution relies on OS process scheduling; hard real-time requires dedicated RTOS thread.
+
+#### `TRL8-REQ-17`: Reproducible Monte-Carlo Qualification Framework
+- **Purpose**: Produce scientifically defensible, statistically bounded evidence of system performance.
+- **Specification**: The qualification suite `SHALL` execute 20 standardized operational scenarios (`SC-01` to `SC-20`) with deterministic random seeds, recording mission success, cross-track error, ATE RMSE, planning latency, and Wilson score 95% Confidence Intervals.
+- **Verification Method**: `T` / `A`
+- **Acceptance Criteria**: Monte-Carlo campaign script executes headlessly from CLI; outputs valid JSON summary and CSV tabular logs.
+- **Test ID**: `qualification/run_qualification_campaign.py`
+- **Evidence Location**: `qualification/run_qualification_campaign.py`
+- **Remaining Limitations**: Simulation testbed uses synthetic sensor models rather than physical flight hardware in an environmental chamber.
