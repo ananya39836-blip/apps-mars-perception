@@ -502,3 +502,5 @@ apps_level2_3_4_3D_Prototype/
     ├── level3/                  # Sealed Level 3 experiment logs and manifest (SHA-256)
     └── level2/                  # Sealed Level 2 experiment logs and manifest (SHA-256)
 ```
+#   a p p s _ T R L - 5 _ A u t o m a t i o n  
+ 
