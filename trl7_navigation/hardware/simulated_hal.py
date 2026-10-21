@@ -202,37 +202,34 @@ class SimulatedHAL(ISensorHAL, IActuatorHAL):
             return None
 
         # Direct sampling of terrain ahead of rover within FOV
-        ranges = np.linspace(1.2, 18.0, 12)
-        az_angles = np.linspace(-math.radians(35.0), math.radians(35.0), 16)
-        points = []
-        intensities = []
+        from trl7_navigation.sensors.coordinate_transforms import TransformSE3, SensorExtrinsics
+        T_world_body = TransformSE3.from_xyz_rpy(self.x, self.y, self.z, self.roll, self.pitch, self.yaw)
+        T_world_lidar = T_world_body.compose(SensorExtrinsics().T_body_lidar)
+        T_lidar_world = T_world_lidar.inverse()
 
-        cy = math.cos(self.yaw)
-        sy = math.sin(self.yaw)
-        sx_w = self.x + cy * 1.0
-        sy_w = self.y + sy * 1.0
-        sz_w = self.z + 1.8
+        ranges = np.linspace(1.0, 12.0, 10)
+        az_angles = np.linspace(-math.radians(35.0), math.radians(35.0), 12)
+        world_pts = []
 
         for az in az_angles:
             world_az = self.yaw + az
             c_waz = math.cos(world_az)
             s_waz = math.sin(world_az)
             for r in ranges:
-                wx = sx_w + r * c_waz
-                wy = sy_w + r * s_waz
+                wx = self.x + r * c_waz
+                wy = self.y + r * s_waz
                 if 0.0 <= wx < self.terrain.size_x and 0.0 <= wy < self.terrain.size_y:
                     wz = self.terrain.get_elevation_at(wx, wy)
-                    dwx = wx - sx_w
-                    dwy = wy - sy_w
-                    dwz = wz - sz_w
-                    bx = cy * dwx + sy * dwy + float(self.rng.normal(0.0, self.lidar_noise_m))
-                    by = -sy * dwx + cy * dwy + float(self.rng.normal(0.0, self.lidar_noise_m))
-                    bz = dwz + float(self.rng.normal(0.0, self.lidar_noise_m))
-                    points.append([bx, by, bz])
-                    intensities.append(0.85)
+                    world_pts.append([wx, wy, wz])
 
-        pts_arr = np.array(points, dtype=np.float64) if points else np.zeros((0, 3), dtype=np.float64)
-        ints_arr = np.array(intensities, dtype=np.float64) if intensities else np.zeros(0, dtype=np.float64)
+        if world_pts:
+            w_arr = np.array(world_pts, dtype=np.float64)
+            pts_arr = T_lidar_world.transform_points(w_arr)
+            pts_arr += self.rng.normal(0.0, self.lidar_noise_m, pts_arr.shape)
+            ints_arr = np.ones(len(pts_arr), dtype=np.float64) * 0.85
+        else:
+            pts_arr = np.zeros((0, 3), dtype=np.float64)
+            ints_arr = np.zeros(0, dtype=np.float64)
 
         return LiDARScanPacket(
             timestamp_s=self.sim_time,
