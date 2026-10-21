@@ -1,0 +1,15 @@
+{
+  "scenario_id": "SC-02_moderate_slopes",
+  "full_system": {
+    "success": false,
+    "ate_rmse_m": 0.007844005224354559,
+    "drift_percent": 0.0,
+    "total_dist_m": 0.0
+  },
+  "no_ekf_ablation": {
+    "success": false,
+    "ate_rmse_m": 0.008927355920014018,
+    "drift_percent": 0.0,
+    "total_dist_m": 0.0
+  }
+}

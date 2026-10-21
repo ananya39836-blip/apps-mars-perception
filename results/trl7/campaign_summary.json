@@ -1,0 +1,293 @@
+{
+  "campaign_date": "2026-10-20T20:32:26Z",
+  "total_scenarios": 20,
+  "total_runs": 40,
+  "overall_success_rate": 0.05,
+  "overall_wilson_ci_95": [
+    0.013820699497090597,
+    0.1650384490382803
+  ],
+  "total_wall_time_s": 490.27469086647034,
+  "scenarios": {
+    "SC-01_flat_baseline": {
+      "n_runs": 2,
+      "n_success": 0,
+      "success_rate": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        0.6576188570228346
+      ],
+      "mean_distance_m": 15.912399999999973,
+      "std_distance_m": 0.0,
+      "mean_ate_rmse_m": 0.19998606658843196,
+      "std_ate_rmse_m": 0.0,
+      "mean_replans": 1.0
+    },
+    "SC-02_moderate_slopes": {
+      "n_runs": 2,
+      "n_success": 0,
+      "success_rate": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        0.6576188570228346
+      ],
+      "mean_distance_m": 0.0,
+      "std_distance_m": 0.0,
+      "mean_ate_rmse_m": 0.00832940170478088,
+      "std_ate_rmse_m": 0.0,
+      "mean_replans": 1.0
+    },
+    "SC-03_steep_slopes": {
+      "n_runs": 2,
+      "n_success": 0,
+      "success_rate": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        0.6576188570228346
+      ],
+      "mean_distance_m": 0.0,
+      "std_distance_m": 0.0,
+      "mean_ate_rmse_m": 0.00882502246396655,
+      "std_ate_rmse_m": 0.0,
+      "mean_replans": 1.0
+    },
+    "SC-04_dense_obstacle_field": {
+      "n_runs": 2,
+      "n_success": 0,
+      "success_rate": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        0.6576188570228346
+      ],
+      "mean_distance_m": 1.0319999999999963,
+      "std_distance_m": 0.0,
+      "mean_ate_rmse_m": 0.030633147226097522,
+      "std_ate_rmse_m": 0.0,
+      "mean_replans": 2.0
+    },
+    "SC-05_narrow_passages": {
+      "n_runs": 2,
+      "n_success": 0,
+      "success_rate": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        0.6576188570228346
+      ],
+      "mean_distance_m": 1.0319999999999963,
+      "std_distance_m": 0.0,
+      "mean_ate_rmse_m": 0.030633147226097522,
+      "std_ate_rmse_m": 0.0,
+      "mean_replans": 2.0
+    },
+    "SC-06_crater_avoidance": {
+      "n_runs": 2,
+      "n_success": 0,
+      "success_rate": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        0.6576188570228346
+      ],
+      "mean_distance_m": 0.42199999999999926,
+      "std_distance_m": 0.0,
+      "mean_ate_rmse_m": 0.015165325592448826,
+      "std_ate_rmse_m": 0.0,
+      "mean_replans": 1.0
+    },
+    "SC-07_sensor_noise": {
+      "n_runs": 2,
+      "n_success": 0,
+      "success_rate": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        0.6576188570228346
+      ],
+      "mean_distance_m": 0.0,
+      "std_distance_m": 0.0,
+      "mean_ate_rmse_m": 0.009921207590818893,
+      "std_ate_rmse_m": 0.0,
+      "mean_replans": 1.0
+    },
+    "SC-08_sensor_dropout": {
+      "n_runs": 2,
+      "n_success": 0,
+      "success_rate": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        0.6576188570228346
+      ],
+      "mean_distance_m": 0.25879999999999803,
+      "std_distance_m": 0.0,
+      "mean_ate_rmse_m": 0.010997842725074241,
+      "std_ate_rmse_m": 0.0,
+      "mean_replans": 1.0
+    },
+    "SC-09_localization_drift": {
+      "n_runs": 2,
+      "n_success": 0,
+      "success_rate": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        0.6576188570228346
+      ],
+      "mean_distance_m": 0.0,
+      "std_distance_m": 0.0,
+      "mean_ate_rmse_m": 0.007932371802564273,
+      "std_ate_rmse_m": 0.0,
+      "mean_replans": 1.0
+    },
+    "SC-10_wheel_slip_disturbance": {
+      "n_runs": 2,
+      "n_success": 0,
+      "success_rate": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        0.6576188570228346
+      ],
+      "mean_distance_m": 0.0,
+      "std_distance_m": 0.0,
+      "mean_ate_rmse_m": 0.007851387079558968,
+      "std_ate_rmse_m": 0.0,
+      "mean_replans": 1.0
+    },
+    "SC-11_unexpected_obstacles": {
+      "n_runs": 2,
+      "n_success": 0,
+      "success_rate": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        0.6576188570228346
+      ],
+      "mean_distance_m": 1.0319999999999963,
+      "std_distance_m": 0.0,
+      "mean_ate_rmse_m": 0.030633147226097522,
+      "std_ate_rmse_m": 0.0,
+      "mean_replans": 2.0
+    },
+    "SC-12_completely_blocked": {
+      "n_runs": 2,
+      "n_success": 0,
+      "success_rate": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        0.6576188570228346
+      ],
+      "mean_distance_m": 1.0319999999999963,
+      "std_distance_m": 0.0,
+      "mean_ate_rmse_m": 0.030633147226097522,
+      "std_ate_rmse_m": 0.0,
+      "mean_replans": 2.0
+    },
+    "SC-13_low_traction_regolith": {
+      "n_runs": 2,
+      "n_success": 0,
+      "success_rate": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        0.6576188570228346
+      ],
+      "mean_distance_m": 0.0,
+      "std_distance_m": 0.0,
+      "mean_ate_rmse_m": 0.008332622043400628,
+      "std_ate_rmse_m": 0.0,
+      "mean_replans": 1.0
+    },
+    "SC-14_environmental_replan": {
+      "n_runs": 2,
+      "n_success": 0,
+      "success_rate": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        0.6576188570228346
+      ],
+      "mean_distance_m": 0.0,
+      "std_distance_m": 0.0,
+      "mean_ate_rmse_m": 0.007932371802564273,
+      "std_ate_rmse_m": 0.0,
+      "mean_replans": 1.0
+    },
+    "SC-15_critical_fault_safestop": {
+      "n_runs": 2,
+      "n_success": 2,
+      "success_rate": 1.0,
+      "wilson_ci_95": [
+        0.3423811429771653,
+        1.0
+      ],
+      "mean_distance_m": 1.0319999999999963,
+      "std_distance_m": 0.0,
+      "mean_ate_rmse_m": 0.09134428761655256,
+      "std_ate_rmse_m": 0.0,
+      "mean_replans": 2.0
+    },
+    "SC-16_extended_horizon_traverse": {
+      "n_runs": 2,
+      "n_success": 0,
+      "success_rate": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        0.6576188570228346
+      ],
+      "mean_distance_m": 0.0,
+      "std_distance_m": 0.0,
+      "mean_ate_rmse_m": 0.007557953543264211,
+      "std_ate_rmse_m": 0.0,
+      "mean_replans": 1.0
+    },
+    "SC-17_unreachable_goal_recovery": {
+      "n_runs": 2,
+      "n_success": 0,
+      "success_rate": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        0.6576188570228346
+      ],
+      "mean_distance_m": 0.0,
+      "std_distance_m": 0.0,
+      "mean_ate_rmse_m": 0.007851387079558968,
+      "std_ate_rmse_m": 0.0,
+      "mean_replans": 1.0
+    },
+    "SC-18_communication_latency_jitter": {
+      "n_runs": 2,
+      "n_success": 0,
+      "success_rate": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        0.6576188570228346
+      ],
+      "mean_distance_m": 0.0,
+      "std_distance_m": 0.0,
+      "mean_ate_rmse_m": 0.007851387079558968,
+      "std_ate_rmse_m": 0.0,
+      "mean_replans": 1.0
+    },
+    "SC-19_transient_sensor_glitch": {
+      "n_runs": 2,
+      "n_success": 0,
+      "success_rate": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        0.6576188570228346
+      ],
+      "mean_distance_m": 0.0,
+      "std_distance_m": 0.0,
+      "mean_ate_rmse_m": 0.007851387079558968,
+      "std_ate_rmse_m": 0.0,
+      "mean_replans": 1.0
+    },
+    "SC-20_combined_multihazard_stress": {
+      "n_runs": 2,
+      "n_success": 0,
+      "success_rate": 0.0,
+      "wilson_ci_95": [
+        0.0,
+        0.6576188570228346
+      ],
+      "mean_distance_m": 0.0,
+      "std_distance_m": 0.0,
+      "mean_ate_rmse_m": 0.010197101629195396,
+      "std_ate_rmse_m": 0.0,
+      "mean_replans": 1.0
+    }
+  }
+}
